@@ -34,7 +34,7 @@ class PosSession(models.Model):
                         _("You cannot confirm all orders of this session, because they have not the 'paid' status.\n"
                           "{reference} is in state {state}, total amount: {total}, paid: {paid}").format(
                             reference=order.pos_reference or order.name,
-                            state=order.state,
+                            state=dict(order._fields['state']._description_selection(self.env)).get(order.state),
                             total=order.amount_total,
                             paid=order.amount_paid,
                         ))
@@ -209,7 +209,7 @@ class PosSession(models.Model):
                 'journal_id': journal.id,
                 'user_id': self.env.user.id,
                 'name': pos_name,
-                'balance_start': self.env["account.bank.statement"]._get_opening_balance(journal.id)
+                'balance_start': self.env["account.bank.statement"]._get_opening_balance(journal.id) if journal.type == 'cash' else 0
             }
 
             statements.append(ABS.with_context(ctx).sudo(uid).create(st_values).id)

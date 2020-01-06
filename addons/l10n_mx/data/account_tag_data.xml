@@ -2287,6 +2287,24 @@
                 <field name='applicability'>accounts</field>
                 <field name='nature'>A</field>
             </record>
+            <record id='account_tag_401_04_new' model='account.account.tag'>
+                <field name='name'>401.39 Ventas y/o servicios gravados realizados en zona fronteriza norte</field>
+                <field name='color'>4</field>
+                <field name='applicability'>accounts</field>
+                <field name='nature'>A</field>
+            </record>
+            <record id='account_tag_401_05_new' model='account.account.tag'>
+                <field name='name'>401.40 Ventas y/o servicios gravados realizados en zona fronteriza norte de contado</field>
+                <field name='color'>4</field>
+                <field name='applicability'>accounts</field>
+                <field name='nature'>A</field>
+            </record>
+            <record id='account_tag_401_06_new' model='account.account.tag'>
+                <field name='name'>401.41 Ventas y/o servicios gravados realizados en zona fronteriza norte a crédito</field>
+                <field name='color'>4</field>
+                <field name='applicability'>accounts</field>
+                <field name='nature'>A</field>
+            </record>
             <record id='account_tag_402_01' model='account.account.tag'>
                 <field name='name'>402.01 Devoluciones, descuentos o bonificaciones sobre ventas y/o servicios a la tasa general</field>
                 <field name='color'>4</field>
@@ -2307,6 +2325,12 @@
             </record>
             <record id='account_tag_402_04' model='account.account.tag'>
                 <field name='name'>402.04 Devoluciones, descuentos o bonificaciones de otros ingresos</field>
+                <field name='color'>4</field>
+                <field name='applicability'>accounts</field>
+                <field name='nature'>D</field>
+            </record>
+            <record id='account_tag_402_02_new' model='account.account.tag'>
+                <field name='name'>402.05 Devoluciones, descuentos o bonificaciones sobre ventas y/o servicios en zona fronteriza norte</field>
                 <field name='color'>4</field>
                 <field name='applicability'>accounts</field>
                 <field name='nature'>D</field>

@@ -6,13 +6,12 @@ import re
 
 from binascii import Error as binascii_error
 from operator import itemgetter
-from email.utils import formataddr
 from openerp.http import request
 
 from odoo import _, api, fields, models, modules, SUPERUSER_ID, tools
 from odoo.exceptions import UserError, AccessError
 from odoo.osv import expression
-from odoo.tools import groupby
+from odoo.tools import groupby, formataddr
 
 _logger = logging.getLogger(__name__)
 _image_dataurl = re.compile(r'(data:image/[a-z]+?);base64,([a-z0-9+/\n]{3,}=*)\n*([\'"])(?: data-filename="([^"]*)")?', re.I)
@@ -321,7 +320,9 @@ class Message(models.Model):
         partners = self.env['res.partner'].sudo()
         attachments = self.env['ir.attachment']
         message_ids = list(message_tree.keys())
-        for message in message_tree.values():
+        # By rebrowsing all the messages at once, we ensure all the messages
+        # to be on the same prefetch group, enhancing that way the performances 
+        for message in self.sudo().browse(message_ids):
             if message.author_id:
                 partners |= message.author_id
             if message.subtype_id and message.partner_ids:  # take notified people of message with a subtype
@@ -391,13 +392,14 @@ class Message(models.Model):
             for notification in message.notification_ids.filtered(filter_notification):
                 customer_email_data.append((partner_tree[notification.res_partner_id.id][0], partner_tree[notification.res_partner_id.id][1], notification.email_status))
 
-            has_access_to_model = message.model and self.env[message.model].check_access_rights('read', raise_exception=False)
-            main_attachment = has_access_to_model and message.res_id and self.env[message.model].search([('id', '=',message.res_id)]) and getattr(self.env[message.model].browse(message.res_id), 'message_main_attachment_id')
             attachment_ids = []
-            for attachment in message.attachment_ids:
-                if attachment.id in attachments_tree:
-                    attachments_tree[attachment.id]['is_main'] = main_attachment == attachment
-                    attachment_ids.append(attachments_tree[attachment.id])
+            if message.attachment_ids:
+                has_access_to_model = message.model and self.env[message.model].check_access_rights('read', raise_exception=False)
+                main_attachment = has_access_to_model and message.res_id and self.env[message.model].search_count([('id', '=',message.res_id)]) and getattr(self.env[message.model].browse(message.res_id), 'message_main_attachment_id')
+                for attachment in message.attachment_ids:
+                    if attachment.id in attachments_tree:
+                        attachments_tree[attachment.id]['is_main'] = main_attachment == attachment
+                        attachment_ids.append(attachments_tree[attachment.id])
             tracking_value_ids = []
             for tracking_value_id in message_to_tracking.get(message_id, list()):
                 if tracking_value_id in tracking_tree:
@@ -724,8 +726,9 @@ class Message(models.Model):
                                 WHERE message.message_type = %%s AND (message.subtype_id IS NULL OR subtype.internal IS TRUE) AND message.id = ANY (%%s)''' % (self._table), ('comment', self.ids,))
             if self._cr.fetchall():
                 raise AccessError(
-                    _('The requested operation cannot be completed due to security restrictions. Please contact your system administrator.\n\n(Document type: %s, Operation: %s)') %
-                    (self._description, operation))
+                    _('The requested operation cannot be completed due to security restrictions. Please contact your system administrator.\n\n(Document type: %s, Operation: %s)') % (self._description, operation)
+                    + ' - ({} {}, {} {})'.format(_('Records:'), self.ids[:6], _('User:'), self._uid)
+                )
 
         # Read mail_message.ids to have their values
         message_values = dict((res_id, {}) for res_id in self.ids)
@@ -894,8 +897,9 @@ class Message(models.Model):
         if not (other_ids and self.browse(other_ids).exists()):
             return
         raise AccessError(
-            _('The requested operation cannot be completed due to security restrictions. Please contact your system administrator.\n\n(Document type: %s, Operation: %s)') %
-            (self._description, operation))
+            _('The requested operation cannot be completed due to security restrictions. Please contact your system administrator.\n\n(Document type: %s, Operation: %s)') % (self._description, operation)
+            + ' - ({} {}, {} {})'.format(_('Records:'), list(other_ids)[:6], _('User:'), self._uid)
+        )
 
     @api.model
     def _get_record_name(self, values):
@@ -941,7 +945,7 @@ class Message(models.Model):
     def create(self, values):
         # coming from mail.js that does not have pid in its values
         if self.env.context.get('default_starred'):
-            self = self.with_context({'default_starred_partner_ids': [(4, self.env.user.partner_id.id)]})
+            self = self.with_context(default_starred_partner_ids=[(4, self.env.user.partner_id.id)])
 
         if 'email_from' not in values:  # needed to compute reply_to
             values['email_from'] = self._get_default_from()

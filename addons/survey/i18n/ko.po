@@ -331,7 +331,7 @@ msgstr ""
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Add existing contacts..."
-msgstr ""
+msgstr "기존 연락처 추가..."
 
 #. module: survey
 #: model:survey.label,value:survey.fcol_2_1_3
@@ -588,7 +588,7 @@ msgstr "작성일"
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "Create a"
-msgstr ""
+msgstr "작성"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_label__create_uid
@@ -1611,7 +1611,7 @@ msgstr "조치가 필요한 파트너"
 #. module: survey
 #: selection:survey.mail.compose.message,moderation_status:0
 msgid "Pending Moderation"
-msgstr ""
+msgstr "중재를 위해 대기중"
 
 #. module: survey
 #: model:survey.stage,name:survey.stage_permanent
@@ -1812,7 +1812,7 @@ msgstr ""
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Rows"
-msgstr ""
+msgstr "행"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_question__labels_ids_2
@@ -2693,7 +2693,7 @@ msgstr ""
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "free website"
-msgstr ""
+msgstr "무료 웹사이트"
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.auth_required
@@ -2703,7 +2703,7 @@ msgstr "로그인"
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.page
 msgid "of"
-msgstr ""
+msgstr "of"
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.sfinished

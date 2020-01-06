@@ -18,6 +18,7 @@ import re
 import requests
 import shutil
 import signal
+import socket
 import subprocess
 import tempfile
 import threading
@@ -32,7 +33,7 @@ from decorator import decorator
 from lxml import etree, html
 
 from odoo.models import BaseModel
-from odoo.osv.expression import normalize_domain
+from odoo.osv.expression import normalize_domain, TRUE_LEAF, FALSE_LEAF
 from odoo.tools import pycompat
 from odoo.tools import single_email_re
 from odoo.tools.misc import find_in_path
@@ -190,8 +191,9 @@ class MetaCase(type):
         super(MetaCase, cls).__init__(name, bases, attrs)
         # assign default test tags
         if cls.__module__.startswith('odoo.addons.'):
-            module = cls.__module__.split('.')[2]
-            cls.test_tags = {'standard', 'at_install', module}
+            cls.test_tags = {'standard', 'at_install'}
+            cls.test_module = cls.__module__.split('.')[2]
+            cls.test_class = cls.__name__
 
 
 class BaseCase(TreeCase, MetaCase('DummyCase', (object,), {})):
@@ -245,7 +247,10 @@ class BaseCase(TreeCase, MetaCase('DummyCase', (object,), {})):
     def _assertRaises(self, exception):
         """ Context manager that clears the environment upon failure. """
         with super(BaseCase, self).assertRaises(exception) as cm:
-            with self.env.clear_upon_failure():
+            if hasattr(self, 'env'):
+                with self.env.clear_upon_failure():
+                    yield cm
+            else:
                 yield cm
 
     def assertRaises(self, exception, func=None, *args, **kwargs):
@@ -334,9 +339,23 @@ class BaseCase(TreeCase, MetaCase('DummyCase', (object,), {})):
                     return False
             return True
 
+        def _repr_field_value(record, field_name):
+            record_value = record[field_name]
+            field_type = record._fields[field_name].type
+            if field_type == 'monetary':
+                currency_field_name = record._fields[field_name].currency_field
+                record_currency = record[currency_field_name]
+                return record_currency and record_currency.round(record_value) or record_value
+            elif field_type in ('one2many', 'many2many'):
+                return set(record_value.ids)
+            elif field_type == 'many2one':
+                return record_value.id
+            else:
+                return record_value
+
         def _format_message(records, expected_values):
             ''' Return a formatted representation of records/expected_values. '''
-            all_records_values = records.read(list(expected_values[0].keys()), load=False)
+            all_records_values = [{key: _repr_field_value(record, key) for key in expected_values[0]} for record in records]
             msg1 = '\n'.join(pprint.pformat(dic) for dic in all_records_values)
             msg2 = '\n'.join(pprint.pformat(dic) for dic in expected_values)
             return 'Current values:\n\n%s\n\nExpected values:\n\n%s' % (msg1, msg2)
@@ -452,7 +471,7 @@ class ChromeBrowser():
         if websocket is None:
             self._logger.warning("websocket-client module is not installed")
             raise unittest.SkipTest("websocket-client module is not installed")
-        self.devtools_port = PORT + 2
+        self.devtools_port = None
         self.ws_url = ''  # WebSocketUrl
         self.ws = None  # websocket
         self.request_id = 0
@@ -488,7 +507,7 @@ class ChromeBrowser():
                 self.chrome_process.wait()
         if self.user_data_dir and os.path.isdir(self.user_data_dir) and self.user_data_dir != '/':
             self._logger.info('Removing chrome user profile "%s"', self.user_data_dir)
-            shutil.rmtree(self.user_data_dir)
+            shutil.rmtree(self.user_data_dir, ignore_errors=True)
         # Restore previous signal handler
         if self.sigxcpu_handler and os.name == 'posix':
             signal.signal(signal.SIGXCPU, self.sigxcpu_handler)
@@ -521,6 +540,12 @@ class ChromeBrowser():
     def _chrome_start(self):
         if self.chrome_process is not None:
             return
+        with socket.socket() as s:
+            s.bind(('localhost', 0))
+            if hasattr(socket, 'SO_REUSEADDR'):
+                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            _, self.devtools_port = s.getsockname()
+
         switches = {
             '--headless': '',
             '--enable-logging': 'stderr',
@@ -690,7 +715,14 @@ class ChromeBrowser():
 
     def set_cookie(self, name, value, path, domain):
         params = {'name': name, 'value': value, 'path': path, 'domain': domain}
-        self._websocket_send('Network.setCookie', params=params)
+        _id = self._websocket_send('Network.setCookie', params=params)
+        return self._websocket_wait_id(_id)
+
+    def delete_cookie(self, name, **kwargs):
+        params = {kw:kwargs[kw] for kw in kwargs if kw in ['url', 'domain', 'path']}
+        params.update({'name': name})
+        _id = self._websocket_send('Network.deleteCookies', params=params)
+        return self._websocket_wait_id(_id)
 
     def _wait_ready(self, ready_code, timeout=60):
         self._logger.info('Evaluate ready code "%s"', ready_code)
@@ -707,6 +739,8 @@ class ChromeBrowser():
                 res = None
             if res and res.get('id') == ready_id:
                 if res.get('result') == awaited_result:
+                    if has_exceeded:
+                        self._logger.info('The ready code tooks too much time : %s', tdiff)
                     return True
                 else:
                     last_bad_res = res
@@ -714,7 +748,6 @@ class ChromeBrowser():
             tdiff = time.time() - start_time
             if tdiff >= 2 and not has_exceeded:
                 has_exceeded = True
-                self._logger.warning('The ready code takes too much time : %s', tdiff)
 
         self.take_screenshot(prefix='failed_ready')
         self._logger.info('Ready code last try result: %s', last_bad_res or res)
@@ -860,6 +893,9 @@ class HttpCase(TransactionCase):
     def authenticate(self, user, password):
         # stay non-authenticated
         if user is None:
+            if self.session:
+                odoo.http.root.session_store.delete(self.session)
+            self.browser.delete_cookie('session_id', domain=HOST)
             return
 
         db = get_db_name()
@@ -1181,6 +1217,10 @@ class Form(object):
                 contexts[fname] = ctx
 
             descr = fvg['fields'].get(fname) or {'type': None}
+            # FIXME: better widgets support
+            # NOTE: selection breaks because of m2o widget=selection
+            if f.get('widget') in ['many2many']:
+                descr['type'] = f.get('widget')
             if level and descr['type'] == 'one2many':
                 self._o2m_set_edition_view(descr, f, level)
 
@@ -1260,14 +1300,37 @@ class Form(object):
                 e1 = stack.pop()
                 e2 = stack.pop()
                 stack.append(e1 or e2)
-            elif isinstance(it, list):
+            elif isinstance(it, tuple):
+                if it == TRUE_LEAF:
+                    stack.append(True)
+                    continue
+                elif it == FALSE_LEAF:
+                    stack.append(False)
+                    continue
                 f, op, val = it
                 # hack-ish handling of parent.<field> modifiers
                 f, n = re.subn(r'^parent\.', '', f, 1)
-                field_val = (vals['•parent•'] if n else vals)[f]
+                if n:
+                    field_val = vals['•parent•'][f]
+                else:
+                    field_val = vals[f]
+                    # apparent artefact of JS data representation: m2m field
+                    # values are assimilated to lists of ids?
+                    # FIXME: SSF should do that internally, but the requirement
+                    #        of recursively post-processing to generate lists of
+                    #        commands on save (e.g. m2m inside an o2m) means the
+                    #        data model needs proper redesign
+                    # we're looking up the "current view" so bits might be
+                    # missing when processing o2ms in the parent (see
+                    # values_to_save:1450 or so)
+                    f_ = self._view['fields'].get(f, {'type': None})
+                    if f_['type'] == 'many2many':
+                        # field value should be [(6, _, ids)], we want just the ids
+                        field_val = field_val[0][2] if field_val else []
+
                 stack.append(self._OPS[op](field_val, val))
             else:
-                raise ValueError("Unknown domain element %s" % it)
+                raise ValueError("Unknown domain element %s" % [it])
         [result] = stack
         return result
     _OPS = {
@@ -1365,8 +1428,9 @@ class Form(object):
         values = {}
         fields = self._view['fields']
         for f in fields:
+            descr = fields[f]
             v = self._values[f]
-            if self._get_modifier(f, 'required'):
+            if self._get_modifier(f, 'required') and not descr['type'] == 'boolean':
                 assert v is not False, "{} is a required field".format(f)
 
             # skip unmodified fields
@@ -1378,8 +1442,8 @@ class Form(object):
                 if not node.get('force_save'):
                     continue
 
-            if fields[f]['type'] == 'one2many':
-                view = fields[f]['views']['edition']
+            if descr['type'] == 'one2many':
+                view = descr['views']['edition']
                 modifiers = view['modifiers']
                 oldvals = v
                 v = []
@@ -1393,7 +1457,21 @@ class Form(object):
                 for (c, rid, vs) in oldvals:
                     if c in (0, 1):
                         items = list(getattr(vs, 'changed_items', vs.items)())
-                        # FIXME: should be more extensive processing of o2m defaults
+                        fields_ = view['fields']
+                        missing = fields_.keys() - vs.keys()
+                        if missing:
+                            Model = self._env[descr['relation']]
+                            if c == 0:
+                                vs.update(dict.fromkeys(missing, False))
+                                vs.update(
+                                    (k, _cleanup_from_default(fields_[k], v))
+                                    for k, v in Model.default_get(list(missing)).items()
+                                )
+                            else:
+                                vs.update(record_to_values(
+                                    {k: v for k, v in fields_.items() if k not in vs},
+                                    Model.browse(rid)
+                                ))
                         vs.setdefault('id', False)
                         vs['•parent•'] = self._values
                         vs = {
@@ -1531,6 +1609,12 @@ class O2MForm(Form):
             self._init_from_defaults(m)
         else:
             self._values.update(proxy._records[index])
+
+    def _get_modifier(self, field, modifier, default=False, modmap=None, vals=None):
+        if vals is None:
+            vals = {**self._values, '•parent•': self._proxy._parent._values}
+
+        return super()._get_modifier(field, modifier, default=default, modmap=modmap, vals=vals)
 
     def _onchange_values(self):
         values = super(O2MForm, self)._onchange_values()
@@ -1791,6 +1875,23 @@ def record_to_values(fields, record):
         r[f] = v
     return r
 
+def _cleanup_from_default(type_, value):
+    if not value:
+        if type_ == 'many2many':
+            return [(6, False, [])]
+        elif type_ == 'one2many':
+            return []
+        elif type_ in ('integer', 'float'):
+            return 0
+        return value
+
+    if type_ == 'one2many':
+        return [c for c in value if c[0] != 6]
+    elif type_ == 'datetime' and isinstance(value, datetime):
+        return odoo.fields.Datetime.to_string(value)
+    elif type_ == 'date' and isinstance(value, date):
+        return odoo.fields.Date.to_string(value)
+
 def _get_node(view, f, *arg):
     """ Find etree node for the field ``f`` in the view's arch
     """
@@ -1801,7 +1902,7 @@ def _get_node(view, f, *arg):
 
 def tagged(*tags):
     """
-    A decorator to tag TestCase objects
+    A decorator to tag BaseCase objects
     Tags are stored in a set that can be accessed from a 'test_tags' attribute
     A tag prefixed by '-' will remove the tag e.g. to remove the 'standard' tag
     By default, all Test classes from odoo.tests.common have a test_tags
@@ -1811,33 +1912,75 @@ def tagged(*tags):
     def tags_decorator(obj):
         include = {t for t in tags if not t.startswith('-')}
         exclude = {t[1:] for t in tags if t.startswith('-')}
-        obj.test_tags = (getattr(obj, 'test_tags', set()) | include) - exclude
+        obj.test_tags = (getattr(obj, 'test_tags', set()) | include) - exclude # todo remove getattr in master since we want to limmit tagged to BaseCase and always have +standard tag
         return obj
     return tags_decorator
 
 
 class TagsSelector(object):
     """ Test selector based on tags. """
+    filter_spec_re = re.compile(r'^([+-]?)(\*|\w*)(?:/(\w*))?(?::(\w*))?(?:\.(\w*))?$')  # [-][tag][/module][:class][.method]
 
     def __init__(self, spec):
         """ Parse the spec to determine tags to include and exclude. """
-        clean_tags = {t.strip() for t in spec.split(',') if t.strip() != ''}
-        self.exclude = {t[1:] for t in clean_tags if t.startswith('-')}
-        self.include = {t.replace('+', '') for t in clean_tags if not t.startswith('-')}
+        filter_specs = {t.strip() for t in spec.split(',') if t.strip()}
+        self.exclude = set()
+        self.include = set()
 
-    def check(self, arg):
+        for filter_spec in filter_specs:
+            match = self.filter_spec_re.match(filter_spec)
+            if not match:
+                _logger.error('Invalid tag %s', filter_spec)
+                continue
+
+            sign, tag, module, klass, method = match.groups()
+            is_include = sign != '-'
+
+            if not tag and is_include:
+                # including /module:class.method implicitly requires 'standard'
+                tag = 'standard'
+            elif not tag or tag == '*':
+                # '*' indicates all tests (instead of 'standard' tests only)
+                tag = None
+            test_filter = (tag, module, klass, method)
+
+            if is_include:
+                self.include.add(test_filter)
+            else:
+                self.exclude.add(test_filter)
+
+        if self.exclude and not self.include:
+            self.include.add(('standard', None, None, None))
+
+    def check(self, test):
         """ Return whether ``arg`` matches the specification: it must have at
-            least one tag in ``self.include`` and none in ``self.exclude``.
+            least one tag in ``self.include`` and none in ``self.exclude`` for each tag category.
         """
-        # handle the case where the Test does not inherit from TransactionCase
-        tags = getattr(arg, 'test_tags', set())
-        inter_no_test = self.exclude.intersection(tags)
-        if inter_no_test:
-            _logger.debug("Test '%s' not selected because it is tagged with : %s (exclusions: %s)", arg, inter_no_test, self.exclude)
+        if not hasattr(test, 'test_tags'): # handle the case where the Test does not inherit from BaseCase and has no test_tags
+            _logger.debug("Skipping test '%s' because no test_tag found.", test)
             return False
-        inter_to_test = self.include.intersection(tags)
-        if not inter_to_test:
-            _logger.debug("Test '%s' not selected because it was not tagged with %s", arg, self.include)
+
+        test_module = getattr(test, 'test_module', None)
+        test_class = getattr(test, 'test_class', None)
+        test_tags = test.test_tags | {test_module}  # module as test_tags deprecated, keep for retrocompatibility, 
+        test_method = getattr(test, '_testMethodName', None)
+
+        def _is_matching(test_filter):
+            (tag, module, klass, method) = test_filter
+            if tag and tag not in test_tags:
+                return False
+            elif module and module != test_module:
+                return False
+            elif klass and klass != test_class:
+                return False
+            elif method and test_method and method != test_method:
+                return False
+            return True
+
+        if any(_is_matching(test_filter) for test_filter in self.exclude):
             return False
-        _logger.debug("Test '%s' selected: tagged with %s, exclusions: %s, inclusions: %s", arg, tags, self.exclude, self.include)
-        return True
+
+        if any(_is_matching(test_filter) for test_filter in self.include):
+            return True
+
+        return False

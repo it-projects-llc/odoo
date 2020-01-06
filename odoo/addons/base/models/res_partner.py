@@ -9,8 +9,6 @@ import pytz
 import threading
 import re
 
-from email.utils import formataddr
-
 import requests
 from lxml import etree
 from werkzeug import urls
@@ -406,7 +404,7 @@ class Partner(models.Model):
     def _compute_email_formatted(self):
         for partner in self:
             if partner.email:
-                partner.email_formatted = formataddr((partner.name or u"False", partner.email or u"False"))
+                partner.email_formatted = tools.formataddr((partner.name or u"False", partner.email or u"False"))
             else:
                 partner.email_formatted = ''
 
@@ -676,6 +674,9 @@ class Partner(models.Model):
                 'target': 'new',
                 'flags': {'form': {'action_buttons': True}}}
 
+    def _get_contact_name(self, partner, name):
+        return "%s, %s" % (partner.commercial_company_name or partner.parent_id.name, name)
+
     def _get_name(self):
         """ Utility method to allow name_get to be overrided without re-browse the partner """
         partner = self
@@ -685,7 +686,7 @@ class Partner(models.Model):
             if not name and partner.type in ['invoice', 'delivery', 'other']:
                 name = dict(self.fields_get(['type'])['type']['selection'])[partner.type]
             if not partner.is_company:
-                name = "%s, %s" % (partner.commercial_company_name or partner.parent_id.name, name)
+                name = self._get_contact_name(partner, name)
         if self._context.get('show_address_only'):
             name = partner._display_address(without_company=True)
         if self._context.get('show_address'):
@@ -813,10 +814,14 @@ class Partner(models.Model):
                 e.g. ``"Raoul Grosbedon <r.g@grosbedon.fr>"``"""
         assert email, 'an email is required for find_or_create to work'
         emails = tools.email_split(email)
+        name_emails = tools.email_split_and_format(email)
         if emails:
             email = emails[0]
+            name_email = name_emails[0]
+        else:
+            name_email = email
         partners = self.search([('email', '=ilike', email)], limit=1)
-        return partners.id or self.name_create(email)[0]
+        return partners.id or self.name_create(name_email)[0]
 
     def _get_gravatar_image(self, email):
         email_hash = hashlib.md5(email.lower().encode('utf-8')).hexdigest()

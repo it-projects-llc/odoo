@@ -68,7 +68,8 @@ class SaleOrder(models.Model):
 
         task_projects = self.tasks_ids.mapped('project_id')
         if len(task_projects) == 1 and len(self.tasks_ids) > 1:  # redirect to task of the project (with kanban stage, ...)
-            action = self.env.ref('project.act_project_project_2_project_task_all').read()[0]
+            action = self.with_context(active_id=task_projects.id).env.ref(
+                'project.act_project_project_2_project_task_all').read()[0]
             if action.get('context'):
                 eval_context = self.env['ir.actions.actions']._get_eval_context()
                 eval_context.update({'active_id': task_projects.id})
@@ -110,7 +111,9 @@ class SaleOrder(models.Model):
     def action_view_timesheet(self):
         self.ensure_one()
         action = self.env.ref('hr_timesheet.timesheet_action_all').read()[0]
-        action['context'] = self.env.context  # erase default filters
+        ctx = dict(self.env.context or {})
+        ctx.pop('group_by', None)
+        action['context'] = ctx  # erase default filters
 
         if self.timesheet_count > 0:
             action['domain'] = [('so_line', 'in', self.order_line.ids)]

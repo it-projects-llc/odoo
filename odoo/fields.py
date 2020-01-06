@@ -138,8 +138,23 @@ class Field(MetaField('DummyField', (object,), {})):
             ``one2many`` and computed fields, including property fields and
             related fields)
 
-        :param string oldname: the previous name of this field, so that ORM can rename
+        :param str oldname: the previous name of this field, so that ORM can rename
             it automatically at migration
+
+        :param str group_operator: aggregate function used by :meth:`~odoo.models.Model.read_group`
+            when grouping on this field.
+
+            Supported aggregate functions are:
+
+                * ``array_agg`` : values, including nulls, concatenated into an array
+                * ``count`` : number of rows
+                * ``count_distinct`` : number of distinct rows
+                * ``bool_and`` : true if all values are true, otherwise false
+                * ``bool_or`` : true if at least one value is true, otherwise false
+                * ``max`` : maximum value of all values
+                * ``min`` : minimum value of all values
+                * ``avg`` : the average (arithmetic mean) of all values
+                * ``sum`` : sum of all values
 
         .. _field-computed:
 
@@ -238,6 +253,11 @@ class Field(MetaField('DummyField', (object,), {})):
         Formerly known as 'property' fields, the value of those fields depends
         on the company. In other words, users that belong to different companies
         may see different values for the field on a given record.
+
+        .. warning::
+
+            Company-dependent fields aren't stored in the table of the model they're defined on,
+            instead, they are stored in the ``ir.property`` model's table.
 
         :param company_dependent: whether the field is company-dependent (boolean)
 
@@ -490,6 +510,10 @@ class Field(MetaField('DummyField', (object,), {})):
 
     def _setup_regular_base(self, model):
         """ Setup the attributes of a non-related field. """
+        pass
+
+    def _setup_regular_full(self, model):
+        """ Determine the dependencies and inverse field(s) of ``self``. """
         if self.depends is not None:
             return
 
@@ -506,10 +530,6 @@ class Field(MetaField('DummyField', (object,), {})):
             )
         else:
             self.depends = tuple(get_depends(self.compute))
-
-    def _setup_regular_full(self, model):
-        """ Setup the inverse field(s) of ``self``. """
-        pass
 
     #
     # Setup of related fields
@@ -724,7 +744,10 @@ class Field(MetaField('DummyField', (object,), {})):
         """ Add the necessary triggers to invalidate/recompute ``self``. """
         for model, field, path in self.resolve_deps(model):
             if self.store and not field.store:
-                _logger.info("Field %s depends on non-stored field %s", self, field)
+                _logger.debug(
+                    "Field %s depends on non-stored field %s, this operation is sub-optimal"
+                    % (self, field)
+                )
             if field is not self:
                 path_str = None if path is None else ('.'.join(path) or 'id')
                 model._field_triggers.add(field, (self, path_str))
@@ -1347,6 +1370,7 @@ class _String(Field):
     """ Abstract class for string fields. """
     _slots = {
         'translate': False,             # whether the field is translated
+        'prefetch': None,
     }
 
     def __init__(self, string=Default, **kwargs):
@@ -1354,6 +1378,12 @@ class _String(Field):
         if 'translate' in kwargs and not callable(kwargs['translate']):
             kwargs['translate'] = bool(kwargs['translate'])
         super(_String, self).__init__(string=string, **kwargs)
+
+    def _setup_attrs(self, model, name):
+        super()._setup_attrs(model, name)
+        if self.prefetch is None:
+            # do not prefetch complex translated fields by default
+            self.prefetch = not callable(self.translate)
 
     _related_translate = property(attrgetter('translate'))
 
@@ -1489,11 +1519,13 @@ class Html(_String):
         'strip_classes': False,         # whether to strip classes attributes
     }
 
-    def _setup_attrs(self, model, name):
-        super(Html, self)._setup_attrs(model, name)
+    def _get_attrs(self, model, name):
+        # called by _setup_attrs(), working together with _String._setup_attrs()
+        attrs = super()._get_attrs(model, name)
         # Translated sanitized html fields must use html_translate or a callable.
-        if self.translate is True and self.sanitize:
-            self.translate = html_translate
+        if attrs.get('translate') is True and attrs.get('sanitize', True):
+            attrs['translate'] = html_translate
+        return attrs
 
     _related_sanitize = property(attrgetter('sanitize'))
     _related_sanitize_tags = property(attrgetter('sanitize_tags'))
@@ -2110,6 +2142,9 @@ class Many2one(_Relational):
 
     def update_db_foreign_key(self, model, column):
         comodel = model.env[self.comodel_name]
+        # foreign keys do not work on views, and users can define custom models on sql views.
+        if not model._is_an_ordinary_table() or not comodel._is_an_ordinary_table():
+            return
         # ir_actions is inherited, so foreign key doesn't work on it
         if not comodel._auto or comodel._table == 'ir_actions':
             return
@@ -2334,8 +2369,8 @@ class _RelationalMulti(_Relational):
             for record in records:
                 record[self.name] = record[self.name].filtered(accessible)
 
-    def _setup_regular_base(self, model):
-        super(_RelationalMulti, self)._setup_regular_base(model)
+    def _setup_regular_full(self, model):
+        super(_RelationalMulti, self)._setup_regular_full(model)
         if isinstance(self.domain, list):
             self.depends += tuple(
                 self.name + '.' + arg[0]

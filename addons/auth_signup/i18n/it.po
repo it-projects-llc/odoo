@@ -6,7 +6,6 @@
 # Francesco Garganese <francesco.garganese@aeromnia.aero>, 2018
 # Martin Trigaux, 2018
 # Pietro Della Notte <pdellanotte@gmail.com>, 2018
-# Lorenzo Battistini <lorenzo.battistini@agilebg.com>, 2018
 # Paolo Valier, 2018
 # Léonie Bouchat <lbo@odoo.com>, 2019
 # Sergio Zanchetta <primes2h@gmail.com>, 2019
@@ -46,8 +45,8 @@ msgid ""
 "<strong>A password reset has been requested for this user. An email "
 "containing the following link has been sent:</strong>"
 msgstr ""
-"<strong>Richiesta una reimpostazione della password per questo utente, è "
-"stata inviata una e-mail che contiene il seguente link:</strong>"
+"<strong>È stato richiesto un ripristino della password per questo utente, "
+"inviata una e-mail con il seguente link:</strong>"
 
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_users_view_form
@@ -55,7 +54,7 @@ msgid ""
 "<strong>An invitation email containing the following subscription link has "
 "been sent:</strong>"
 msgstr ""
-"<strong>È stata inviata una email di invito con il seguente link di "
+"<strong>È stata inviata una e-mail di invito con il seguente link di "
 "iscrizione:</strong>"
 
 #. module: auth_signup
@@ -350,8 +349,8 @@ msgstr ""
 "                                Modifica password\n"
 "                            </a>\n"
 "                        </div>\n"
-"                        If you do not expect this, you can safely ignore this email.<br/><br/>\n"
-"                        Thanks,<br/>\n"
+"                        Se non è stata effettuata alcuna richiesta, ignorare questa e-mail.<br/><br/>\n"
+"                        Grazie,<br/>\n"
 "                        ${user.signature | safe}<br/>\n"
 "                    </div>\n"
 "                </td></tr>\n"
@@ -361,7 +360,7 @@ msgstr ""
 "            </table>\n"
 "        </td>\n"
 "    </tr>\n"
-"    <!-- FOOTER -->\n"
+"    <!-- PIÈ DI PAGINA -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
 "            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
@@ -385,11 +384,11 @@ msgstr ""
 "</tbody>\n"
 "</table>\n"
 "</td></tr>\n"
-"<!-- POWERED BY -->\n"
+"<!-- FORNITO DA -->\n"
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
-"        Powered by <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo</a>\n"
+"        Fornito da <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo</a>\n"
 "      </td></tr>\n"
 "    </table>\n"
 "</td></tr>\n"
@@ -482,12 +481,12 @@ msgstr ""
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\"><tr><td align=\"center\">\n"
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
 "<tbody>\n"
-"    <!-- HEADER -->\n"
+"    <!-- INTESTAZIONE -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
 "            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"middle\">\n"
-"                    <span style=\"font-size: 10px;\">Il Suo account</span><br/>\n"
+"                    <span style=\"font-size: 10px;\">Il tuo account</span><br/>\n"
 "                    <span style=\"font-size: 20px; font-weight: bold;\">\n"
 "                        ${object.name}\n"
 "                    </span>\n"
@@ -500,22 +499,22 @@ msgstr ""
 "            </table>\n"
 "        </td>\n"
 "    </tr>\n"
-"    <!-- CONTENT -->\n"
+"    <!-- CONTENUTO -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
 "            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"top\" style=\"font-size: 13px;\">\n"
 "                    <div>\n"
-"                        Spett.le ${object.name},<br/><br/>\n"
-"                        Il Suo account è stato creato con successo!<br/>\n"
-"                        Il Suo login è <strong>${object.email}</strong><br/>\n"
-"                        Per accedere al Suo account, clicchi su questo link:\n"
+"                        Gentile ${object.name},<br/><br/>\n"
+"                        l'account è stato creato con successo!<br/>\n"
+"                        Il suo nome utente è <strong>${object.email}</strong><br/>\n"
+"                        Per ottenere l'accesso all'account, fare clic su questo pulsante:\n"
 "                        <div style=\"margin: 16px 0px 16px 0px;\">\n"
 "                            <a href=\"/web/login?${ctx['auth_login']}\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
-"                                Accedere al mio account\n"
+"                                Vai all'account\n"
 "                            </a>\n"
 "                        </div>\n"
-"                        La ringraziamo,<br/><br/>\n"
+"                        Grazie,<br/><br/>\n"
 "                        ${user.signature | safe}<br/>\n"
 "                    </div>\n"
 "                </td></tr>\n"
@@ -525,7 +524,7 @@ msgstr ""
 "            </table>\n"
 "        </td>\n"
 "    </tr>\n"
-"    <!-- FOOTER -->\n"
+"    <!-- PIÈ DI PAGINA -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
 "            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
@@ -549,11 +548,11 @@ msgstr ""
 "</tbody>\n"
 "</table>\n"
 "</td></tr>\n"
-"<!-- POWERED BY -->\n"
+"<!-- FORNITO DA -->\n"
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
-"        Powered by <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo</a>\n"
+"        Fornito da <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo</a>\n"
 "      </td></tr>\n"
 "    </table>\n"
 "</td></tr>\n"
@@ -575,7 +574,7 @@ msgstr ""
 #: code:addons/auth_signup/controllers/main.py:52
 #, python-format
 msgid "Another user is already registered using this email address."
-msgstr "Un altro utente è già registrato con questo indirizzo email."
+msgstr "Un altro utente è già registrato con questo indirizzo e-mail."
 
 #. module: auth_signup
 #: code:addons/auth_signup/controllers/main.py:137
@@ -603,7 +602,7 @@ msgstr "Chiudi"
 #. module: auth_signup
 #: model:ir.model,name:auth_signup.model_res_config_settings
 msgid "Config Settings"
-msgstr "Impostazioni configurazione"
+msgstr "Impostazioni di configurazione"
 
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.reset_password
@@ -656,7 +655,7 @@ msgstr "Non hai un account?"
 #: model:ir.model.fields,field_description:auth_signup.field_res_config_settings__auth_signup_reset_password
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_config_settings_view_form
 msgid "Enable password reset from Login page"
-msgstr "Abilita il reset della password dalla pagina di login"
+msgstr "Abilita la reimpostazione della password dalla pagina di login"
 
 #. module: auth_signup
 #: model:ir.model,name:auth_signup.model_ir_http
@@ -672,8 +671,7 @@ msgstr "Token di registrazione non valido"
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_config_settings_view_form
 msgid "Let your customers log in to see their documents"
-msgstr ""
-"Consentitr ai clienti di connettersi per visualizzare i loro documenti. "
+msgstr "Consentire l'accesso ai clienti per visualizzare i loro documenti"
 
 #. module: auth_signup
 #: selection:res.users,state:0
@@ -721,7 +719,7 @@ msgstr "Reimpostazione password: nome utente o password non validi"
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_users_view_form
 msgid "Send Reset Password Instructions"
-msgstr "Invia istruzioni per il reset della password"
+msgstr "Invia istruzioni ripristino password"
 
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_users_view_form
@@ -829,9 +827,9 @@ msgid ""
 "list view and click on 'Portal Access Management' option in the dropdown "
 "menu *Action*."
 msgstr ""
-"Per inviare gli inviti in modalità B2B, aprire un contatto o selezionarne "
-"più di uno nella vista elenco, quindi fare clic sull'opzione \"Gestione "
-"accessi al portale\" nel menù a tendina *Azione*."
+"Per spedire gli inviti in modalità B2B, aprire un contatto o selezionarne "
+"alcuni nella vista elenco, quindi fare clic sull'opzione \"Gestione accessi "
+"al portale\" nel menù a tendina *Azione*."
 
 #. module: auth_signup
 #: model:ir.model,name:auth_signup.model_res_users
