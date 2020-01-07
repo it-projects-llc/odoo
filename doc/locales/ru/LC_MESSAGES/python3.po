@@ -98,8 +98,8 @@ msgstr ""
 "охватывает многие изменения между Python 2 и Python 3, хотя в нем "
 "отсутствует ряд изменений, которые` были перенесены в Python 2.7 "
 "<https://docs.python.org/2.7/whatsnew/2.7.html#python-3-1-features>`_ а "
-"также: ref:` повторное введение некоторых функций <p3support> `более поздних"
-" версий Python 3"
+"также :ref:`some feature reintroductions <p3support>`более поздних версий "
+"Python 3"
 
 #: ../../python3.rst:41
 msgid ""
@@ -166,8 +166,7 @@ msgstr ""
 
 #: ../../python3.rst:61
 msgid "Python 3.3 reintroduced the \"u\" prefix for proper (unicode) strings"
-msgstr ""
-"Python 3.3 повторно ввел префикс &quot;u&quot; для правильных (юникод) строк"
+msgstr "Python 3.3 повторно ввел префикс `u` для правильных (юникод) строк"
 
 #: ../../python3.rst:62
 msgid ""
@@ -310,7 +309,7 @@ msgid ""
 ":func:`odoo.tools.misc.html_encode`."
 msgstr ""
 "`` cgi.escape`` (экранирование HTML) устарело в Python 3, предпочитайте "
-"собственный Odoo: func: `odoo.tools.misc.html_encode`."
+"собственный Odoo :func:`odoo.tools.misc.html_encode`."
 
 #: ../../python3.rst:120
 msgid ""
@@ -575,7 +574,7 @@ msgstr ""
 #: ../../python3.rst:268
 msgid ""
 "of a variant thereof (see :ref:`exec changes <changed-exec>` for details)"
-msgstr "его варианта (см .: ref: `exec changes <changed-exec> `для деталей)"
+msgstr "его варианта (см . :ref:`exec changes <changed-exec>`для деталей)"
 
 #: ../../python3.rst:271
 msgid "``file``"
@@ -590,8 +589,8 @@ msgid ""
 msgstr ""
 "Встроенный файл `` file`` был удален в Python 3. Обычно его можно заменить "
 "встроенным модулем `` open``, хотя вы можете использовать `` io.open``, "
-"который более гибок и лучше обрабатывает двоичная / текстовая дихотомия: "
-"ref: `большая проблема в кросс-версии Python <changed-strings> `."
+"который более гибок и лучше обрабатывает двоичная / текстовая дихотомия "
+":ref:`a big issue in cross-version Python <changed-strings>`."
 
 #: ../../python3.rst:280
 msgid ""
@@ -829,8 +828,8 @@ msgid ""
 "string]_."
 msgstr ""
 "Для лучшей совместимости между версиями вам следует избегать строковых "
-"литералов без префикса, если вам * не требуется * &quot;собственная "
-"строка&quot; [# native-string] _."
+"литералов без префикса, если вам * не требуется * `собственная строка` [# "
+"native-string] _."
 
 #: ../../python3.rst:391
 msgid "``open``"
@@ -926,8 +925,7 @@ msgstr ""
 #: ../../python3.rst:431
 msgid "And ``io`` doesn't provide \"native string\" streaming facilities."
 msgstr ""
-"И `` io`` не предоставляет возможности потоковой передачи &quot;родной "
-"строки&quot;."
+"И `` io`` не предоставляет возможности потоковой передачи `родной строки`."
 
 #: ../../python3.rst:433
 msgid ""
@@ -946,9 +944,9 @@ msgid ""
 "read or write *text* values."
 msgstr ""
 "Таким образом, последняя представляет собой модель, реализованную кросс-"
-"версиями упаковщиков: func: `odoo.tools.pycompat.csv_reader` и: func:` "
-"odoo.tools.pycompat.csv_writer`: они принимают поток байтов * UTF-8 * и "
-"читают или напишите * текст * значения."
+"версиями упаковщиков :func:`odoo.tools.pycompat.csv_reader` и "
+":func:`odoo.tools.pycompat.csv_reader`: они принимают поток байтов * UTF-8 *"
+" и читают или напишите * текст * значения."
 
 #: ../../python3.rst:449
 msgid ""
@@ -958,9 +956,9 @@ msgid ""
 "compatibility."
 msgstr ""
 "с оговоркой, что Python 3 делает их меньше text-y и больше byte-y, например,"
-" в Python 2 `` b &quot;foo&quot; [0] `` is `` b &quot;f&quot; ``, но в "
-"Python 3 это `` 102 `` (значение первого байта), вы захотите * slice * "
-"bytestrings для совместимости."
+" в Python 2 `` b `foo` [0] `` is `` b `f` ``, но в Python 3 это `` 102 `` "
+"(значение первого байта), вы захотите * slice * bytestrings для "
+"совместимости."
 
 #: ../../python3.rst:456
 msgid ""

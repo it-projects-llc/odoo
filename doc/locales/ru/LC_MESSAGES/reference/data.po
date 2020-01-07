@@ -187,8 +187,9 @@ msgid ""
 "for :ref:`relational fields <reference/fields/relational>`, should be a "
 ":ref:`domain <reference/orm/domains>` on the field's model."
 msgstr ""
-"для: ref: `реляционные поля <reference/fields/relational> `, должен быть "
-"доменом: ref:` <reference/orm/domains> `на полевой модели."
+"для :ref:`relational fields <reference/fields/relational>`, должен быть "
+"доменом :ref:`relational fields <reference/fields/relational>`на полевой "
+"модели."
 
 #: ../../reference/data.rst:98
 msgid ""
@@ -198,7 +199,7 @@ msgid ""
 msgstr ""
 "Оценит домен, найдет модель поля, используя ее, и установит результат поиска"
 " в качестве значения поля. Первый результат будет использоваться только в "
-"том случае, если поле является: class: `~ odoo.fields.Many2one`"
+"том случае, если поле является :class:`~odoo.fields.Many2one`"
 
 #: ../../reference/data.rst:105
 msgid "``ref``"
@@ -217,8 +218,8 @@ msgid ""
 "Mostly for :class:`~odoo.fields.Many2one` and "
 ":class:`~odoo.fields.Reference` fields"
 msgstr ""
-"В основном для полей: class: `~ odoo.fields.Many2one` и: class:` ~ "
-"odoo.fields.Reference`"
+"В основном для полей :class:`~odoo.fields.Many2one` и "
+":class:`~odoo.fields.Many2one`"
 
 #: ../../reference/data.rst:136
 msgid "``type``"
@@ -376,7 +377,7 @@ msgid ""
 "a :ref:`domain <reference/orm/domains>` to find records of the model to "
 "remove"
 msgstr ""
-"a: ref: `домен <reference/orm/domains> `найти записи модели для удаления"
+"a :ref:`domain <reference/orm/domains>`найти записи модели для удаления"
 
 #: ../../reference/data.rst:162
 msgid "``id`` and ``search`` are exclusive"
@@ -418,7 +419,7 @@ msgid ""
 msgstr ""
 "Поскольку некоторые важные структурные модели Odoo являются сложными и "
 "вовлеченными, файлы данных предоставляют более короткие альтернативы их "
-"определению с использованием: ref: `record tags <reference/data/record> `:"
+"определению с использованием :ref:`record tags <reference/data/record>`:"
 
 #: ../../reference/data.rst:208
 msgid "``menuitem``"
@@ -515,7 +516,7 @@ msgid ""
 "Creates a :ref:`QWeb view <reference/views/qweb>` requiring only the "
 "``arch`` section of the view, and allowing a few *optional* attributes:"
 msgstr ""
-"Создает: ref: `QWeb view <reference/views/qweb> `требуется только` `arch`` "
+"Создает :ref:`QWeb view <reference/views/qweb>`требуется только` `arch`` "
 "раздел представления и разрешено несколько * необязательных * атрибутов:"
 
 #: ../../reference/data.rst:244
@@ -559,8 +560,8 @@ msgid ""
 "if set to ``\"True\"``, the template is a website page (linkable to, "
 "deletable)"
 msgstr ""
-"если установлено значение `` &quot;True&quot; ``, шаблон является страницей "
-"веб-сайта (ссылка на которую можно удалить)"
+"если установлено значение `` `True` ``, шаблон является страницей веб-сайта "
+"(ссылка на которую можно удалить)"
 
 #: ../../reference/data.rst:259
 msgid "``optional``"
@@ -585,7 +586,7 @@ msgid ""
 "Creates a :ref:`IrActionsReport <reference/actions/report>` record with a "
 "few default values."
 msgstr ""
-"Создает: ref: `IrActionsReport <reference/actions/report> `запись с "
+"Создает :ref:`IrActionsReport <reference/actions/report>`запись с "
 "несколькими значениями по умолчанию."
 
 #: ../../reference/data.rst:266
@@ -616,7 +617,7 @@ msgid ""
 ":ref:`access rights <reference/security/acl>`:"
 msgstr ""
 "В этом случае файлы данных также могут использовать csv_, это часто бывает "
-"для: ref: `прав доступа <reference/security/acl> `:"
+"для :ref:`access rights <reference/security/acl>`:"
 
 #: ../../reference/data.rst:281
 msgid "the file name is :file:`{model_name}.csv`"

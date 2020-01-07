@@ -212,12 +212,12 @@ msgid ""
 " add CC's addresses as followers, etc.)."
 msgstr ""
 "Эти методы вызываются, когда почтовый шлюз обрабатывает новое сообщение. Эти"
-" электронные письма могут быть новыми темами (если они приходят через: ref: "
-"`alias <reference/mixins/mail/alias> `) или просто отвечает из существующей "
-"темы. Переопределение их позволяет вам устанавливать значения в записи "
-"потока в зависимости от некоторых значений из самого электронного письма "
-"(например, обновлять дату или адрес электронной почты, добавлять адреса CC в"
-" качестве подписчиков и т. Д.)."
+" электронные письма могут быть новыми темами (если они приходят через "
+":ref:`alias <reference/mixins/mail/alias>`) или просто отвечает из "
+"существующей темы. Переопределение их позволяет вам устанавливать значения в"
+" записи потока в зависимости от некоторых значений из самого электронного "
+"письма (например, обновлять дату или адрес электронной почты, добавлять "
+"адреса CC в качестве подписчиков и т. Д.)."
 
 #: ../../reference/mixins.rst:125
 msgid ""
@@ -404,7 +404,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:236
 msgid "``name`` (mandatory) - :class:`~odoo.fields.Char`"
-msgstr "`` name`` (обязательно) -: class: `~ odoo.fields.Char`"
+msgstr "`` name`` (обязательно) - :class:`~odoo.fields.Char`"
 
 #: ../../reference/mixins.rst:236
 msgid ""
@@ -415,7 +415,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:239
 msgid "``description`` - :class:`~odoo.fields.Char`"
-msgstr "`` description`` -: class: `~ odoo.fields.Char`"
+msgstr "`` description`` - :class:`~odoo.fields.Char`"
 
 #: ../../reference/mixins.rst:239
 msgid ""
@@ -427,7 +427,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:242
 msgid "``internal`` - :class:`~odoo.fields.Boolean`"
-msgstr "`` internal`` -: class: `~ odoo.fields.Boolean`"
+msgstr "`` internal`` - :class:`~odoo.fields.Boolean`"
 
 #: ../../reference/mixins.rst:242
 msgid ""
@@ -455,7 +455,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:250
 msgid "``relation_field`` - :class:`~odoo.fields.Char`"
-msgstr "`` ratio_field`` -: class: `~ odoo.fields.Char`"
+msgstr "`` ratio_field`` - :class:`~odoo.fields.Char`"
 
 #: ../../reference/mixins.rst:250
 msgid ""
@@ -467,7 +467,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:252
 msgid "``res_model`` - :class:`~odoo.fields.Char`"
-msgstr "`` res_model`` -: class: `~ odoo.fields.Char`"
+msgstr "`` res_model`` - :class:`~odoo.fields.Char`"
 
 #: ../../reference/mixins.rst:253
 msgid ""
@@ -478,7 +478,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:254
 msgid "``default`` - :class:`~odoo.fields.Boolean`"
-msgstr "`` default`` -: class: `~ odoo.fields.Boolean`"
+msgstr "`` default`` - :class:`~odoo.fields.Boolean`"
 
 #: ../../reference/mixins.rst:255
 msgid "wether the subtype is activated by default when subscribing"
@@ -486,7 +486,7 @@ msgstr "Подтип активирован по умолчанию при по�
 
 #: ../../reference/mixins.rst:256
 msgid "``sequence`` - :class:`~odoo.fields.Integer`"
-msgstr "`` sequence`` -: class: `~ odoo.fields.Integer`"
+msgstr "`` sequence`` - :class:`~odoo.fields.Integer`"
 
 #: ../../reference/mixins.rst:257
 msgid "used to order subtypes in the notification customization popup"
@@ -495,7 +495,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:260
 msgid "``hidden`` - :class:`~odoo.fields.Boolean`"
-msgstr "`` hidden`` -: class: `~ odoo.fields.Boolean`"
+msgstr "`` hidden`` - :class:`~odoo.fields.Boolean`"
 
 #: ../../reference/mixins.rst:259
 msgid "wether the subtype is hidden in the notification customization popup"
@@ -949,7 +949,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:480
 msgid "``_mail_post_access`` - :class:`~odoo.models.Model`  attribute"
-msgstr "Атрибут `` _mail_post_access`` -: class: `~ odoo.models.Model`"
+msgstr "Атрибут `` _mail_post_access`` - :class:`~odoo.models.Model`"
 
 #: ../../reference/mixins.rst:479
 msgid ""
@@ -1151,9 +1151,9 @@ msgid ""
 "default values, etc."
 msgstr ""
 "Псевдонимы также можно создавать вручную и поддерживать с помощью простого "
-"поля: class: `~ odoo.fields.Many2one`. В этом руководстве предполагается, "
-"что вы хотите более полной интеграции с автоматическим созданием псевдонима,"
-" значений по умолчанию для конкретных записей и т. Д."
+"поля :class:`~odoo.fields.Many2one`. В этом руководстве предполагается, что "
+"вы хотите более полной интеграции с автоматическим созданием псевдонима, "
+"значений по умолчанию для конкретных записей и т. Д."
 
 #: ../../reference/mixins.rst:554
 msgid ""
@@ -1220,7 +1220,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:587
 msgid "``alias_name`` - :class:`~odoo.fields.Char`"
-msgstr "`` alias_name`` -: class: `~ odoo.fields.Char`"
+msgstr "`` alias_name`` - :class:`~odoo.fields.Char`"
 
 #: ../../reference/mixins.rst:587
 msgid ""
@@ -1232,8 +1232,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:592
 msgid "``alias_user_id`` - :class:`~odoo.fields.Many2one` (``res.users``)"
-msgstr ""
-"`` alias_user_id`` -: class: `~ odoo.fields.Many2one` (` `res.users``)"
+msgstr "`` alias_user_id`` - :class:`~odoo.fields.Many2one` (` `res.users``)"
 
 #: ../../reference/mixins.rst:590
 msgid ""
@@ -1249,7 +1248,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:595
 msgid "``alias_defaults`` - :class:`~odoo.fields.Text`"
-msgstr "`` alias_defaults`` -: class: `~ odoo.fields.Text`"
+msgstr "`` alias_defaults`` - :class:`~odoo.fields.Text`"
 
 #: ../../reference/mixins.rst:595
 msgid ""
@@ -1261,7 +1260,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:599
 msgid "``alias_force_thread_id`` - :class:`~odoo.fields.Integer`"
-msgstr "`` alias_force_thread_id`` -: class: `~ odoo.fields.Integer`"
+msgstr "`` alias_force_thread_id`` - :class:`~odoo.fields.Integer`"
 
 #: ../../reference/mixins.rst:598
 msgid ""
@@ -1275,7 +1274,7 @@ msgstr ""
 
 #: ../../reference/mixins.rst:606
 msgid "``alias_contact`` - :class:`~odoo.fields.Selection`"
-msgstr "`` alias_contact`` -: class: `~ odoo.fields.Selection`"
+msgstr "`` alias_contact`` - :class:`~odoo.fields.Selection`"
 
 #: ../../reference/mixins.rst:602
 msgid "Policy to post a message on the document using the mailgateway"
@@ -1305,11 +1304,11 @@ msgid ""
 " object. This allows you to make your alias easily configurable from the "
 "record's form view."
 msgstr ""
-"Обратите внимание, что псевдонимы используют: ref: `делегирование "
-"наследования <reference/orm/inheritance> `, что означает, что хотя псевдоним"
-" хранится в другой таблице, у вас есть доступ ко всем этим полям "
-"непосредственно из вашего родительского объекта. Это позволяет вам легко "
-"настроить псевдоним из представления формы записи."
+"Обратите внимание, что псевдонимы используют :ref:`delegation inheritance "
+"<reference/orm/inheritance>`, что означает, что хотя псевдоним хранится в "
+"другой таблице, у вас есть доступ ко всем этим полям непосредственно из "
+"вашего родительского объекта. Это позволяет вам легко настроить псевдоним из"
+" представления формы записи."
 
 #: ../../reference/mixins.rst:615
 msgid ""
@@ -1437,7 +1436,7 @@ msgid ""
 "``campaign_id``: :class:`~odoo.fields.Many2one` field to a ``utm.campaign`` "
 "object (i.e. Christmas_Special, Fall_Collection, etc.)"
 msgstr ""
-"Поле `` campaign_id``:: class: `~ odoo.fields.Many2one` для объекта` "
+"Поле `` campaign_id``: :class:`~odoo.fields.Many2one` для объекта` "
 "`utm.campaign`` (т. е. Christmas_Special, Fall_Collection и т. д.)"
 
 #: ../../reference/mixins.rst:801
@@ -1445,7 +1444,7 @@ msgid ""
 "``source_id``: :class:`~odoo.fields.Many2one` field to a ``utm.source`` "
 "object (i.e. Search Engine, mailing list, etc.)"
 msgstr ""
-"Поле `` source_id``:: class: `~ odoo.fields.Many2one` для объекта` "
+"Поле `` source_id``: :class:`~odoo.fields.Many2one` для объекта` "
 "`utm.source`` (т. е. поисковая система, список рассылки и т. д.)"
 
 #: ../../reference/mixins.rst:803
@@ -1453,7 +1452,7 @@ msgid ""
 "``medium_id``: :class:`~odoo.fields.Many2one` field to a ``utm.medium`` "
 "object (i.e. Snail Mail, e-Mail, social network update, etc.)"
 msgstr ""
-"Поле `` medium_id``:: class: `~ odoo.fields.Many2one` для объекта` "
+"Поле `` medium_id``: :class:`~odoo.fields.Many2one` для объекта` "
 "`utm.medium`` (например, Snail Mail, электронная почта, обновление "
 "социальной сети и т. д.)"
 
@@ -1566,7 +1565,7 @@ msgid ""
 "``website_published``: :class:`~odoo.fields.Boolean` field which represents "
 "the status of the publication"
 msgstr ""
-"`` website_published``:: class: `~ odoo.fields.Boolean` поле, которое "
+"`` website_published``: :class:`~odoo.fields.Boolean` поле, которое "
 "представляет статус публикации"
 
 #: ../../reference/mixins.rst:885
@@ -1574,7 +1573,7 @@ msgid ""
 "``website_url``: :class:`~odoo.fields.Char` field which represents the URL "
 "through which the object is accessed"
 msgstr ""
-"`` website_url``::: class: `~ odoo.fields.Char` поле, которое представляет "
+"`` website_url``:: :class:`~odoo.fields.Char` поле, которое представляет "
 "URL, через который осуществляется доступ к объекту"
 
 #: ../../reference/mixins.rst:888
@@ -1662,15 +1661,15 @@ msgid ""
 "``website_meta_title``: :class:`~odoo.fields.Char` field that allow you to "
 "set an additional title to your page"
 msgstr ""
-"Поле `` website_meta_title``:: class: `~ odoo.fields.Char`, которое "
-"позволяет вам задать дополнительный заголовок для вашей страницы."
+"Поле `` website_meta_title``: :class:`~odoo.fields.Char`, которое позволяет "
+"вам задать дополнительный заголовок для вашей страницы."
 
 #: ../../reference/mixins.rst:956
 msgid ""
 "``website_meta_description``: :class:`~odoo.fields.Char` field that contains"
 " a short description of the page (sometimes used in search engines results)"
 msgstr ""
-"Поле `` website_meta_description``:: class: `~ odoo.fields.Char`, которое "
+"Поле `` website_meta_description``: :class:`~odoo.fields.Char`, которое "
 "содержит краткое описание страницы (иногда используется в результатах "
 "поисковых систем)."
 
@@ -1681,7 +1680,7 @@ msgid ""
 "engines; the \"Promote\" tool will help you select lexically-related "
 "keywords easily"
 msgstr ""
-"Поле `` website_meta_keywords``:: class: `~ odoo.fields.Char`, которое "
+"Поле `` website_meta_keywords``: :class:`~odoo.fields.Char`, которое "
 "содержит несколько ключевых слов, которые помогают вашей странице более "
 "точно классифицироваться поисковыми системами; инструмент «Содействие» "
 "поможет вам легко выбрать ключевые слова, связанные с лексикой"

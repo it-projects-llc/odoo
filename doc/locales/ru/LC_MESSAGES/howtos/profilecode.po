@@ -26,8 +26,8 @@ msgid ""
 "This tutorial requires :ref:`having installed Odoo <setup/install>` and "
 ":doc:`writing Odoo code <backend>`"
 msgstr ""
-"Этот учебник требует: ref: `установив Odoo <setup/install> `и :doc:`writing "
-"Odoo code <backend>`"
+"Этот учебник требует :ref:`having installed Odoo <setup/install>`и "
+":doc:`writing Odoo code <backend>`"
 
 #: ../../howtos/profilecode.rst:11
 msgid "Graph a method"

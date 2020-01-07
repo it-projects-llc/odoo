@@ -198,7 +198,7 @@ msgstr "underscore.js"
 
 #: ../../howtos/themes.rst:96
 msgid "Thinking \"modular\""
-msgstr "Мышление &quot;модульное&quot;"
+msgstr "Мышление `модульное`"
 
 #: ../../howtos/themes.rst:98
 msgid ""
@@ -879,10 +879,9 @@ msgid ""
 "``expr=\"link[last()]\"`` and ``position=\"after\"``, which means \"*take my"
 " style file and place it after the last link in the list of the assets*\"."
 msgstr ""
-"Это может быть достигнуто с помощью xpath с атрибутами `` expr = &quot;link "
-"[last ()]&quot; `` и `` position = &quot;after&quot; ``, что означает "
-"&quot;* взять мой файл стиля и поместить его после последней ссылки в Список"
-" активов * »."
+"Это может быть достигнуто с помощью xpath с атрибутами `` expr = `link [last"
+" ()]` `` и `` position = `after` ``, что означает `* взять мой файл стиля и "
+"поместить его после последней ссылки в Список активов * »."
 
 #: ../../howtos/themes.rst:636
 msgid ""
@@ -1041,7 +1040,7 @@ msgstr ""
 
 #: ../../howtos/themes.rst:738
 msgid "``data-selector=\"[css selector(s)]\"``"
-msgstr "`` data-selector = &quot;[css selector (s)]&quot; ``"
+msgstr "`` data-selector = `[css selector (s)]` ``"
 
 #: ../../howtos/themes.rst:739
 msgid "Bind all the options included into the group to a particular element."
@@ -1049,7 +1048,7 @@ msgstr "Свяжите все опции, включенные в группу, 
 
 #: ../../howtos/themes.rst:740
 msgid "``data-js=\" custom method name \"``"
-msgstr "`` data-js = &quot;имя пользовательского метода&quot; ``"
+msgstr "`` data-js = `имя пользовательского метода` ``"
 
 #: ../../howtos/themes.rst:741
 msgid "Is used to bind custom Javascript methods."
@@ -1057,7 +1056,7 @@ msgstr "Используется для привязки пользовател�
 
 #: ../../howtos/themes.rst:742
 msgid "``data-drop-in=\"[css selector(s)]\"``"
-msgstr "`` data-drop-in = &quot;[css selector (s)]&quot; ``"
+msgstr "`` data-drop-in = `[css selector (s)]` ``"
 
 #: ../../howtos/themes.rst:743
 msgid "Defines the list of elements where the snippet can be dropped into."
@@ -1065,7 +1064,7 @@ msgstr "Определяет список элементов, в которые 
 
 #: ../../howtos/themes.rst:745
 msgid "``data-drop-near=\"[css selector(s)]\"``"
-msgstr "`` data-drop-near = &quot;[css selector (s)]&quot; ``"
+msgstr "`` data-drop-near = `[css selector (s)]` ``"
 
 #: ../../howtos/themes.rst:745
 msgid "Defines the list of elements that the snippet can be dropped beside."
@@ -1087,7 +1086,7 @@ msgstr ""
 
 #: ../../howtos/themes.rst:753
 msgid "``data-select-class=\"[class name]\"``"
-msgstr "`` data-select-class = &quot;[имя класса]&quot; ``"
+msgstr "`` data-select-class = `[имя класса]` ``"
 
 #: ../../howtos/themes.rst:753
 msgid ""
@@ -1100,7 +1099,7 @@ msgstr ""
 
 #: ../../howtos/themes.rst:756
 msgid "``data-toggle-class=\"[class name]\"``"
-msgstr "`` data-toggle-class = &quot;[имя класса]&quot; ``"
+msgstr "`` data-toggle-class = `[имя класса]` ``"
 
 #: ../../howtos/themes.rst:756
 msgid ""
@@ -1149,7 +1148,7 @@ msgid ""
 msgstr ""
 "Как вы можете видеть, мы обернули все наши опции в тег DIV, который "
 "сгруппирует наши опции и нацелит их на правильный селектор (`` data-selector"
-" = &quot;. Snippet_testimonial&quot; ``)."
+" = `. Snippet_testimonial` ``)."
 
 #: ../../howtos/themes.rst:789
 msgid ""
@@ -1429,7 +1428,7 @@ msgstr ""
 
 #: ../../howtos/themes.rst:942
 msgid "``contenteditable=\"False\"``"
-msgstr "`` Contenteditable = &quot;False&quot;, ``"
+msgstr "`` Contenteditable = `False`, ``"
 
 #: ../../howtos/themes.rst:942
 msgid ""
@@ -1440,16 +1439,15 @@ msgstr ""
 
 #: ../../howtos/themes.rst:945
 msgid "``contenteditable=\"True\"``"
-msgstr "`` Contenteditable = &quot;True&quot; ``"
+msgstr "`` Contenteditable = `True` ``"
 
 #: ../../howtos/themes.rst:945
 msgid ""
 "Apply it to an element inside a contenteditable=\"False\" element in order "
 "to create an exception and make the element and its children editable."
 msgstr ""
-"Примените его к элементу внутри элемента contenteditable = "
-"&quot;False&quot;, чтобы создать исключение и сделать элемент и его дочерние"
-" элементы редактируемыми."
+"Примените его к элементу внутри элемента contenteditable = `False`, чтобы "
+"создать исключение и сделать элемент и его дочерние элементы редактируемыми."
 
 #: ../../howtos/themes.rst:948
 msgid "``<a href=”#” />``"

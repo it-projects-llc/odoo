@@ -58,8 +58,8 @@ msgid ""
 "Sometimes referred to as \"xml id\" or ``xml_id`` as XML-based "
 ":ref:`reference/data` make extensive use of them."
 msgstr ""
-"Иногда их называют «xml id» или «xml_id» на основе XML: ref: `reference / "
-"data` широко используют их."
+"Иногда их называют «xml id» или «xml_id» на основе XML :ref:`reference/data`"
+" широко используют их."
 
 #: ../../glossary.rst:22
 msgid "format string"

@@ -26,8 +26,8 @@ msgid ""
 "This tutorial requires good knowledge of Odoo. Please refer to the "
 ":ref:`basic tutorial <howto/base>` first if needed."
 msgstr ""
-"Этот урок требует хорошего знания Odoo. Пожалуйста, обратитесь к: ref: "
-"`basic tutorial <howto/base> `сначала, если нужно."
+"Этот урок требует хорошего знания Odoo. Пожалуйста, обратитесь к :ref:`basic"
+" tutorial <howto/base>`сначала, если нужно."
 
 #: ../../howtos/company.rst:14
 msgid ""
@@ -65,17 +65,15 @@ msgstr ""
 
 #: ../../howtos/company.rst:25
 msgid ":ref:`Company-dependent fields <howto/company/company_dependent>`"
-msgstr ""
-": ref: `зависимые от компании поля <howto/company/company_dependent> `"
+msgstr " :ref:`Company-dependent fields <howto/company/company_dependent>`"
 
 #: ../../howtos/company.rst:26
 msgid ":ref:`Multi-company consistency <howto/company/check_company>`"
-msgstr ""
-": ref: `Согласованность нескольких компаний <howto/company/check_company> `"
+msgstr " :ref:`Multi-company consistency <howto/company/check_company>`"
 
 #: ../../howtos/company.rst:27
 msgid ":ref:`Default company <howto/company/default_company>`"
-msgstr ": ref: `По умолчанию компания <howto/company/default_company> `"
+msgstr " :ref:`Default company <howto/company/default_company>`"
 
 #: ../../howtos/company.rst:28
 msgid ":ref:`Views <howto/company/views>`"
@@ -83,7 +81,7 @@ msgstr ": Ссылка: `Просмотров <howto/company/views> `"
 
 #: ../../howtos/company.rst:29
 msgid ":ref:`Security rules <howto/company/security>`"
-msgstr ": ref: `Правила безопасности <howto/company/security> `"
+msgstr " :ref:`Security rules <howto/company/security>`"
 
 #: ../../howtos/company.rst:34
 msgid "Company-dependent fields"
@@ -182,9 +180,9 @@ msgid ""
 ":meth:`~odoo.models.Model.write`, automatic checks will be triggered to "
 "ensure the multi-company consistency of the record."
 msgstr ""
-"Для каждого: meth: `~ odoo.models.Model.create` и: meth:` ~ "
-"odoo.models.Model.write` будут выполняться автоматические проверки для "
-"обеспечения согласованности записи в нескольких компаниях."
+"Для каждого :meth:`~odoo.models.Model.create` и "
+":meth:`~odoo.models.Model.create` будут выполняться автоматические проверки "
+"для обеспечения согласованности записи в нескольких компаниях."
 
 #: ../../howtos/company.rst:108
 msgid "The field `company_id` must not be defined with `check_company=True`."
@@ -215,15 +213,15 @@ msgid ""
 ":class:`~odoo.addons.base.models.res_company`)."
 msgstr ""
 "если значение `company_id` значения какого-либо поля отсутствует в` [False, "
-"self.company_id] `(или` self` if: class: `~ "
-"odoo.addons.base.models.res_company`)."
+"self.company_id] `(или` self` if "
+":class:`~odoo.addons.base.models.res_company`)."
 
 #: odoo.models.Model._check_company:8 of
 msgid ""
 "For :class:`~odoo.addons.base.models.res_users` relational fields, verifies "
 "record company is in `company_ids` fields."
 msgstr ""
-"Для: class: `~ odoo.addons.base.models.res_users` реляционных полей, "
+"Для :class:`~odoo.addons.base.models.res_users` реляционных полей, "
 "проверяет, находится ли звукозаписывающая компания в полях` company_ids`."
 
 #: odoo.models.Model._check_company:11 of
@@ -285,8 +283,8 @@ msgid ""
 "usually hidden from the view if the user does not have access to multiple "
 "companies. This is tested with the group `base.group_multi_company`."
 msgstr ""
-"Как указано в: ref: `выше <howto/company/default_company> `, компания обычно"
-" скрыта от просмотра, если пользователь не имеет доступа к нескольким "
+"Как указано в :ref:`above <howto/company/default_company>`, компания обычно "
+"скрыта от просмотра, если пользователь не имеет доступа к нескольким "
 "компаниям. Это проверено с группой `base.group_multi_company`."
 
 #: ../../howtos/company.rst:178

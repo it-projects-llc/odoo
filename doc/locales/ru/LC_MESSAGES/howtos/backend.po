@@ -23,7 +23,7 @@ msgstr "Сборка модуля"
 
 #: ../../howtos/backend.rst:14
 msgid "This tutorial requires :ref:`having installed Odoo <setup/install>`"
-msgstr "Этот учебник требует: ref: `установив Odoo <setup/install> `"
+msgstr "Этот учебник требует :ref:`having installed Odoo <setup/install>`"
 
 #: ../../howtos/backend.rst:17
 msgid "Start/Stop the Odoo server"
@@ -53,8 +53,8 @@ msgid ""
 "<reference/cmdline>` in the shell, adding the full path to the file if "
 "necessary:"
 msgstr ""
-"Чтобы запустить сервер, просто вызовите команду: ref: `odoo-bin "
-"<reference/cmdline> `в оболочке, добавив полный путь к файлу, если "
+"Чтобы запустить сервер, просто вызовите команду :ref:`odoo-bin "
+"<reference/cmdline>`в оболочке, добавив полный путь к файлу, если "
 "необходимо:"
 
 #: ../../howtos/backend.rst:34
@@ -116,7 +116,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:60
 msgid ":ref:`Object views <reference/views>`"
-msgstr ": ref: `Виды объекта <reference/views> `"
+msgstr " :ref:`Object views <reference/views>`"
 
 #: ../../howtos/backend.rst:60
 msgid "Definition of business objects UI display"
@@ -124,7 +124,7 @@ msgstr "Определение отображения бизнес-объект�
 
 #: ../../howtos/backend.rst:68
 msgid ":ref:`Data files <reference/data>`"
-msgstr ": ref: `Файлы данных <reference/data> `"
+msgstr " :ref:`Data files <reference/data>`"
 
 #: ../../howtos/backend.rst:63
 msgid "XML or CSV files declaring the model metadata :"
@@ -133,16 +133,15 @@ msgstr "Файлы XML или CSV, объявляющие метаданные �
 #: ../../howtos/backend.rst:65
 msgid ":ref:`views <reference/views>` or :ref:`reports <reference/reports>`,"
 msgstr ""
-": Ссылка: `просмотров <reference/views> `или: ref:` отчеты "
-"<reference/reports> `,"
+": Ссылка: `просмотров <reference/views> `или :ref:`views <reference/views>`,"
 
 #: ../../howtos/backend.rst:66
 msgid ""
 "configuration data (modules parametrization, :ref:`security rules "
 "<reference/security>`),"
 msgstr ""
-"данные конфигурации (параметризация модулей,: ref: `правила безопасности "
-"<reference/security> `),"
+"данные конфигурации (параметризация модулей, :ref:`security rules "
+"<reference/security>`),"
 
 #: ../../howtos/backend.rst:67
 msgid "demonstration data"
@@ -154,7 +153,7 @@ msgstr "и более"
 
 #: ../../howtos/backend.rst:71
 msgid ":ref:`Web controllers <reference/controllers>`"
-msgstr ": ref: `Веб-контроллеры <reference/controllers> `"
+msgstr " :ref:`Web controllers <reference/controllers>`"
 
 #: ../../howtos/backend.rst:71
 msgid "Handle requests from web browsers"
@@ -189,8 +188,8 @@ msgid ""
 "most command-line options can also be set using :ref:`a configuration file "
 "<reference/cmdline/config>`"
 msgstr ""
-"большинство параметров командной строки также можно установить с помощью: "
-"ref: `файла конфигурации <reference/cmdline/config> `"
+"большинство параметров командной строки также можно установить с помощью "
+":ref:`a configuration file <reference/cmdline/config>`"
 
 #: ../../howtos/backend.rst:89
 msgid ""
@@ -198,8 +197,8 @@ msgid ""
 "<reference/module/manifest>`. See the :ref:`manifest documentation "
 "<reference/module/manifest>` about it."
 msgstr ""
-"Модуль Odoo объявлен его: ref: `manifest <reference/module/manifest> `. "
-"Смотрите документацию: ref: `manifest <reference/module/manifest> `об этом."
+"Модуль Odoo объявлен его :ref:`manifest <reference/module/manifest>`. "
+"Смотрите документацию :ref:`manifest <reference/module/manifest>`об этом."
 
 #: ../../howtos/backend.rst:92
 msgid ""
@@ -227,9 +226,9 @@ msgid ""
 "<reference/cmdline/server>` has a subcommand :ref:`scaffold "
 "<reference/cmdline/scaffold>` to create an empty module:"
 msgstr ""
-"Odoo предоставляет механизм, помогающий настроить новый модуль: ref: `odoo-"
-"bin <reference/cmdline/server> `имеет подкоманду: ref:` scaffold "
-"<reference/cmdline/scaffold> `создать пустой модуль:"
+"Odoo предоставляет механизм, помогающий настроить новый модуль :ref:`odoo-"
+"bin <reference/cmdline/server>`имеет подкоманду :ref:`odoo-bin "
+"<reference/cmdline/server>`создать пустой модуль:"
 
 #: ../../howtos/backend.rst:110
 msgid ""
@@ -289,9 +288,9 @@ msgid ""
 ":class:`~odoo.models.Model` which integrates them into the automated "
 "persistence system."
 msgstr ""
-"Бизнес-объекты объявляются как классы Python, расширяющие: class: `~ "
-"odoo.models.Model`, который интегрирует их в автоматизированную систему "
-"персистентности."
+"Бизнес-объекты объявляются как классы Python, расширяющие "
+":class:`~odoo.models.Model`, который интегрирует их в автоматизированную "
+"систему персистентности."
 
 #: ../../howtos/backend.rst:138
 msgid ""
@@ -398,8 +397,8 @@ msgid ""
 "Example of simple fields are :class:`~odoo.fields.Boolean`, "
 ":class:`~odoo.fields.Date`, :class:`~odoo.fields.Char`."
 msgstr ""
-"Примеры простых полей: class: `~ odoo.fields.Boolean`,: class:` ~ "
-"odoo.fields.Date`,: class: `~ odoo.fields.Char`."
+"Примеры простых полей :class:`~odoo.fields.Boolean`, "
+":class:`~odoo.fields.Boolean`, :class:`~odoo.fields.Boolean`."
 
 #: ../../howtos/backend.rst:192
 msgid "Reserved fields"
@@ -417,7 +416,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:198
 msgid ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
-msgstr ": attr: `~ odoo.fields.Model.id` (: class:` ~ odoo.fields.Id`)"
+msgstr ": attr: `~ odoo.fields.Model.id` ( :class:`~odoo.fields.Id`)"
 
 #: ../../howtos/backend.rst:199
 msgid "The unique identifier for a record in its model."
@@ -427,8 +426,7 @@ msgstr "Уникальный идентификатор записи в ее м�
 msgid ""
 ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
 msgstr ""
-": attr: `~ odoo.fields.Model.create_date` (: class:` ~ "
-"odoo.fields.Datetime`)"
+": attr: `~ odoo.fields.Model.create_date` ( :class:`~odoo.fields.Datetime`)"
 
 #: ../../howtos/backend.rst:201
 msgid "Creation date of the record."
@@ -437,7 +435,7 @@ msgstr "Дата создания записи."
 #: ../../howtos/backend.rst:202
 msgid ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
 msgstr ""
-": attr: `~ odoo.fields.Model.create_uid` (: class:` ~ odoo.fields.Many2one`)"
+": attr: `~ odoo.fields.Model.create_uid` ( :class:`~odoo.fields.Many2one`)"
 
 #: ../../howtos/backend.rst:203
 msgid "User who created the record."
@@ -446,7 +444,7 @@ msgstr "Пользователь, который создал запись."
 #: ../../howtos/backend.rst:204
 msgid ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
 msgstr ""
-": attr: `~ odoo.fields.Model.write_date` (: class:` ~ odoo.fields.Datetime`)"
+": attr: `~ odoo.fields.Model.write_date` ( :class:`~odoo.fields.Datetime`)"
 
 #: ../../howtos/backend.rst:205
 msgid "Last modification date of the record."
@@ -455,7 +453,7 @@ msgstr "Дата последнего изменения записи."
 #: ../../howtos/backend.rst:207
 msgid ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
 msgstr ""
-": attr: `~ odoo.fields.Model.write_uid` (: class:` ~ odoo.fields.Many2one`)"
+": attr: `~ odoo.fields.Model.write_uid` ( :class:`~odoo.fields.Many2one`)"
 
 #: ../../howtos/backend.rst:207
 msgid "user who last modified the record."
@@ -518,9 +516,9 @@ msgid ""
 "with ``<record>`` elements. Each ``<record>`` element creates or updates a "
 "database record."
 msgstr ""
-"Данные модуля объявляются через: ref: `файлы данных <reference/data> `, "
-"Файлы XML с` ` <record> Создавать элементы. Каждый `` <record> `` элемент "
-"создает или обновляет запись в базе данных."
+"Данные модуля объявляются через :ref:`data files <reference/data>`, Файлы "
+"XML с` ` <record> Создавать элементы. Каждый `` <record> `` элемент создает "
+"или обновляет запись в базе данных."
 
 #: ../../howtos/backend.rst:250
 msgid "``model`` is the name of the Odoo model for the record."
@@ -583,8 +581,8 @@ msgid ""
 "After making some changes, do not forget to use :ref:`odoo-bin -u "
 "openacademy <reference/cmdline>` to save the changes to your database."
 msgstr ""
-"После внесения некоторых изменений не забудьте использовать: ref: `odoo-bin "
-"-u openacademy <reference/cmdline> `чтобы сохранить изменения в вашей базе "
+"После внесения некоторых изменений не забудьте использовать :ref:`odoo-bin "
+"-u openacademy <reference/cmdline>`чтобы сохранить изменения в вашей базе "
 "данных."
 
 #: ../../howtos/backend.rst:279
@@ -694,8 +692,8 @@ msgid ""
 ":ref:`View inheritance <reference/views/inheritance>` allows altering views "
 "declared elsewhere (adding or removing content)."
 msgstr ""
-": ref: `Просмотреть наследование <reference/views/inheritance> `позволяет "
-"изменять представления, объявленные в другом месте (добавление или удаление "
+" :ref:`View inheritance <reference/views/inheritance>`позволяет изменять "
+"представления, объявленные в другом месте (добавление или удаление "
 "содержимого)."
 
 #: ../../howtos/backend.rst:341
@@ -719,8 +717,8 @@ msgid ""
 "The ``arch`` field must thus be declared as ``type=\"xml\"`` to be parsed "
 "correctly."
 msgstr ""
-"Поле `` arch`` должно быть объявлено как `` type = &quot;xml&quot; `` для "
-"правильного анализа."
+"Поле `` arch`` должно быть объявлено как `` type = `xml` `` для правильного "
+"анализа."
 
 #: ../../howtos/backend.rst:364 ../../howtos/backend.rst:996
 msgid "Tree views"
@@ -902,8 +900,7 @@ msgstr "Типы реляционных полей:"
 msgid ""
 ":class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
 msgstr ""
-": class: `Many2one (other_model, ondelete = &#39;set null&#39;) "
-"<odoo.fields.Many2one> `"
+" :class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
 
 #: ../../howtos/backend.rst:522
 msgid "A simple link to an other object::"
@@ -918,8 +915,7 @@ msgstr ""
 
 #: ../../howtos/backend.rst:540
 msgid ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
-msgstr ""
-": class: `One2many (other_model, related_field) <odoo.fields.One2many> `"
+msgstr " :class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
 
 #: ../../howtos/backend.rst:529
 msgid ""
@@ -927,8 +923,8 @@ msgid ""
 ":class:`~odoo.fields.One2many` behaves as a container of records, accessing "
 "it results in a (possibly empty) set of records::"
 msgstr ""
-"Виртуальное отношение, обратное классу: class: `~ odoo.fields.Many2one`. A: "
-"class: `~ odoo.fields.One2many` ведет себя как контейнер записей, доступ к "
+"Виртуальное отношение, обратное классу :class:`~odoo.fields.Many2one`. A "
+":class:`~odoo.fields.Many2one` ведет себя как контейнер записей, доступ к "
 "нему приводит к (возможно, пустому) набору записей ::"
 
 #: ../../howtos/backend.rst:538
@@ -937,9 +933,9 @@ msgid ""
 "*must* be a :class:`~odoo.fields.Many2one` field in the "
 ":samp:`{other_model}`, and its name *must* be :samp:`{related_field}`"
 msgstr ""
-"Поскольку: class: `~ odoo.fields.One2many` является виртуальным отношением, "
-"в поле: samp:` {other_model} `и его имени должно быть * поле *: class:` ~ "
-"odoo.fields.Many2one` * должно * быть: samp: `{related_field}`"
+"Поскольку :class:`~odoo.fields.One2many` является виртуальным отношением, в "
+"поле: samp:` {other_model} `и его имени должно быть * поле * "
+":class:`~odoo.fields.One2many` * должно * быть: samp: `{related_field}`"
 
 #: ../../howtos/backend.rst:548
 msgid ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
@@ -1270,8 +1266,8 @@ msgid ""
 "model's records. Each criteria is a triple with a field name, an operator "
 "and a value."
 msgstr ""
-"В Odoo: ref: `reference / orm / domains` - это значения, которые кодируют "
-"условия в записях. Домен - это список критериев, используемых для выбора "
+"В Odoo :ref:`reference/orm/domains` - это значения, которые кодируют условия"
+" в записях. Домен - это список критериев, используемых для выбора "
 "подмножества записей модели. Каждый критерий представляет собой тройку с "
 "именем поля, оператором и значением."
 
@@ -1295,8 +1291,8 @@ msgstr ""
 "&amp; `` (AND), `` | `` (OR) и ``! `` (NOT) могут использоваться для явного "
 "объединения критериев. Они используются в префиксной позиции (оператор "
 "вставляется перед его аргументами, а не между ними). Например, чтобы выбрать"
-" продукты &quot;которые являются услугами * ИЛИ * имеют цену за единицу, "
-"которая * НЕ * между 1000 и 2000&quot; ::"
+" продукты `которые являются услугами * ИЛИ * имеют цену за единицу, которая "
+"* НЕ * между 1000 и 2000` ::"
 
 #: ../../howtos/backend.rst:734
 msgid ""
@@ -1426,7 +1422,7 @@ msgid ""
 msgstr ""
 "Значение вычисляемого поля обычно зависит от значений других полей в "
 "вычисляемой записи. ORM ожидает, что разработчик определит эти зависимости в"
-" методе compute с помощью декоратора: func: `~ odoo.api.depends`. Данные "
+" методе compute с помощью декоратора :func:`~odoo.api.depends`. Данные "
 "зависимости используются ORM для запуска пересчета поля всякий раз, когда "
 "некоторые его зависимости были изменены:"
 
@@ -1521,8 +1517,8 @@ msgid ""
 "Define the start_date default value as today (see "
 ":class:`~odoo.fields.Date`)."
 msgstr ""
-"Определите значение по умолчанию для start_date как сегодня (см .: class: `~"
-" odoo.fields.Date`)."
+"Определите значение по умолчанию для start_date как сегодня (см . "
+":class:`~odoo.fields.Date`)."
 
 #: ../../howtos/backend.rst:869
 msgid ""
@@ -1566,9 +1562,10 @@ msgstr ""
 "Например, предположим, что модель имеет три поля: «сумма», «единица "
 "измерения» и «цена», и вы хотите обновить цену в форме при изменении любого "
 "из других полей. Чтобы достичь этого, определите метод, где `` self`` "
-"представляет запись в представлении формы, и украсьте ее с помощью: func: `~"
-" odoo.api.onchange`, чтобы указать, в каком поле она должна быть запущена. "
-"Любые изменения, внесенные вами в `` self``, будут отражены в форме."
+"представляет запись в представлении формы, и украсьте ее с помощью "
+":func:`~odoo.api.onchange`, чтобы указать, в каком поле она должна быть "
+"запущена. Любые изменения, внесенные вами в `` self``, будут отражены в "
+"форме."
 
 #: ../../howtos/backend.rst:917
 msgid ""
@@ -1604,7 +1601,7 @@ msgid ""
 "<odoo.models.Model._sql_constraints>`."
 msgstr ""
 "Odoo предоставляет два способа настройки автоматически проверяемых "
-"инвариантов:: func: `Ограничения Python <odoo.api.constrains> `и: attr:` "
+"инвариантов: :func:`Python constraints <odoo.api.constrains>`и: attr:` "
 "ограничения SQL <odoo.models.Model._sql_constraints> `."
 
 #: ../../howtos/backend.rst:937
@@ -1615,11 +1612,11 @@ msgid ""
 "constraint is automatically evaluated when one of them is modified. The "
 "method is expected to raise an exception if its invariant is not satisfied::"
 msgstr ""
-"Ограничение Python определяется как метод, оформленный с помощью: func: `~ "
-"odoo.api.constrains`, и вызывается для набора записей. Декоратор определяет,"
-" какие поля участвуют в ограничении, поэтому ограничение автоматически "
-"оценивается при изменении одного из них. Ожидается, что метод вызовет "
-"исключение, если его инвариант не выполняется:"
+"Ограничение Python определяется как метод, оформленный с помощью "
+":func:`~odoo.api.constrains`, и вызывается для набора записей. Декоратор "
+"определяет, какие поля участвуют в ограничении, поэтому ограничение "
+"автоматически оценивается при изменении одного из них. Ожидается, что метод "
+"вызовет исключение, если его инвариант не выполняется:"
 
 #: ../../howtos/backend.rst:952
 msgid "Add Python constraints"
@@ -1748,9 +1745,9 @@ msgid ""
 "(rather than having to go through the form view), the value is the position "
 "where new rows appear."
 msgstr ""
-"Либо `` &quot;top&quot; ``, либо `` &quot;bottom&quot; ``. Делает вид дерева"
-" доступным для редактирования (вместо того, чтобы проходить через вид "
-"формы), значение - это позиция, где появляются новые строки."
+"Либо `` `top` ``, либо `` `bottom` ``. Делает вид дерева доступным для "
+"редактирования (вместо того, чтобы проходить через вид формы), значение - "
+"это позиция, где появляются новые строки."
 
 #: ../../howtos/backend.rst:1029
 msgid "List coloring"
@@ -1944,8 +1941,8 @@ msgid ""
 "The gantt view requires the web_gantt module which is present in :ref:`the "
 "enterprise edition <setup/install/editions>` version."
 msgstr ""
-"Для представления Ганта требуется модуль web_gantt, который присутствует в: "
-"ref: `Enterprise Edition <setup/install/editions> `версия."
+"Для представления Ганта требуется модуль web_gantt, который присутствует в "
+":ref:`the enterprise edition <setup/install/editions>`версия."
 
 #: ../../howtos/backend.rst:1144
 msgid ""
@@ -2032,7 +2029,7 @@ msgid ""
 "``@stacked=\"True\"`` on the ``<graph>``"
 msgstr ""
 "По умолчанию столбцы расположены бок о бок, их можно сложить с помощью `` @ "
-"stacked = &quot;True&quot; `` на `` <graph> ``"
+"stacked = `True` `` на `` <graph> ``"
 
 #: ../../howtos/backend.rst:1189
 msgid "Line"
@@ -2139,7 +2136,7 @@ msgid ""
 "(including basic HTML) and :ref:`reference/qweb`."
 msgstr ""
 "Представления Kanban определяют структуру каждой карты как набор элементов "
-"формы (включая базовый HTML) и: ref: `reference / qweb`."
+"формы (включая базовый HTML) и :ref:`reference/qweb`."
 
 #: ../../howtos/backend.rst:1241
 msgid "Kanban view"
@@ -2207,11 +2204,11 @@ msgid ""
 "rights are usually created by a CSV file named after its model: "
 "``ir.model.access.csv``."
 msgstr ""
-"Права доступа определяются как записи модели &quot;ir.model.access&quot;. "
-"Каждое право доступа связано с моделью, группой (или без группы для "
-"глобального доступа) и набором разрешений: чтение, запись, создание, отмена "
-"связи. Такие права доступа обычно создаются CSV-файлом, названным в честь "
-"его модели: `` ir.model.access.csv``."
+"Права доступа определяются как записи модели `ir.model.access`. Каждое право"
+" доступа связано с моделью, группой (или без группы для глобального доступа)"
+" и набором разрешений: чтение, запись, создание, отмена связи. Такие права "
+"доступа обычно создаются CSV-файлом, названным в честь его модели: `` "
+"ir.model.access.csv``."
 
 #: ../../howtos/backend.rst:1284
 msgid "Add access control through the Odoo interface"
@@ -2222,8 +2219,8 @@ msgid ""
 "Create a new user \"John Smith\". Then create a group \"OpenAcademy / "
 "Session Read\" with read access to the *Session* model."
 msgstr ""
-"Создайте нового пользователя &quot;Джон Смит&quot;. Затем создайте группу "
-"«OpenAcademy / Session Read» с доступом для чтения к модели * Session *."
+"Создайте нового пользователя `Джон Смит`. Затем создайте группу «OpenAcademy"
+" / Session Read» с доступом для чтения к модели * Session *."
 
 #: ../../howtos/backend.rst:1291
 msgid ""
@@ -2324,8 +2321,8 @@ msgid ""
 msgstr ""
 "Вот пример правила, которое предотвращает удаление отведений, которые не "
 "находятся в состоянии `` cancel``. Обратите внимание, что значение поля `` "
-"groups`` должно соответствовать тому же соглашению, что и метод: meth: `~ "
-"odoo.models.Model.write` ORM."
+"groups`` должно соответствовать тому же соглашению, что и метод "
+":meth:`~odoo.models.Model.write` ORM."
 
 #: ../../howtos/backend.rst:1344
 msgid "Record rule"
@@ -2362,9 +2359,10 @@ msgid ""
 msgstr ""
 "Мастера описывают интерактивные сеансы с пользователем (или диалоговыми "
 "окнами) через динамические формы. Мастер - это просто модель, расширяющая "
-"класс: class: `~ odoo.models.TransientModel` вместо: class:` ~ "
-"odoo.models.Model`. Класс: class: `~ odoo.models.TransientModel` расширяет: "
-"class:` ~ odoo.models.Model` и повторно использует все существующие "
+"класс :class:`~odoo.models.TransientModel` вместо "
+":class:`~odoo.models.TransientModel`. Класс "
+":class:`~odoo.models.TransientModel` расширяет "
+":class:`~odoo.models.TransientModel` и повторно использует все существующие "
 "механизмы со следующими особенностями:"
 
 #: ../../howtos/backend.rst:1367
@@ -2455,8 +2453,7 @@ msgid ""
 "``special=\"cancel\"`` to close the wizard window without saving."
 msgstr ""
 "Мастера используют обычные представления, а их кнопки могут использовать "
-"атрибут `` special = &quot;cancel&quot; ``, чтобы закрыть окно мастера без "
-"сохранения."
+"атрибут `` special = `cancel` ``, чтобы закрыть окно мастера без сохранения."
 
 #: ../../howtos/backend.rst:1415
 msgid "Launch the wizard"
@@ -2549,8 +2546,8 @@ msgid ""
 msgstr ""
 "По умолчанию экспорт POT Odoo извлекает только метки внутри файлов XML или "
 "внутри определений полей в коде Python, но любую строку Python можно "
-"преобразовать таким образом, окружив ее функцией: func: `odoo._` (например,`"
-" `_ (&quot; Label «)` `)"
+"преобразовать таким образом, окружив ее функцией :func:`odoo._` (например,` "
+"`_ (` Label «)` `)"
 
 #: ../../howtos/backend.rst:1478
 msgid "Translate a module"
@@ -2638,7 +2635,7 @@ msgid ""
 "Odoo uses a report engine based on :ref:`reference/qweb`, `Twitter "
 "Bootstrap`_ and Wkhtmltopdf_."
 msgstr ""
-"Odoo использует механизм отчетов, основанный на: ref: `reference / qweb`,` "
+"Odoo использует механизм отчетов, основанный на :ref:`reference/qweb`,` "
 "Twitter Bootstrap`_ и Wkhtmltopdf_."
 
 #: ../../howtos/backend.rst:1522
@@ -2659,7 +2656,7 @@ msgstr ""
 msgid ""
 "A standard :ref:`QWeb view <reference/views/qweb>` for the actual report:"
 msgstr ""
-"Стандарт: ref: `QWeb view <reference/views/qweb> `для фактического отчета:"
+"Стандарт :ref:`QWeb view <reference/views/qweb>`для фактического отчета:"
 
 #: ../../howtos/backend.rst:1565
 msgid ""

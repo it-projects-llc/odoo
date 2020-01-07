@@ -38,8 +38,8 @@ msgid ""
 "and other attributes being rendered directly."
 msgstr ""
 "Шаблонные директивы указываются как атрибуты XML с префиксом `` t-``, "
-"например `` t-if`` для: ref: `reference / qweb / conditionals`, с элементами"
-" и другими атрибутами, отображаемыми напрямую."
+"например `` t-if`` для :ref:`reference/qweb/conditionals`, с элементами и "
+"другими атрибутами, отображаемыми напрямую."
 
 #: ../../reference/qweb.rst:19
 msgid ""
@@ -266,8 +266,8 @@ msgstr ": samp: `{$ as} _parity` (устарело)"
 #: ../../reference/qweb.rst:168
 msgid "either ``\"even\"`` or ``\"odd\"``, the parity of the current iteration round"
 msgstr ""
-"либо `` &#39;четное&#39; `` или `` &quot;нечетное&quot; ``, четность "
-"текущего раунда итерации"
+"либо `` &#39;четное&#39; `` или `` `нечетное` ``, четность текущего раунда "
+"итерации"
 
 #: ../../reference/qweb.rst:170
 msgid ":samp:`{$as}_even` (deprecated)"
@@ -508,9 +508,9 @@ msgid ""
 "website's rich text edition."
 msgstr ""
 "Директива `` t-field`` может использоваться только при выполнении доступа к "
-"полю (`` ab``) для &quot;умной&quot; записи (результат метода `` browse``). "
-"Он может автоматически форматировать в зависимости от типа поля и "
-"интегрируется в расширенную текстовую версию веб-сайта."
+"полю (`` ab``) для `умной` записи (результат метода `` browse``). Он может "
+"автоматически форматировать в зависимости от типа поля и интегрируется в "
+"расширенную текстовую версию веб-сайта."
 
 #: ../../reference/qweb.rst:351
 msgid ""
@@ -539,8 +539,7 @@ msgstr ""
 
 #: ../../reference/qweb.rst:363
 msgid "is equivalent to ``importlib.import_module(\"pdb\").set_trace()``"
-msgstr ""
-"эквивалентно `` importlib.import_module (&quot;pdb&quot;). set_trace () ``"
+msgstr "эквивалентно `` importlib.import_module (`pdb`). set_trace () ``"
 
 #: ../../reference/qweb.rst:366 ../../reference/qweb.rst:544
 msgid "Helpers"
@@ -558,17 +557,17 @@ msgid ""
 ":meth:`odoo.http.HttpRequest.render`:"
 msgstr ""
 "Большинство QWeb на стороне Python используются в контроллерах (и во время "
-"HTTP-запросов), и в этом случае шаблоны хранятся в базе данных (как: ref: "
-"`views <reference/views/qweb> `) может быть тривиально воспроизведен путем "
-"вызова: meth:` odoo.http.HttpRequest.render`:"
+"HTTP-запросов), и в этом случае шаблоны хранятся в базе данных (как "
+":ref:`views <reference/views/qweb>`) может быть тривиально воспроизведен "
+"путем вызова :meth:`odoo.http.HttpRequest.render`:"
 
 #: ../../reference/qweb.rst:382
 msgid ""
 "This automatically creates a :class:`~odoo.http.Response` object which can "
 "be returned from the controller (or further customized to suit)."
 msgstr ""
-"Это автоматически создает объект: class: `~ odoo.http.Response`, который "
-"может быть возвращен из контроллера (или дополнительно настроен для "
+"Это автоматически создает объект :class:`~odoo.http.Response`, который может"
+" быть возвращен из контроллера (или дополнительно настроен для "
 "соответствия)."
 
 #: ../../reference/qweb.rst:386
@@ -603,7 +602,7 @@ msgstr "`` request``"
 
 #: ../../reference/qweb.rst:399
 msgid "the current :class:`~odoo.http.WebRequest` object, if any"
-msgstr "текущий объект: class: `~ odoo.http.WebRequest`, если есть"
+msgstr "текущий объект :class:`~odoo.http.WebRequest`, если есть"
 
 #: ../../reference/qweb.rst:400
 msgid "``debug``"
@@ -908,7 +907,7 @@ msgid ""
 "with all module-defined template files loaded, and references to standard "
 "helper objects ``_`` (underscore), ``_t`` (translation function) and JSON_."
 msgstr ""
-"(ядро - это модуль `` web.core``). Экземпляр: js: class: `QWeb2.Engine` со "
+"(ядро - это модуль `` web.core``). Экземпляр: js :class:`QWeb2.Engine` со "
 "всеми загруженными файлами шаблонов модулей и ссылками на стандартные "
 "вспомогательные объекты` `_`` (подчеркивание), `` _t`` (функция перевода) и "
 "JSON_."
@@ -946,7 +945,7 @@ msgstr ""
 #: ../../reference/qweb.rst:569
 msgid "A :js:class:`QWeb2.Engine` also serves as a \"template namespace\"."
 msgstr ""
-"A: js: class: `QWeb2.Engine` также служит« пространством имен шаблона »."
+"A: js :class:`QWeb2.Engine` также служит« пространством имен шаблона »."
 
 #: ../../reference/qweb.rst:573
 msgid ""
@@ -983,8 +982,8 @@ msgid ""
 msgstr ""
 "Движок предоставляет другой метод, который может быть полезен в некоторых "
 "случаях (например, если вам нужно отдельное пространство имен шаблона с, в "
-"Odoo Web представления Kanban получают свой собственный экземпляр: js: "
-"class: `QWeb2.Engine`, поэтому их шаблоны не сталкиваются с более общими "
+"Odoo Web представления Kanban получают свой собственный экземпляр: js "
+":class:`QWeb2.Engine`, поэтому их шаблоны не сталкиваются с более общими "
 "«модульными» шаблонами):"
 
 #: ../../reference/qweb.rst:590
@@ -1034,7 +1033,7 @@ msgid ""
 "A :js:class:`QWeb2.Engine` also exposes various attributes for behavior "
 "customization:"
 msgstr ""
-"A: js: class: `QWeb2.Engine` также предоставляет различные атрибуты для "
+"A: js :class:`QWeb2.Engine` также предоставляет различные атрибуты для "
 "настройки поведения:"
 
 #: ../../reference/qweb.rst:613

@@ -113,8 +113,8 @@ msgid ""
 "For the list of field types and parameters, see :ref:`the fields reference "
 "<reference/fields>`."
 msgstr ""
-"Список типов полей и параметров см .: ref: `ссылка на поля "
-"<reference/fields> `."
+"Список типов полей и параметров см . :ref:`the fields reference "
+"<reference/fields>`."
 
 #: ../../reference/orm.rst:36
 msgid ""
@@ -144,22 +144,22 @@ msgstr "Модели Odoo создаются путем наследования
 
 #: odoo.models.BaseModel:5 of
 msgid ":class:`Model` for regular database-persisted models"
-msgstr ": class: `Model` для обычных моделей, сохраняемых в базе данных"
+msgstr " :class:`Model` для обычных моделей, сохраняемых в базе данных"
 
 #: odoo.models.BaseModel:7 of
 msgid ""
 ":class:`TransientModel` for temporary data, stored in the database but "
 "automatically vacuumed every so often"
 msgstr ""
-": class: `TransientModel` для временных данных, хранящихся в базе данных, но"
-" автоматически пылесосить время от времени"
+" :class:`TransientModel` для временных данных, хранящихся в базе данных, но "
+"автоматически пылесосить время от времени"
 
 #: odoo.models.BaseModel:10 of
 msgid ""
 ":class:`AbstractModel` for abstract super classes meant to be shared by "
 "multiple inheriting models"
 msgstr ""
-": class: `AbstractModel` для абстрактных суперклассов, предназначенных для "
+" :class:`AbstractModel` для абстрактных суперклассов, предназначенных для "
 "совместного использования несколькими наследующими моделями"
 
 #: odoo.models.BaseModel:13 of
@@ -186,9 +186,9 @@ msgid ""
 msgstr ""
 "Каждый экземпляр модели представляет собой «набор записей», т. Е. "
 "Упорядоченный набор записей модели. Наборы записей возвращаются такими "
-"методами, как: meth: `~ .browse`,: meth:` ~ .search` или доступ к полям. "
-"Записи не имеют явного представления: запись представляется как набор "
-"записей из одной записи."
+"методами, как :meth:`~.browse`, :meth:`~.browse` или доступ к полям. Записи "
+"не имеют явного представления: запись представляется как набор записей из "
+"одной записи."
 
 #: odoo.models.BaseModel:25 of
 msgid ""
@@ -205,16 +205,16 @@ msgid ""
 "database table."
 msgstr ""
 "Должна ли быть создана таблица базы данных (по умолчанию: `` True``). Если "
-"установлено значение `` False``, переопределите: meth: `~ "
-"odoo.models.BaseModel.init`, чтобы создать таблицу базы данных."
+"установлено значение `` False``, переопределите "
+":meth:`~odoo.models.BaseModel.init`, чтобы создать таблицу базы данных."
 
 #: odoo.models.BaseModel._auto:5 of
 msgid ""
 "To create a model without any table, inherit from "
 ":class:`~odoo.models.AbstractModel`."
 msgstr ""
-"Чтобы создать модель без какой-либо таблицы, наследуйте от: class: `~ "
-"odoo.models.AbstractModel`."
+"Чтобы создать модель без какой-либо таблицы, наследуйте от "
+":class:`~odoo.models.AbstractModel`."
 
 #: odoo.models.BaseModel._table:1 of
 msgid "SQL table name used by model if :attr:`_auto`"
@@ -625,9 +625,9 @@ msgid ""
 "values     * ``avg`` : the average (arithmetic mean) of all values     * "
 "``sum`` : sum of all values"
 msgstr ""
-"агрегатная функция, используемая: meth: `~ odoo.models.Model.read_group` при"
-" группировке по этому полю. Поддерживаются следующие агрегатные функции: * "
-"`` array_agg``: значения, включая нули, объединенные в массив * `` count``: "
+"агрегатная функция, используемая :meth:`~odoo.models.Model.read_group` при "
+"группировке по этому полю. Поддерживаются следующие агрегатные функции: * ``"
+" array_agg``: значения, включая нули, объединенные в массив * `` count``: "
 "количество строк * `` count_distinct``: количество отдельных строк * `` "
 "bool_and``: true если все значения верны, в противном случае ложь * `` "
 "bool_or``: истина, если хотя бы одно значение истинно, в противном случае "
@@ -640,8 +640,8 @@ msgid ""
 "aggregate function used by :meth:`~odoo.models.Model.read_group` when "
 "grouping on this field."
 msgstr ""
-"агрегатная функция, используемая: meth: `~ odoo.models.Model.read_group` при"
-" группировке по этому полю."
+"агрегатная функция, используемая :meth:`~odoo.models.Model.read_group` при "
+"группировке по этому полю."
 
 #: odoo.fields.Field:61 of
 msgid "Supported aggregate functions are:"
@@ -694,8 +694,8 @@ msgid ""
 "name of a method that computes the field  .. seealso:: :ref:`Advanced "
 "Fields/Compute fields <reference/fields/compute>`"
 msgstr ""
-"имя метода, который вычисляет поле .. seealso ::: ref: `Расширенные поля / "
-"вычислительные поля <reference/fields/compute> `"
+"имя метода, который вычисляет поле .. seealso :: :ref:`Advanced "
+"Fields/Compute fields <reference/fields/compute>`"
 
 #: odoo.fields.Field:75 of
 msgid "name of a method that computes the field"
@@ -703,8 +703,7 @@ msgstr "имя метода, который вычисляет поле"
 
 #: odoo.fields.Field:77 of
 msgid ":ref:`Advanced Fields/Compute fields <reference/fields/compute>`"
-msgstr ""
-": ref: `Расширенные поля / вычислительные поля <reference/fields/compute> `"
+msgstr " :ref:`Advanced Fields/Compute fields <reference/fields/compute>`"
 
 #: odoo.fields.Field:79 of
 msgid ""
@@ -728,8 +727,8 @@ msgid ""
 "sequence of field names  .. seealso:: :ref:`Advanced fields/Related fields "
 "<reference/fields/related>`"
 msgstr ""
-"последовательность имен полей .. seealso ::: ref: `Расширенные поля / "
-"Связанные поля <reference/fields/related> `"
+"последовательность имен полей .. seealso :: :ref:`Advanced fields/Related "
+"fields <reference/fields/related>`"
 
 #: odoo.fields.Field:87 of
 msgid "sequence of field names"
@@ -737,8 +736,7 @@ msgstr "последовательность имен полей"
 
 #: odoo.fields.Field:89 of
 msgid ":ref:`Advanced fields/Related fields <reference/fields/related>`"
-msgstr ""
-": ref: `Расширенные поля / Связанные поля <reference/fields/related> `"
+msgstr " :ref:`Advanced fields/Related fields <reference/fields/related>`"
 
 #: ../../reference/orm.rst:115
 msgid "Basic Fields"
@@ -857,7 +855,7 @@ msgid ""
 "Very similar to :class:`~.Char` but used for longer contents, does not have "
 "a size and usually displayed as a multiline text box."
 msgstr ""
-"Очень похоже на: class: `~ .Char`, но используется для более длинного "
+"Очень похоже на :class:`~.Char`, но используется для более длинного "
 "содержимого, не имеет размера и обычно отображается в виде многострочного "
 "текстового поля."
 
@@ -911,9 +909,9 @@ msgid ""
 " convert to a `datetime.datetime`."
 msgstr ""
 "Класс полей Date и Datetime имеет вспомогательные методы для попытки "
-"преобразования в совместимый тип:: func: `~ odoo.fields.Date.to_date` "
-"преобразует в объект` datetime.date`, а: func: `~ odoo.fields. "
-"Datetime.to_datetime` преобразуется в `datetime.datetime`."
+"преобразования в совместимый тип: :func:`~odoo.fields.Date.to_date` "
+"преобразует в объект` datetime.date`, а :func:`~odoo.fields.Date.to_date` "
+"преобразуется в `datetime.datetime`."
 
 #: ../../reference/orm.rst:160 ../../reference/orm.rst:771
 #: odoo.exceptions.AccessDenied:7 odoo.exceptions.AccessError:3
@@ -960,9 +958,9 @@ msgid ""
 " are also available by importing `odoo.tools.date_utils`."
 msgstr ""
 "Обычные операции с датами и датами, такие как сложение, вычитание или "
-"извлечение начала / конца периода, доступны через: class: `~ "
-"odoo.fields.Date` и: class:` ~ odoo.fields.Datetime`. Эти помощники также "
-"доступны путем импорта `odoo.tools.date_utils`."
+"извлечение начала / конца периода, доступны через :class:`~odoo.fields.Date`"
+" и :class:`~odoo.fields.Date`. Эти помощники также доступны путем импорта "
+"`odoo.tools.date_utils`."
 
 #: ../../reference/orm.rst:182
 msgid "Timezones"
@@ -986,7 +984,7 @@ msgstr "Этот тип поля инкапсулирует объект дат�
 
 #: odoo.fields.Date.add:1 odoo.fields.Datetime.add:1 of
 msgid "Return the sum of ``value`` and a :class:`relativedelta`."
-msgstr "Вернуть сумму `` value`` и a: class: `lativedelta`."
+msgstr "Вернуть сумму `` value`` и a :class:`relativedelta`."
 
 #: odoo.fields.Date.add:3 odoo.fields.Date.end_of:3
 #: odoo.fields.Date.start_of:3 odoo.fields.Date.subtract:3
@@ -998,14 +996,14 @@ msgstr "начальная дата или дата / время"
 #: odoo.fields.Date.add:4 odoo.fields.Date.subtract:4
 #: odoo.fields.Datetime.add:4 odoo.fields.Datetime.subtract:4 of
 msgid "positional args to pass directly to :class:`relativedelta`."
-msgstr "позиционные аргументы для прямой передачи: class: `lativedelta`."
+msgstr "позиционные аргументы для прямой передачи :class:`relativedelta`."
 
 #: odoo.fields.Date.add:5 odoo.fields.Date.subtract:5
 #: odoo.fields.Datetime.add:5 odoo.fields.Datetime.subtract:5 of
 msgid "keyword args to pass directly to :class:`relativedelta`."
 msgstr ""
-"Аргументы для ключевого слова, которые необходимо передать непосредственно: "
-"class: `lativedelta`."
+"Аргументы для ключевого слова, которые необходимо передать непосредственно "
+":class:`relativedelta`."
 
 #: odoo.api.Environment.companies odoo.api.Environment.company
 #: odoo.fields.Date.add odoo.fields.Date.end_of odoo.fields.Date.start_of
@@ -1100,11 +1098,11 @@ msgstr "объект date / datetime, соответствующий начал�
 
 #: odoo.fields.Date.subtract:1 odoo.fields.Datetime.subtract:1 of
 msgid "Return the difference between ``value`` and a :class:`relativedelta`."
-msgstr "Вернуть разницу между `` value`` и a: class: `lativedelta`."
+msgstr "Вернуть разницу между `` value`` и a :class:`relativedelta`."
 
 #: odoo.fields.Date.to_date:1 of
 msgid "Attempt to convert ``value`` to a :class:`date` object."
-msgstr "Попытайтесь преобразовать `` value`` в объект: class: `date`."
+msgstr "Попытайтесь преобразовать `` value`` в объект :class:`date`."
 
 #: odoo.fields.Date.to_date:5 of
 msgid ""
@@ -1126,7 +1124,7 @@ msgstr "объект, представляющий `` значение``."
 
 #: odoo.fields.Date.to_string:1 of
 msgid "Convert a :class:`date` or :class:`datetime` object to a string."
-msgstr "Преобразуйте объект: class: `date` или: class:` datetime` в строку."
+msgstr "Преобразуйте объект :class:`date` или :class:`date` в строку."
 
 #: odoo.fields.Date.to_string:4 of
 msgid ""
@@ -1135,8 +1133,8 @@ msgid ""
 "truncated."
 msgstr ""
 "строка, представляющая `` значение`` в формате даты сервера, если `` "
-"значение`` имеет тип: class: `datetime`, часы, минуты, секунды, tzinfo будут"
-" усечены."
+"значение`` имеет тип :class:`datetime`, часы, минуты, секунды, tzinfo будут "
+"усечены."
 
 #: odoo.fields.Date.today:1 of
 msgid "Return the current day in the format expected by the ORM."
@@ -1166,7 +1164,7 @@ msgstr ""
 "Этот метод * не * предназначен для использования в качестве инициализатора "
 "по умолчанию, поскольку поля даты и времени автоматически преобразуются при "
 "отображении на стороне клиента. Для значений по умолчанию следует "
-"использовать: meth: `now`."
+"использовать :meth:`now`."
 
 #: odoo.fields.Datetime.context_timestamp:9 of
 msgid ""
@@ -1188,11 +1186,11 @@ msgstr "Вернуть текущий день и время в формате, 
 
 #: odoo.fields.Datetime.to_datetime:1 of
 msgid "Convert an ORM ``value`` into a :class:`datetime` value."
-msgstr "Преобразуйте `` значение`` ORM в значение: class: `datetime`."
+msgstr "Преобразуйте `` значение`` ORM в значение :class:`datetime`."
 
 #: odoo.fields.Datetime.to_string:1 of
 msgid "Convert a :class:`datetime` or :class:`date` object to a string."
-msgstr "Преобразуйте объект: class: `datetime` или: class:` date` в строку."
+msgstr "Преобразуйте объект :class:`datetime` или :class:`datetime` в строку."
 
 #: odoo.fields.Datetime.to_string:5 of
 msgid ""
@@ -1201,7 +1199,7 @@ msgid ""
 "(00:00:00)."
 msgstr ""
 "строка, представляющая `` значение`` в формате даты и времени сервера, если "
-"`` значение`` имеет тип: class: `date`, часть времени будет полуночной "
+"`` значение`` имеет тип :class:`date`, часть времени будет полуночной "
 "(00:00:00)."
 
 #: odoo.fields.Datetime.today:1 of
@@ -1270,7 +1268,7 @@ msgid ""
 "Mark the field to be verified in :meth:`~odoo.models.Model._check_company`. "
 "Add a default company domain depending on the field attributes."
 msgstr ""
-"Отметьте поле для проверки в: meth: `~ odoo.models.Model._check_company`. "
+"Отметьте поле для проверки в :meth:`~odoo.models.Model._check_company`. "
 "Добавьте домен компании по умолчанию в зависимости от атрибутов поля."
 
 #: odoo.fields.One2many:1 of
@@ -1384,7 +1382,7 @@ msgstr ""
 "Поля могут быть вычислены (вместо чтения прямо из базы данных) с помощью "
 "параметра `` compute``. ** Он должен присвоить вычисленное значение полю **."
 " Если он использует значения других * полей *, он должен указывать эти поля,"
-" используя: func: `~ odoo.api.depends`. ::"
+" используя :func:`~odoo.api.depends`. ::"
 
 #: ../../reference/orm.rst:230
 msgid "dependencies can be dotted paths when using sub-fields::"
@@ -1408,8 +1406,8 @@ msgid ""
 ":ref:`reference/orm/domains`. ::"
 msgstr ""
 "поиск по вычисляемому полю также можно включить, установив параметр `` "
-"search``. Значением является имя метода, возвращающее: ref: `reference / orm"
-" / domains`. ::"
+"search``. Значением является имя метода, возвращающее "
+":ref:`reference/orm/domains`. ::"
 
 #: ../../reference/orm.rst:251
 msgid ""
@@ -1568,8 +1566,8 @@ msgid ""
 "lifecycle stages of the object, used by the ``states`` attribute on "
 ":class:`fields <odoo.fields.Field>`."
 msgstr ""
-"Этапы жизненного цикла объекта, используемые атрибутом `` states`` в: class:"
-" `fields <odoo.fields.Field> `."
+"Этапы жизненного цикла объекта, используемые атрибутом `` states`` в "
+":class:`fields <odoo.fields.Field>`."
 
 #: ../../reference/orm.rst:386
 msgid ":class:`~odoo.fields.Selection`"
@@ -1618,9 +1616,7 @@ msgstr ""
 msgid ""
 ":class:`~odoo.fields.Many2one` :type: "
 ":class:`~odoo.addons.base.models.res_company`"
-msgstr ""
-": class: `~ odoo.fields.Many2one`: type:: class:` ~ "
-"odoo.addons.base.models.res_company`"
+msgstr " :class:`~odoo.fields.Many2one`: type: :class:`~odoo.fields.Many2one`"
 
 #: ../../reference/orm.rst:417
 msgid "Recordsets"
@@ -1656,9 +1652,9 @@ msgid ""
 "(\"singletons\"), much like iterating on a Python string yields strings of a"
 " single characters::"
 msgstr ""
-"Повторение набора записей даст новые наборы * одной записи * "
-"(&quot;одиночные записи&quot;), так же, как повторение строки Python дает "
-"строки из одного символа:"
+"Повторение набора записей даст новые наборы * одной записи * (`одиночные "
+"записи`), так же, как повторение строки Python дает строки из одного "
+"символа:"
 
 #: ../../reference/orm.rst:445
 msgid "Field access"
@@ -1678,7 +1674,7 @@ msgid ""
 "records, use :meth:`~odoo.models.BaseModel.mapped`::"
 msgstr ""
 "При доступе к нереляционным полям в наборе записей из потенциально "
-"нескольких записей используйте: meth: `~ odoo.models.BaseModel.mapped` ::"
+"нескольких записей используйте :meth:`~odoo.models.BaseModel.mapped` ::"
 
 #: ../../reference/orm.rst:457
 msgid ""
@@ -1704,8 +1700,8 @@ msgid ""
 ":class:`~odoo.fields.One2many`, :class:`~odoo.fields.Many2many`) *always* "
 "returns a recordset, empty if the field is not set."
 msgstr ""
-"Доступ к реляционному полю (: class: `~ odoo.fields.Many2one`,: class:` ~ "
-"odoo.fields.One2many`,: class: `~ odoo.fields.Many2many`) * всегда * "
+"Доступ к реляционному полю ( :class:`~odoo.fields.Many2one`, "
+":class:`~odoo.fields.Many2one`, :class:`~odoo.fields.Many2one`) * всегда * "
 "возвращает набор записей, пустой, если поле не установлено."
 
 #: ../../reference/orm.rst:480
@@ -1920,9 +1916,9 @@ msgid ""
 "they potentially do not exist in the database yet."
 msgstr ""
 "Поскольку `` @ onchange`` возвращает набор псевдозаписей, вызывая любой из "
-"методов CRUD (: meth: `create`,: meth:` read`,: meth: `write`,: meth:` "
-"unlink` ) в вышеупомянутом наборе записей не определено поведение, так как "
-"они потенциально еще не существуют в базе данных."
+"методов CRUD ( :meth:`create`, :meth:`create`, :meth:`create`, "
+":meth:`create` ) в вышеупомянутом наборе записей не определено поведение, "
+"так как они потенциально еще не существуют в базе данных."
 
 #: odoo.api.onchange:38 of
 msgid ""
@@ -1930,7 +1926,7 @@ msgid ""
 "call the :meth:`update` method."
 msgstr ""
 "Вместо этого просто установите поле записи, как показано в примере выше, или"
-" вызовите метод: meth: `update`."
+" вызовите метод :meth:`update`."
 
 #: odoo.api.onchange:43 of
 msgid ""
@@ -2269,8 +2265,8 @@ msgid ""
 "Clearing caches can be performed using the "
 ":meth:`~odoo.models.Model.invalidate_cache` method."
 msgstr ""
-"Очистка кэша может быть выполнена с помощью метода: meth: `~ "
-"odoo.models.Model.invalidate_cache`."
+"Очистка кэша может быть выполнена с помощью метода "
+":meth:`~odoo.models.Model.invalidate_cache`."
 
 #: odoo.models.Model.invalidate_cache:1 of
 msgid ""
@@ -2319,7 +2315,7 @@ msgid ""
 "``vals_list``, and if necessary those from :meth:`~.default_get`."
 msgstr ""
 "Новые записи инициализируются с использованием значений из списка диктовок "
-"`` vals_list`` и, при необходимости, из: meth: `~ .default_get`."
+"`` vals_list`` и, при необходимости, из :meth:`~.default_get`."
 
 #: odoo.models.Model.create:6 of
 msgid ""
@@ -2332,7 +2328,7 @@ msgstr ""
 "значения для полей модели в виде списка словарей :: [{&#39;field_name&#39;: "
 "field_value, ...}, ...] Для обратной совместимости `` vals_list`` может быть"
 " словарем. Он обрабатывается как одноэлементный список `` [vals] ``, и "
-"возвращается одна запись. смотрите: meth: `~ .write` для деталей"
+"возвращается одна запись. смотрите :meth:`~.write` для деталей"
 
 #: odoo.models.Model.create:7 of
 msgid "values for the model's fields, as a list of dictionaries::"
@@ -2349,7 +2345,7 @@ msgstr ""
 
 #: odoo.models.Model.create:15 of
 msgid "see :meth:`~.write` for details"
-msgstr "смотрите: meth: `~ .write` для деталей"
+msgstr "смотрите :meth:`~.write` для деталей"
 
 #: odoo.models.Model.create:17 of
 msgid "the created records"
@@ -2432,8 +2428,8 @@ msgid ""
 "Create a new record by calling :meth:`~.create` with only one value "
 "provided: the display name of the new record."
 msgstr ""
-"Создайте новую запись, вызвав: meth: `~ .create`, указав только одно "
-"значение: отображаемое имя новой записи."
+"Создайте новую запись, вызвав :meth:`~.create`, указав только одно значение:"
+" отображаемое имя новой записи."
 
 #: odoo.models.Model.name_create:4 of
 msgid ""
@@ -2443,7 +2439,7 @@ msgid ""
 msgstr ""
 "Новая запись будет инициализирована с любыми значениями по умолчанию, "
 "применимыми к этой модели, или предоставлены через контекст. Применяется "
-"обычное поведение: meth: `~ .create`."
+"обычное поведение :meth:`~.create`."
 
 #: odoo.models.Model.name_create:8 of
 msgid "display name of the record to create"
@@ -2451,7 +2447,7 @@ msgstr "отображаемое имя записи для создания"
 
 #: odoo.models.Model.name_create:10 of
 msgid "the :meth:`~.name_get` pair value of the created record"
-msgstr "значение пары: meth: `~ .name_get` созданной записи"
+msgstr "значение пары :meth:`~.name_get` созданной записи"
 
 #: odoo.models.Model.write:1 of
 msgid "Updates all records in the current set with the provided values."
@@ -2464,9 +2460,8 @@ msgid ""
 "``\"Qux\"`` if those are valid (otherwise it will trigger an error)."
 msgstr ""
 "поля для обновления и значение для них, например: :: {&#39;foo&#39;: 1, "
-"&#39;bar&#39;: &quot;Qux&quot;} установит поле `` foo`` в `` 1`` и поле `` "
-"bar` `to` `&quot; Qux &quot;` `если они действительны (в противном случае "
-"это вызовет ошибку)."
+"&#39;bar&#39;: `Qux`} установит поле `` foo`` в `` 1`` и поле `` bar` `to` "
+"`` Qux `` `если они действительны (в противном случае это вызовет ошибку)."
 
 #: odoo.models.Model.write:3 of
 msgid "fields to update and the value to set on them e.g::"
@@ -2477,8 +2472,8 @@ msgid ""
 "will set the field ``foo`` to ``1`` and the field ``bar`` to ``\"Qux\"`` if "
 "those are valid (otherwise it will trigger an error)."
 msgstr ""
-"установит поле `` foo`` в `` 1`` и поле `` bar`` в `` &quot;Qux&quot; ``, "
-"если они действительны (в противном случае это вызовет ошибку)."
+"установит поле `` foo`` в `` 1`` и поле `` bar`` в `` `Qux` ``, если они "
+"действительны (в противном случае это вызовет ошибку)."
 
 #: odoo.models.Model.write:10 of
 msgid ""
@@ -2504,33 +2499,33 @@ msgid ""
 "For numeric fields (:class:`~odoo.fields.Integer`, "
 ":class:`~odoo.fields.Float`) the value should be of the corresponding type"
 msgstr ""
-"Для числовых полей (: class: `~ odoo.fields.Integer`,: class:` ~ "
-"odoo.fields.Float`) значение должно быть соответствующего типа"
+"Для числовых полей ( :class:`~odoo.fields.Integer`, "
+":class:`~odoo.fields.Integer`) значение должно быть соответствующего типа"
 
 #: odoo.models.Model.write:18 of
 msgid ""
 "For :class:`~odoo.fields.Boolean`, the value should be a "
 ":class:`python:bool`"
 msgstr ""
-"Для: class: `~ odoo.fields.Boolean`, значение должно быть: class:` python: "
-"bool`"
+"Для :class:`~odoo.fields.Boolean`, значение должно быть "
+":class:`~odoo.fields.Boolean`"
 
 #: odoo.models.Model.write:20 of
 msgid ""
 "For :class:`~odoo.fields.Selection`, the value should match the selection "
 "values (generally :class:`python:str`, sometimes :class:`python:int`)"
 msgstr ""
-"Для: class: `~ odoo.fields.Selection`, значение должно соответствовать "
-"значениям выбора (обычно: class:` python: str`, иногда: class: `python: "
-"int`)"
+"Для :class:`~odoo.fields.Selection`, значение должно соответствовать "
+"значениям выбора (обычно :class:`~odoo.fields.Selection`, иногда "
+":class:`~odoo.fields.Selection`)"
 
 #: odoo.models.Model.write:23 of
 msgid ""
 "For :class:`~odoo.fields.Many2one`, the value should be the database "
 "identifier of the record to set"
 msgstr ""
-"Для: class: `~ odoo.fields.Many2one` значение должно быть идентификатором "
-"базы данных для записи, которую нужно установить"
+"Для :class:`~odoo.fields.Many2one` значение должно быть идентификатором базы"
+" данных для записи, которую нужно установить"
 
 #: odoo.models.Model.write:25 of
 msgid "Other non-relational fields use a string for value"
@@ -2545,11 +2540,11 @@ msgid ""
 "formatted according to :const:`odoo.tools.misc.DEFAULT_SERVER_DATE_FORMAT` "
 "and :const:`odoo.tools.misc.DEFAULT_SERVER_DATETIME_FORMAT`"
 msgstr ""
-"по причинам истории и совместимости в полях: class: `~ odoo.fields.Date` и: "
-"class:` ~ odoo.fields.Datetime` в качестве значений используются строки "
-"(записанные и прочитанные), а не: class: `~ python: datetime. date` или: "
-"class: `~ python: datetime.datetime`. Эти строки даты предназначены только "
-"для UTC и отформатированы в соответствии с: const: "
+"по причинам истории и совместимости в полях :class:`~odoo.fields.Date` и "
+":class:`~odoo.fields.Date` в качестве значений используются строки "
+"(записанные и прочитанные), а не :class:`~odoo.fields.Date` или "
+":class:`~odoo.fields.Date`. Эти строки даты предназначены только для UTC и "
+"отформатированы в соответствии с: const: "
 "`odoo.tools.misc.DEFAULT_SERVER_DATE_FORMAT` и: const:` "
 "odoo.tools.misc.DEFAULT_SERVER_DATETIME_FORMAT`"
 
@@ -2559,9 +2554,9 @@ msgid ""
 "special \"commands\" format to manipulate the set of records stored "
 "in/associated with the field."
 msgstr ""
-": class: `~ odoo.fields.One2many` и: class:` ~ odoo.fields.Many2many` "
-"используют специальный формат «команд» для управления набором записей, "
-"хранящихся в / связанных с полем."
+" :class:`~odoo.fields.One2many` и :class:`~odoo.fields.One2many` используют "
+"специальный формат «команд» для управления набором записей, хранящихся в / "
+"связанных с полем."
 
 #: odoo.models.Model.write:43 of
 msgid ""
@@ -2592,7 +2587,7 @@ msgid ""
 "not be used in :meth:`~.create`."
 msgstr ""
 "обновляет существующую запись id `` id`` со значениями в `` values``. Не "
-"может использоваться в: meth: `~ .create`."
+"может использоваться в :meth:`~.create`."
 
 #: odoo.models.Model.write:53 of
 msgid "``(2, id, 0)``"
@@ -2604,7 +2599,7 @@ msgid ""
 "database). Can not be used in :meth:`~.create`."
 msgstr ""
 "удаляет запись с идентификатором `` id`` из набора, затем удаляет ее (из "
-"базы данных). Не может использоваться в: meth: `~ .create`."
+"базы данных). Не может использоваться в :meth:`~.create`."
 
 #: odoo.models.Model.write:57 of
 msgid "``(3, id, 0)``"
@@ -2616,7 +2611,7 @@ msgid ""
 "not be used in :meth:`~.create`."
 msgstr ""
 "удаляет запись с идентификатором `` id`` из набора, но не удаляет ее. Не "
-"может использоваться в: meth: `~ .create`."
+"может использоваться в :meth:`~.create`."
 
 #: odoo.models.Model.write:59 of
 msgid "``(4, id, 0)``"
@@ -2636,7 +2631,7 @@ msgid ""
 "every record explicitly. Can not be used in :meth:`~.create`."
 msgstr ""
 "удаляет все записи из набора, что эквивалентно явному использованию команды "
-"`` 3`` для каждой записи. Не может использоваться в: meth: `~ .create`."
+"`` 3`` для каждой записи. Не может использоваться в :meth:`~.create`."
 
 #: odoo.models.Model.write:67 of
 msgid "``(6, 0, ids)``"
@@ -2686,15 +2681,15 @@ msgid ""
 "Searches for records based on the ``args`` :ref:`search domain "
 "<reference/orm/domains>`."
 msgstr ""
-"Поиск записей на основе `` args``: ref: `search domain "
-"<reference/orm/domains> `."
+"Поиск записей на основе `` args`` :ref:`search domain "
+"<reference/orm/domains>`."
 
 #: odoo.models.Model.read_group:3 odoo.models.Model.search:4 of
 msgid ""
 ":ref:`A search domain <reference/orm/domains>`. Use an empty list to match "
 "all records."
 msgstr ""
-": ref: `Домен поиска <reference/orm/domains> `. Используйте пустой список, "
+" :ref:`A search domain <reference/orm/domains>`. Используйте пустой список, "
 "чтобы соответствовать всем записям."
 
 #: odoo.models.Model.search:6 of
@@ -2739,8 +2734,8 @@ msgid ""
 "Returns the number of records in the current model matching :ref:`the "
 "provided domain <reference/orm/domains>`."
 msgstr ""
-"Возвращает количество записей в текущей модели: ref: `предоставленный домен "
-"<reference/orm/domains> `."
+"Возвращает количество записей в текущей модели :ref:`the provided domain "
+"<reference/orm/domains>`."
 
 #: odoo.models.Model.name_search:1 of
 msgid ""
@@ -2760,7 +2755,7 @@ msgid ""
 msgstr ""
 "Это используется, например, для предоставления предложений на основе "
 "частичного значения для реляционного поля. Иногда рассматривается как "
-"обратная функция: meth: `~ .name_get`, но это не гарантируется."
+"обратная функция :meth:`~.name_get`, но это не гарантируется."
 
 #: odoo.models.Model.name_search:9 of
 msgid ""
@@ -2768,9 +2763,8 @@ msgid ""
 "based on ``display_name`` and then :meth:`~.name_get` on the result of the "
 "search."
 msgstr ""
-"Этот метод эквивалентен вызову: meth: `~ .search` с доменом поиска, "
-"основанным на` `display_name``, а затем: meth:` ~ .name_get` в результате "
-"поиска."
+"Этот метод эквивалентен вызову :meth:`~.search` с доменом поиска, основанным"
+" на` `display_name``, а затем :meth:`~.search` в результате поиска."
 
 #: odoo.models.Model.name_search:13 of
 msgid "the name pattern to match"
@@ -2781,8 +2775,8 @@ msgid ""
 "optional search domain (see :meth:`~.search` for syntax), specifying further"
 " restrictions"
 msgstr ""
-"необязательный поисковый домен (см. синтаксис: meth: `~ .search`) с "
-"указанием дальнейших ограничений"
+"необязательный поисковый домен (см. синтаксис :meth:`~.search`) с указанием "
+"дальнейших ограничений"
 
 #: odoo.models.Model.name_search:16 of
 msgid "domain operator for matching ``name``, such as ``'like'`` or ``'='``."
@@ -2804,7 +2798,7 @@ msgid ""
 "method. In Python code, prefer :meth:`~.browse`."
 msgstr ""
 "Считывает запрошенные поля для записей в `` self``, метод низкого уровня / "
-"RPC. В коде Python предпочитайте: meth: `~ .browse`."
+"RPC. В коде Python предпочитайте :meth:`~.browse`."
 
 #: odoo.models.Model.read:4 of
 msgid "list of field names to return (default is all fields)"
@@ -2873,7 +2867,7 @@ msgid ""
 "only for many2one fields currently)"
 msgstr ""
 "необязательная спецификация `` order by`` для переопределения естественного "
-"порядка сортировки групп, см. также: py: meth: `~ osv.osv.osv.search` (в "
+"порядка сортировки групп, см. также: py :meth:`~osv.osv.osv.search` (в "
 "настоящее время поддерживается только для многих полей)"
 
 #: odoo.models.Model.read_group:23 of
@@ -3039,7 +3033,7 @@ msgid ""
 "``list`` or a ``tuple``) of ``(field_name, operator, value)`` where:"
 msgstr ""
 "Домен - это список критериев, каждый из которых является тройкой (`` "
-"список`` или `` кортеж``) &quot;` (field_name, operator, value) `` где:"
+"список`` или `` кортеж``) `` (field_name, operator, value) `` где:"
 
 #: ../../reference/orm.rst:697
 msgid "``field_name`` (``str``)"
@@ -3051,9 +3045,9 @@ msgid ""
 ":class:`~odoo.fields.Many2one` using dot-notation e.g. ``'street'`` or "
 "``'partner_id.country'``"
 msgstr ""
-"имя поля текущей модели или обход отношений через: class: `~ "
-"odoo.fields.Many2one` с использованием точечной нотации, например,` "
-"`&#39;улица&#39;`` или` `&#39; partner_id.country&#39;``"
+"имя поля текущей модели или обход отношений через "
+":class:`~odoo.fields.Many2one` с использованием точечной нотации, например,`"
+" `&#39;улица&#39;`` или` `&#39; partner_id.country&#39;``"
 
 #: ../../reference/orm.rst:751
 msgid "``operator`` (``str``)"
@@ -3522,10 +3516,10 @@ msgid ""
 "call methods on their result, or to use set operations."
 msgstr ""
 "Наборы записей являются итеративными, поэтому для преобразования доступны "
-"обычные инструменты Python (: func: `python: map`,: func:` python: sorted`,:"
-" func: `~ python: itertools.ifilter`, ...), однако они возвращают или a: "
-"class: `python: list` или a: term:` python: iterator`, исключая возможность "
-"вызова методов для их результата или использования операций над множествами."
+"обычные инструменты Python ( :func:`python:map`, :func:`python:map`, "
+":func:`python:map`, ...), однако они возвращают или a :class:`python:list` "
+"или a: term:` python: iterator`, исключая возможность вызова методов для их "
+"результата или использования операций над множествами."
 
 #: ../../reference/orm.rst:847
 msgid ""
@@ -3661,8 +3655,8 @@ msgid ""
 "standard :ref:`Python inheritance <python:tut-inheritance>`."
 msgstr ""
 "вторая модель унаследовала от метода `` check`` и ее поля `` name`` первой "
-"модели, но переопределила метод `` call``, как при использовании стандарта: "
-"ref: `Наследование Python <python:tut-inheritance> `."
+"модели, но переопределила метод `` call``, как при использовании стандарта "
+":ref:`Python inheritance <python:tut-inheritance>`."
 
 #: ../../reference/orm.rst:913
 msgid "Extension"
@@ -3687,8 +3681,8 @@ msgid ""
 "it will also yield the various :ref:`automatic fields "
 "<reference/fields/automatic>` unless they've been disabled"
 msgstr ""
-"это также даст различные: ref: `автоматические поля "
-"<reference/fields/automatic> `если они не были отключены"
+"это также даст различные :ref:`automatic fields "
+"<reference/fields/automatic>`если они не были отключены"
 
 #: ../../reference/orm.rst:939
 msgid "Delegation"
@@ -3707,8 +3701,8 @@ msgstr ""
 "изменить во время выполнения), но меньшую мощность: использование: attr: `~ "
 "odoo.models.Model._inherits` модели * делегирует * поиск любого поля, не "
 "найденного в текущей модели «детским» моделям. Делегирование выполняется с "
-"помощью полей: class: `~ odoo.fields.Reference`, автоматически "
-"устанавливаемых в родительской модели."
+"помощью полей :class:`~odoo.fields.Reference`, автоматически устанавливаемых"
+" в родительской модели."
 
 #: ../../reference/orm.rst:948
 msgid ""

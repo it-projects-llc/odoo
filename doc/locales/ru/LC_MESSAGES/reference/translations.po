@@ -60,7 +60,7 @@ msgid ""
 msgstr ""
 "Экспорт переводов выполняется через интерфейс администрирования, войдя в "
 "интерфейс бэкэнда и открыв: menuselection: `Настройки -&gt; Переводы -&gt; "
-"Импорт / Экспорт -&gt; Экспорт переводов&quot;"
+"Импорт / Экспорт -&gt; Экспорт переводов`"
 
 #: ../../reference/translations.rst:28
 msgid "leave the language to the default (new language/empty template)"
@@ -138,16 +138,16 @@ msgid ""
 msgstr ""
 "Шаблоны QWeb (как на стороне сервера, так и на стороне клиента), "
 "экспортируются все текстовые узлы, кроме внутри блоков `` t-translation = "
-"&quot;off&quot; ``, содержимого `` title``, `` alt``, ` Атрибуты `label`` и`"
-" `placeholder`` также экспортируются"
+"`off` ``, содержимого `` title``, `` alt``, ` Атрибуты `label`` и` "
+"`placeholder`` также экспортируются"
 
 #: ../../reference/translations.rst:62
 msgid ""
 "for :class:`~odoo.fields.Field`, unless their model is marked with "
 "``_translate = False``:"
 msgstr ""
-"for: class: `~ odoo.fields.Field`, если их модель не помечена как` "
-"`_translate = False``:"
+"for :class:`~odoo.fields.Field`, если их модель не помечена как` `_translate"
+" = False``:"
 
 #: ../../reference/translations.rst:65
 msgid "their ``string`` and ``help`` attributes are exported"
@@ -192,13 +192,13 @@ msgstr ""
 
 #: ../../reference/translations.rst:80
 msgid "In Python, the wrapping function is :func:`odoo._`::"
-msgstr "В Python функция обтекания выглядит так: func: `odoo._` ::"
+msgstr "В Python функция обтекания выглядит так :func:`odoo._` ::"
 
 #: ../../reference/translations.rst:84
 msgid ""
 "In JavaScript, the wrapping function is generally :js:func:`odoo.web._t`:"
 msgstr ""
-"В JavaScript функция обертки обычно выглядит так: js: func: `odoo.web._t`:"
+"В JavaScript функция обертки обычно выглядит так: js :func:`odoo.web._t`:"
 
 #: ../../reference/translations.rst:92
 msgid ""
@@ -217,10 +217,10 @@ msgid ""
 "only at rendering and can be used to declare translatable properties in "
 "class methods of global variables."
 msgstr ""
-"Ленивая версия `_` и` _t` - это: func: `odoo._lt` в python и: js: func:` "
-"odoo.web._lt` в javascript. Поиск перевода выполняется только при рендеринге"
-" и может использоваться для объявления переводимых свойств в методах класса "
-"глобальных переменных."
+"Ленивая версия `_` и` _t` - это :func:`odoo._lt` в python и: js "
+":func:`odoo._lt` в javascript. Поиск перевода выполняется только при "
+"рендеринге и может использоваться для объявления переводимых свойств в "
+"методах класса глобальных переменных."
 
 #: ../../reference/translations.rst:102
 msgid "Variables"

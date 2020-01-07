@@ -100,8 +100,8 @@ msgid ""
 "Update the ``--addons-path`` parameter of your launch command (see "
 ":ref:`setup/install/source`)"
 msgstr ""
-"Обновите параметр `` --addons-path`` вашей команды запуска (см .: ref: "
-"`setup / install / source`)"
+"Обновите параметр `` --addons-path`` вашей команды запуска (см . "
+":ref:`setup/install/source`)"
 
 #: ../../setup/enterprise.rst:66
 msgid "Install the web_enterprise module by using"

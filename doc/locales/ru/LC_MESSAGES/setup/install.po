@@ -104,8 +104,8 @@ msgid ""
 ":ref:`setup/install/source`)."
 msgstr ""
 "Если вы уже используете версию Community и хотите обновить ее до Enterprise,"
-" обратитесь к: ref: `setup / enterprise` (за исключением: ref:` setup / "
-"install / source`)."
+" обратитесь к :ref:`setup/enterprise` (за исключением "
+":ref:`setup/enterprise`)."
 
 #: ../../setup/install.rst:49
 msgid "Online"
@@ -370,7 +370,7 @@ msgid ""
 msgstr ""
 "Debian 9 и Ubuntu не предоставляют пакет для модуля Python num2words. "
 "Текстовые суммы не будут отображаться Odoo, и это может вызвать проблемы с "
-"модулем &quot;l10n_mx_edi&quot;."
+"модулем `l10n_mx_edi`."
 
 #: ../../setup/install.rst:194
 msgid "If you need this feature, you can install the python module like this:"
@@ -458,8 +458,8 @@ msgid ""
 msgstr ""
 "Это также делает запуск и остановку Odoo более гибким и явным, чем сервисы, "
 "установленные пакетными установками, и позволяет переопределять настройки с "
-"помощью: ref: `параметров командной строки <reference/cmdline> `без "
-"необходимости редактировать файл конфигурации."
+"помощью :ref:`command-line parameters <reference/cmdline>`без необходимости "
+"редактировать файл конфигурации."
 
 #: ../../setup/install.rst:274
 msgid ""
@@ -773,9 +773,9 @@ msgid ""
 " <reference/cmdline/server>` or a :ref:`configuration file "
 "<reference/cmdline/config>`."
 msgstr ""
-"Чтобы настроить сервер, вы можете указать: ref: `аргументы командной строки "
-"<reference/cmdline/server> `или файл конфигурации: ref:` "
-"<reference/cmdline/config> `."
+"Чтобы настроить сервер, вы можете указать :ref:`command-line arguments "
+"<reference/cmdline/server>`или файл конфигурации :ref:`command-line "
+"arguments <reference/cmdline/server>`."
 
 #: ../../setup/install.rst:418 ../../setup/install.rst:595
 msgid ""

@@ -39,8 +39,8 @@ msgid ""
 "For advanced database options, take a look :ref:`below "
 "<reference/cmdline/server/database>`."
 msgstr ""
-"Для расширенных параметров базы данных, посмотрите: ref: `ниже "
-"<reference/cmdline/server/database> `."
+"Для расширенных параметров базы данных, посмотрите :ref:`below "
+"<reference/cmdline/server/database>`."
 
 #: ../../reference/cmdline.rst:26
 msgid ""
@@ -70,8 +70,8 @@ msgstr ""
 msgid ""
 "provide an alternate :ref:`configuration file <reference/cmdline/config>`"
 msgstr ""
-"предоставить альтернативный: ref: `файл конфигурации "
-"<reference/cmdline/config> `"
+"предоставить альтернативный :ref:`configuration file "
+"<reference/cmdline/config>`"
 
 #: ../../reference/cmdline.rst:47
 msgid ""
@@ -730,8 +730,8 @@ msgid ""
 "Differs from :option:`--limit-time-cpu` in that this is a \"wall time\" "
 "limit including e.g. SQL queries."
 msgstr ""
-"Отличается от: option: `--limit-time-cpu` тем, что это ограничение&quot; "
-"времени стены &quot;, включая, например, запросы SQL."
+"Отличается от: option: `--limit-time-cpu` тем, что это ограничение` времени "
+"стены `, включая, например, запросы SQL."
 
 #: ../../reference/cmdline.rst:450
 msgid "Defaults to *120*."

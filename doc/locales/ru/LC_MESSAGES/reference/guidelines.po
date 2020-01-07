@@ -369,8 +369,8 @@ msgstr ""
 msgid ""
 "report: use to declare a :ref:`report action <reference/actions/report>`"
 msgstr ""
-"report: используйте для объявления действия: ref: `report "
-"<reference/actions/report> `"
+"report: используйте для объявления действия :ref:`report action "
+"<reference/actions/report>`"
 
 #: ../../reference/guidelines.rst:282
 msgid "act_window: use it if the record notation can't do what you want"
@@ -1145,8 +1145,8 @@ msgstr ""
 "При определении Odoo Transient (мастер): используйте `` <related_base_model>"
 " , <action> `` where * related_base_model * - базовая модель (определенная в"
 " * models / *), связанная с переходным процессом, а * action * - краткое имя"
-" того, что делает переходный процесс. Избегайте слова &quot;волшебник&quot;."
-" Например: `` account.invoice.make``, `` project.task.delegate.batch``, ..."
+" того, что делает переходный процесс. Избегайте слова `волшебник`. Например:"
+" `` account.invoice.make``, `` project.task.delegate.batch``, ..."
 
 #: ../../reference/guidelines.rst:915
 msgid ""

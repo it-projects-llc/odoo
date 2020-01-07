@@ -128,8 +128,7 @@ msgstr ""
 "форме, поэтому мне пришлось его раскошелиться. Питаясь исходным файлом "
 "javascript, pyjsparser_ просто генерирует кучу вложенных диктов, "
 "представляющих Esprima ast, ast-types_ достаточно неплохо описывает его, как"
-" только вы понимаете, что &quot;основы&quot; - это просто структурные "
-"миксины."
+" только вы понимаете, что `основы` - это просто структурные миксины."
 
 #: ../../_extensions/autojsdoc/README.rst:57
 msgid ""
@@ -180,8 +179,8 @@ msgid ""
 "two additional CommentDoc extensions for \"namespaces\" objects (bag of "
 "attributes without any more information) and mixin objects"
 msgstr ""
-"два дополнительных расширения CommentDoc для объектов &quot;пространства "
-"имен&quot; (пакет атрибутов без дополнительной информации) и объектов mixin"
+"два дополнительных расширения CommentDoc для объектов `пространства имен` "
+"(пакет атрибутов без дополнительной информации) и объектов mixin"
 
 #: ../../_extensions/autojsdoc/README.rst:74
 msgid ""
