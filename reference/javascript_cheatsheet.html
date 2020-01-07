@@ -25,8 +25,8 @@
   
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Javascript Reference" href="javascript_reference.html" />
-    <link rel="prev" title="QWeb" href="qweb.html" /> 
+    <link rel="next" title="Ссылка на JavaScript" href="javascript_reference.html" />
+    <link rel="prev" title="Qweb" href="qweb.html" /> 
   </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
@@ -224,7 +224,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#creating-a-new-field-widget" class="reference ripple internal">Creating a new field widget</a></li><li class="list-group-item"><a href="#modifying-an-existing-field-widget" class="reference ripple internal">Modifying an existing field widget</a></li><li class="list-group-item"><a href="#modifying-a-main-widget-from-the-interface" class="reference ripple internal">Modifying a main widget from the interface</a></li><li class="list-group-item"><a href="#creating-a-new-view-from-scratch" class="reference ripple internal">Creating a new view (from scratch)</a></li><li class="list-group-item"><a href="#customizing-an-existing-view" class="reference ripple internal">Customizing an existing view</a></li><li class="list-group-item"><a href="#promises-and-asynchronous-code" class="reference ripple internal">Promises and asynchronous code</a><ul ><li class="list-group-item"><a href="#creating-new-promises" class="reference ripple internal">Creating new Promises</a></li><li class="list-group-item"><a href="#waiting-for-promises" class="reference ripple internal">Waiting for Promises</a></li><li class="list-group-item"><a href="#error-handling" class="reference ripple internal">Error handling</a></li><li class="list-group-item"><a href="#testing-asynchronous-code" class="reference ripple internal">Testing asynchronous code</a></li></ul></li></ul>
+              <ul class="nav list-group text-left"><li class="list-group-item"><a href="#creating-a-new-field-widget" class="reference internal ripple">Создание нового виджета поля</a></li><li class="list-group-item"><a href="#modifying-an-existing-field-widget" class="reference internal ripple">Изменение существующего виджета поля</a></li><li class="list-group-item"><a href="#modifying-a-main-widget-from-the-interface" class="reference internal ripple">Модификация основного виджета из интерфейса</a></li><li class="list-group-item"><a href="#creating-a-new-view-from-scratch" class="reference internal ripple">Создание нового вида (с нуля)</a></li><li class="list-group-item"><a href="#customizing-an-existing-view" class="reference internal ripple">Настройка существующего представления</a></li><li class="list-group-item"><a href="#promises-and-asynchronous-code" class="reference internal ripple">Обещания и асинхронный код</a><ul ><li class="list-group-item"><a href="#creating-new-promises" class="reference internal ripple">Создание новых обещаний</a></li><li class="list-group-item"><a href="#waiting-for-promises" class="reference internal ripple">В ожидании обещаний</a></li><li class="list-group-item"><a href="#error-handling" class="reference internal ripple">Обработка ошибок</a></li><li class="list-group-item"><a href="#testing-asynchronous-code" class="reference internal ripple">Тестирование асинхронного кода</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/reference/javascript_cheatsheet.rst" class="gith-link">
                   Edit on GitHub
@@ -236,26 +236,7 @@
           <article class="doc-body ">
             
             
-  <section id="javascript-cheatsheet"><i id="reference-jscs"></i><p >There are many ways to solve a problem in JavaScript, and in Odoo.  However, the
-Odoo framework was designed to be extensible (this is a pretty big constraint),
-and some common problems have a nice standard solution.  The standard solution
-has probably the advantage of being easy to understand for an odoo developers,
-and will probably keep working when Odoo is modified.</p><p >This document tries to explain the way one could solve some of these issues.
-Note that this is not a reference.  This is just a random collection of recipes,
-or explanations on how to proceed in some cases.</p><p >First of all, remember that the first rule of customizing odoo with JS is:
-<em >try to do it in python</em>.  This may seem strange, but the python framework is
-quite extensible, and many behaviours can be done simply with a touch of xml or
-python.  This has usually a lower cost of maintenance than working with JS:</p><ul ><li >the JS framework tends to change more, so JS code needs to be more frequently
-updated</li><li >it is often more difficult to implement a customized behaviour if it needs to
-communicate with the server and properly integrate with the javascript framework.
-There are many small details taken care by the framework that customized code
-needs to replicate.  For example, responsiveness, or updating the url, or
-displaying data without flickering.</li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >This document does not really explain any concepts. This is more a
-cookbook.  For more details, please consult the javascript reference
-page (see <a href="javascript_reference.html" class="reference alert-link internal"><span class="doc">Javascript Reference</span></a>)</p></div></section><section id="creating-a-new-field-widget"><h2 >Creating a new field widget</h2><p >This is probably a really common usecase: we want to display some information in
-a form view in a really specific (maybe business dependent) way.  For example,
-assume that we want to change the text color depending on some business condition.</p><p >This can be done in three steps: creating a new widget, registering it in the
-field registry, then adding the widget to the field in the form view</p><ul ><li ><dl ><dt >creating a new widget:</dt><dd ><p >This can be done by extending a widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">FieldChar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">).</span><span class="nx">FieldChar</span><span class="p">;</span>
+  <section id="javascript-cheatsheet"><i id="reference-jscs"></i><p >Есть много способов решить проблему как в JavaScript, так и в Odoo. Тем не менее, инфраструктура Odoo была разработана, чтобы быть расширяемой (это довольно большое ограничение), и некоторые распространенные проблемы имеют хорошее стандартное решение. Стандартное решение, вероятно, имеет то преимущество, что его легко понять разработчикам odoo, и, вероятно, оно будет продолжать работать после модификации Odoo.</p><p >Этот документ пытается объяснить, как можно решить некоторые из этих проблем. Обратите внимание, что это не ссылка. Это просто случайная коллекция рецептов или объяснения того, как действовать в некоторых случаях.</p><p >Прежде всего, помните, что первое правило настройки odoo с помощью JS: * попробуйте сделать это в python <a href="#id1"><span id="id2" class="problematic">*</span></a>. Это может показаться странным, но среда Python достаточно расширяема, и многие варианты поведения могут быть реализованы просто с помощью xml или python. Это обычно имеет более низкую стоимость обслуживания, чем работа с JS:</p><ul ><li >среда JS имеет тенденцию меняться больше, поэтому код JS необходимо чаще обновлять</li><li >часто бывает сложнее реализовать настраиваемое поведение, если ему необходимо взаимодействовать с сервером и должным образом интегрироваться в инфраструктуру javascript. Фреймворк требует много мелких деталей, которые нужно реплицировать в настраиваемом коде. Например, отзывчивость, или обновление URL, или отображение данных без мерцания.</li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Этот документ на самом деле не объясняет никаких понятий. Это больше поваренная книга. Для более подробной информации, пожалуйста, обратитесь к справочной странице по javascript (см . <a href="javascript_reference.html" class="alert-link reference internal"><span class="doc">Ссылка на JavaScript</span></a>)</p></div></section><section id="creating-a-new-field-widget"><h2 >Создание нового виджета поля</h2><p >Вероятно, это очень распространенный сценарий использования: мы хотим отображать некоторую информацию в виде формы действительно конкретным (возможно, бизнес-зависимым) способом. Например, предположим, что мы хотим изменить цвет текста в зависимости от бизнес-условий.</p><p >Это можно сделать в три этапа: создать новый виджет, зарегистрировать его в реестре полей, затем добавить виджет в поле в представлении формы.</p><ul ><li ><dl ><dt >Создание нового виджета:</dt><dd ><p >Это можно сделать, расширив виджет:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">FieldChar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">).</span><span class="nx">FieldChar</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">CustomFieldChar</span> <span class="o">=</span> <span class="nx">FieldChar</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">_renderReadonly</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -264,22 +245,15 @@ field registry, then adding the widget to the field in the form view</p><ul ><li
 <span class="p">});</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >registering it in the field registry:</dt><dd ><p >The web client needs to know the mapping between a widget name and its
-actual class.  This is done by a registry:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">fieldRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.field_registry&#39;</span><span class="p">);</span>
+</dd></dl></li><li ><dl ><dt >зарегистрировать его в полевом реестре:</dt><dd ><p >Веб-клиент должен знать соответствие между именем виджета и его фактическим классом. Это делается реестром:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">fieldRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.field_registry&#39;</span><span class="p">);</span>
 
 <span class="nx">fieldRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;my-custom-field&#39;</span><span class="p">,</span> <span class="nx">CustomFieldChar</span><span class="p">);</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >adding the widget in the form view</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;somefield&quot;</span> <span class="na">widget=</span><span class="s">&quot;my-custom-field&quot;</span><span class="nt">/&gt;</span>
+</dd></dl></li><li ><dl ><dt >добавление виджета в виде формы</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;somefield&quot;</span> <span class="na">widget=</span><span class="s">&quot;my-custom-field&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p >Note that only the form, list and kanban views use this field widgets registry.
-These views are tightly integrated, because the list and kanban views can
-appear inside a form view).</p></dd></dl></li></ul></section><section id="modifying-an-existing-field-widget"><h2 >Modifying an existing field widget</h2><p >Another use case is that we want to modify an existing field widget.  For
-example, the voip addon in odoo need to modify the FieldPhone widget to add the
-possibility to easily call the given number on voip. This is done by <em >including</em>
-the FieldPhone widget, so there is no need to change any existing form view.</p><p >Field Widgets (instances of (subclass of) AbstractField) are like every other
-widgets, so they can be monkey patched. This looks like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">basic_fields</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">);</span>
+<p >Обратите внимание, что только поля формы, списка и представления kanban используют это поле реестра виджетов. Эти представления тесно интегрированы, поскольку представления списка и канбана могут отображаться внутри представления формы).</p></dd></dl></li></ul></section><section id="modifying-an-existing-field-widget"><h2 >Изменение существующего виджета поля</h2><p >Другой вариант использования - мы хотим изменить существующий виджет поля. Например, аддон voip в odoo должен изменить виджет FieldPhone, чтобы добавить возможность легко звонить по указанному номеру в voip. Это делается путем * включения * виджета FieldPhone, поэтому нет необходимости изменять какой-либо существующий вид формы.</p><p >Виджеты полей (экземпляры (подкласса) AbstractField), как и все остальные виджеты, могут быть исправлены обезьянами. Это выглядит так:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">basic_fields</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">Phone</span> <span class="o">=</span> <span class="nx">basic_fields</span><span class="p">.</span><span class="nx">FieldPhone</span><span class="p">;</span>
 
 <span class="nx">Phone</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
@@ -297,11 +271,7 @@ widgets, so they can be monkey patched. This looks like this:</p><div class="hig
 <span class="p">});</span>
 </pre></div>
 </div>
-<p >Note that there is no need to add the widget to the registry, since it is already
-registered.</p></section><section id="modifying-a-main-widget-from-the-interface"><h2 >Modifying a main widget from the interface</h2><p >Another common usecase is the need to customize some elements from the user
-interface.  For example, adding a message in the home menu.  The usual process
-in this case is again to <em >include</em> the widget.  This is the only way to do it,
-since there are no registries for those widgets.</p><p >This is usually done with code looking like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">HomeMenu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web_enterprise.HomeMenu&#39;</span><span class="p">);</span>
+<p >Обратите внимание, что нет необходимости добавлять виджет в реестр, так как он уже зарегистрирован.</p></section><section id="modifying-a-main-widget-from-the-interface"><h2 >Модификация основного виджета из интерфейса</h2><p >Другим распространенным вариантом использования является необходимость настройки некоторых элементов из пользовательского интерфейса. Например, добавив сообщение в домашнее меню. Обычный процесс в этом случае снова включает * включение * виджета. Это единственный способ сделать это, поскольку для этих виджетов нет реестров.</p><p >Обычно это делается с помощью кода, похожего на это:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">HomeMenu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web_enterprise.HomeMenu&#39;</span><span class="p">);</span>
 
 <span class="nx">HomeMenu</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
     <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -311,23 +281,19 @@ since there are no registries for those widgets.</p><p >This is usually done wit
 <span class="p">});</span>
 </pre></div>
 </div>
-</section><section id="creating-a-new-view-from-scratch"><h2 >Creating a new view (from scratch)</h2><p >Creating a new view is a more advanced topic.  This cheatsheet will only
-highlight the steps that will probably need to be done (in no particular order):</p><ul ><li ><p >adding a new view type to the field <code >type</code> of <code >ir.ui.view</code>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">View</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</section><section id="creating-a-new-view-from-scratch"><h2 >Создание нового вида (с нуля)</h2><p >Создание нового представления - более сложная тема. Эта таблица будет только подсвечивать шаги, которые, вероятно, нужно будет выполнить (без определенного порядка):</p><ul ><li ><p >добавление нового типа представления в поле `` type`` из `` ir.ui.view``</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">View</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;ir.ui.view&#39;</span>
 
     <span class="nb">type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">(</span><span class="n">selection_add</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">)])</span>
 </pre></div>
 </div>
-</li><li ><p >adding the new view type to the field <code >view_mode</code> of <code >ir.actions.act_window.view</code>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActWindowView</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</li><li ><p >добавление нового типа представления в поле `` view_mode`` `` ir.actions.act_window.view``</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActWindowView</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;ir.actions.act_window.view&#39;</span>
 
     <span class="n">view_mode</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">(</span><span class="n">selection_add</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">)])</span>
 </pre></div>
 </div>
-</li><li ><dl ><dt >creating the four main pieces which makes a view (in JavaScript):</dt><dd ><p >we need a view (a subclass of <code >AbstractView</code>, this is the factory), a
-renderer (from <code >AbstractRenderer</code>), a controller (from <code >AbstractController</code>)
-and a model (from <code >AbstractModel</code>).  I suggest starting by simply
-extending the superclasses:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AbstractController</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractController&#39;</span><span class="p">);</span>
+</li><li ><dl ><dt >Создание четырех основных частей, из которых создается представление (в JavaScript):</dt><dd ><p >нам нужно представление (подкласс `` AbstractView``, это фабрика), средство визуализации (из `` AbstractRenderer``), контроллер (из `` AbstractController``) и модель (из `` AbstractModel` <a href="#id1"><span id="id2" class="problematic">`</span></a>). Я предлагаю начать с простого расширения суперклассов:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AbstractController</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractController&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">AbstractModel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractModel&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">AbstractRenderer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractRenderer&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">AbstractView</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractView&#39;</span><span class="p">);</span>
@@ -345,17 +311,12 @@ extending the superclasses:</p><div class="highlight-javascript"><div class="hig
 <span class="p">});</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >adding the view to the registry:</dt><dd ><p >As usual, the mapping between a view type and the actual class needs to be
-updated:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
+</dd></dl></li><li ><dl ><dt >добавление представления в реестр:</dt><dd ><p >Как обычно, отображение между типом представления и фактическим классом должно быть обновлено:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
 
 <span class="nx">viewRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="nx">MapView</span><span class="p">);</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >implementing the four main classes:</dt><dd >The <code >View</code> class needs to parse the <code >arch</code> field and setup the other
-three classes.  The <code >Renderer</code> is in charge of representing the data in
-the user interface, the <code >Model</code> is supposed to talk to the server, to
-load data and process it.  And the <code >Controller</code> is there to coordinate,
-to talk to the web client, …</dd></dl></li><li ><dl ><dt >creating some views in the database:</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;customer_map_view&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+</dd></dl></li><li ><dl ><dt >Реализация четырех основных классов:</dt><dd >Класс `` View`` должен проанализировать поле `` arch`` и настроить остальные три класса. «Renderer» отвечает за представление данных в пользовательском интерфейсе, а «Model» должен общаться с сервером, загружать данные и обрабатывать их. И `` Контроллер`` предназначен для координации, общения с веб-клиентом, …</dd></dl></li><li ><dl ><dt >создание некоторых представлений в базе данных:</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;customer_map_view&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>customer.map.view<span class="nt">&lt;/field&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>res.partner<span class="nt">&lt;/field&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
@@ -366,12 +327,7 @@ to talk to the web client, …</dd></dl></li><li ><dl ><dt >creating some views 
 <span class="nt">&lt;/record&gt;</span>
 </pre></div>
 </div>
-</dd></dl></li></ul></section><section id="customizing-an-existing-view"><h2 >Customizing an existing view</h2><p >Assume we need to create a custom version of a generic view.  For example, a
-kanban view with some extra <em >ribbon-like</em> widget on top (to display some
-specific custom information). In that case, this can be done with 3 steps:
-extend the kanban view (which also probably mean extending controllers/renderers
-and/or models), then registering the view in the view registry, and finally,
-using the view in the kanban arch (a specific example is the helpdesk dashboard).</p><ul ><li ><dl ><dt >extending a view:</dt><dd ><p >Here is what it could look like:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">HelpdeskDashboardRenderer</span> <span class="o">=</span> <span class="nx">KanbanRenderer</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</dd></dl></li></ul></section><section id="customizing-an-existing-view"><h2 >Настройка существующего представления</h2><p >Предположим, нам нужно создать собственную версию универсального представления. Например, представление канбан с некоторым дополнительным * ленточным * виджетом сверху (для отображения определенной пользовательской информации). В этом случае это можно сделать за 3 шага: расширить представление канбана (что также, вероятно, означает расширение контроллеров / визуализаторов и / или моделей), затем зарегистрировать представление в реестре представлений и, наконец, использовать представление в арке канбана. (конкретный пример - панель инструментов службы поддержки).</p><ul ><li ><dl ><dt >расширяя вид:</dt><dd ><p >Вот как это может выглядеть:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">HelpdeskDashboardRenderer</span> <span class="o">=</span> <span class="nx">KanbanRenderer</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="p">...</span>
 <span class="p">});</span>
 
@@ -392,17 +348,11 @@ using the view in the kanban arch (a specific example is the helpdesk dashboard)
 <span class="p">});</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >adding it to the view registry:</dt><dd ><p >as usual, we need to inform the web client of the mapping between the name
-of the views and the actual class.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
+</dd></dl></li><li ><dl ><dt >добавив его в реестр просмотра:</dt><dd ><p >как обычно, нам нужно проинформировать веб-клиента о сопоставлении имени представлений и фактического класса.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
 <span class="nx">viewRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;helpdesk_dashboard&#39;</span><span class="p">,</span> <span class="nx">HelpdeskDashboardView</span><span class="p">);</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >using it in an actual view:</dt><dd ><p >we now need to inform the web client that a specific <code >ir.ui.view</code> needs to
-use our new class.  Note that this is a web client specific concern.  From
-the point of view of the server, we still have a kanban view.  The proper
-way to do this is by using a special attribute <code >js_class</code> (which will be
-renamed someday into <code >widget</code>, because this is really not a good name) on
-the root node of the arch:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;helpdesk_team_view_kanban&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span> <span class="nt">&gt;</span>
+</dd></dl></li><li ><dl ><dt >используя его в реальном виде:</dt><dd ><p >Теперь нам нужно сообщить веб-клиенту, что конкретному `` ir.ui.view`` необходимо использовать наш новый класс. Обратите внимание, что это особая проблема веб-клиента. С точки зрения сервера у нас все еще есть представление о канбан. Правильный способ сделать это - использовать специальный атрибут `` js_class`` (который когда-нибудь будет переименован в `` widget``, потому что это действительно не очень хорошее имя) в корневом узле арки:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;helpdesk_team_view_kanban&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span> <span class="nt">&gt;</span>
     ...
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;kanban</span> <span class="na">js_class=</span><span class="s">&quot;helpdesk_dashboard&quot;</span><span class="nt">&gt;</span>
@@ -412,10 +362,7 @@ the root node of the arch:</p><div class="highlight-xml"><div class="highlight">
 <span class="nt">&lt;/record&gt;</span>
 </pre></div>
 </div>
-</dd></dl></li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Note: you can change the way the view interprets the arch structure.  However,
-from the server point of view, this is still a view of the same base type,
-subjected to the same rules (rng validation, for example).  So, your views still
-need to have a valid arch field.</p></div></section><section id="promises-and-asynchronous-code"><h2 >Promises and asynchronous code</h2><p >For a very good and complete introduction to promises, please read this excellent article <a href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md" class="reference external">https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md</a></p></section><section id="creating-new-promises"><h3 >Creating new Promises</h3><ul ><li ><dl ><dt >turn a constant into a promise</dt><dd ><p >There are 2 static functions on Promise that create a resolved or rejected promise based on a constant:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span><span class="nx">blabla</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">});</span> <span class="c1">// creates a resolved promise</span>
+</dd></dl></li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Примечание: вы можете изменить способ, которым представление интерпретирует структуру арки. Однако, с точки зрения сервера, это все еще вид того же базового типа, подчиняющийся тем же правилам (например, валидация rng). Таким образом, ваши представления все еще должны иметь правильное поле арки.</p></div></section><section id="promises-and-asynchronous-code"><h2 >Обещания и асинхронный код</h2><p >Для очень хорошего и полного введения в обещания, пожалуйста, прочитайте эту превосходную статью <a href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md" class="external reference">https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md</a></p></section><section id="creating-new-promises"><h3 >Создание новых обещаний</h3><ul ><li ><dl ><dt >превратить константу в обещание</dt><dd ><p >В Promise есть две статические функции, которые создают разрешенное или отклоненное обещание на основе константы:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span><span class="nx">blabla</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">});</span> <span class="c1">// creates a resolved promise</span>
 <span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// --&gt; {blabla: &#39;1&#39;};</span>
 <span class="p">});</span>
@@ -427,8 +374,7 @@ need to have a valid arch field.</p></div></section><section id="promises-and-as
 <span class="p">});</span>
 </pre></div>
 </div>
-<div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Note that even if the promises are created already resolved or rejected, the <code >then</code> or <code >catch</code> handlers will still be called asynchronously.</p></div></dd></dl></li><li ><dl ><dt >based on an already asynchronous code</dt><dd ><p >Suppose that in a function you must do a rpc, and when it is completed set the result on this.
-The <code >this._rpc</code> is a function that returns a <code >Promise</code>.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">callRpc</span><span class="p">()</span> <span class="p">{</span>
+<div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Обратите внимание, что даже если обещания созданы уже разрешенными или отклоненными, обработчики <code >then</code> или` catch` будут по-прежнему вызываться асинхронно.</p></div></dd></dl></li><li ><dl ><dt >на основе уже асинхронного кода</dt><dd ><p >Предположим, что в функции вы должны выполнить rpc, и когда она будет завершена, установите результат для этого. This._rpc - это функция, которая возвращает Promise.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">callRpc</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_rpc</span><span class="p">(...).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">self</span><span class="p">.</span><span class="nx">myValueFromRpc</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
@@ -436,8 +382,7 @@ The <code >this._rpc</code> is a function that returns a <code >Promise</code>.<
 <span class="p">}</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >for callback based function</dt><dd ><p >Suppose that you were using a function <code >this.close</code> that takes as parameter a callback that is called when the closing is finished.
-Now suppose that you are doing that in a method that must send a promise that is resolved when the closing is finished.</p><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</dd></dl></li><li ><dl ><dt >для функции обратного вызова</dt><dd ><p >Предположим, что вы использовали функцию <code >this.close</code>, которая принимает в качестве параметра обратный вызов, который вызывается по окончании закрытия. Теперь предположим, что вы делаете это в методе, который должен отправить обещание, которое разрешается после завершения закрытия.</p><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -450,14 +395,14 @@ Now suppose that you are doing that in a method that must send a promise that is
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<ul ><li >line 2: we save the <code >this</code> into a variable so that in an inner function, we can access the scope of our component</li><li ><dl ><dt >line 3: we create and return a new promise. The constructor of a promise takes a function as parameter. This function itself has 2 parameters that we called here <code >resolve</code> and <code >reject</code></dt><dd ><ul ><li ><code >resolve</code> is a function that, when called, puts the promise in the resolved state.</li><li ><code >reject</code> is a function that, when called, puts the promise in the rejected state. We do not use reject here and it can be omitted.</li></ul></dd></dl></li><li >line 4: we are calling the function close on our object. It takes a function as parameter (the callback) and it happens that resolve is already a function, so we can pass it directly. To be clearer, we could have written:</li></ul><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
+<ul ><li >строка 2: мы сохраняем this в переменную, чтобы во внутренней функции мы могли получить доступ к области действия нашего компонента</li><li ><dl ><dt >строка 3: мы создаем и возвращаем новое обещание. Конструктор обещания принимает функцию в качестве параметра. Эта функция сама имеет 2 параметра, которые мы назвали здесь <code >resol</code> и` reject`</dt><dd ><ul ><li ><code >resol</code> - это функция, которая при вызове переводит обещание в разрешенное состояние.</li><li ><code >reject</code> - это функция, которая при вызове переводит обещание в отклоненное состояние. Мы не используем отклонение здесь, и это может быть опущено.</li></ul></dd></dl></li><li >строка 4: мы вызываем функцию close для нашего объекта. Он принимает функцию в качестве параметра (обратный вызов), и случается, что resolved уже является функцией, поэтому мы можем передать ее напрямую. Чтобы быть более понятным, мы могли бы написать:</li></ul><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">self</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="nx">resolve</span><span class="p">();</span>
     <span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >creating a promise generator (calling one promise after the other <em >in sequence</em> and waiting for the last one)</dt><dd ><p >Suppose that you need to loop over an array, do an operation <em >in sequence</em> and resolve a promise when the last operation is done.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">doStuffOnArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</dd></dl></li><li ><dl ><dt >создание генератора обещаний (вызов одного обещания за другим * в последовательности * и ожидание последнего)</dt><dd ><p >Предположим, вам нужно зациклить массив, выполнить операцию * в последовательности * и разрешить обещание, когда последняя операция будет выполнена.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">doStuffOnArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
     <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">done</span> <span class="o">=</span> <span class="nx">done</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -468,7 +413,7 @@ Now suppose that you are doing that in a method that must send a promise that is
 <span class="p">}</span>
 </pre></div>
 </div>
-<p >This way, the promise you return is effectively the last promise.</p></dd></dl></li><li ><dl ><dt >creating a promise, then resolving it outside the scope of its definition (anti-pattern)</dt><dd ><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >we do not recommend using this, but sometimes it is useful. Think carefully for alternatives first…</p></div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">...</span>
+<p >Таким образом, обещание, которое вы возвращаете, фактически является последним обещанием.</p></dd></dl></li><li ><dl ><dt >создание обещания, а затем разрешение его вне рамок его определения (анти-шаблон)</dt><dd ><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >мы не рекомендуем использовать это, но иногда это полезно. Сначала тщательно продумайте альтернативы …</p></div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">...</span>
 <span class="kd">var</span> <span class="nx">resolver</span><span class="p">,</span> <span class="nx">rejecter</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">prom</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">){</span>
     <span class="nx">resolver</span> <span class="o">=</span> <span class="nx">resolve</span><span class="p">;</span>
@@ -480,7 +425,7 @@ Now suppose that you are doing that in a method that must send a promise that is
 <span class="nx">rejecter</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">);</span> <span class="c1">// will reject the promise prom with the reason &quot;error&quot;</span>
 </pre></div>
 </div>
-</dd></dl></li></ul></section><section id="waiting-for-promises"><h3 >Waiting for Promises</h3><ul ><li ><dl ><dt >waiting for a number of Promises</dt><dd ><p >if you have multiple promises that all need to be waited, you can convert them into a single promise that will be resolved when all the promises are resolved using Promise.all(arrayOfPromises).</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">prom1</span> <span class="o">=</span> <span class="nx">doSomethingThatReturnsAPromise</span><span class="p">();</span>
+</dd></dl></li></ul></section><section id="waiting-for-promises"><h3 >В ожидании обещаний</h3><ul ><li ><dl ><dt >в ожидании ряда обещаний</dt><dd ><p >если у вас есть несколько обещаний, которые все должны ждать, вы можете преобразовать их в одно обещание, которое будет разрешено, когда все обещания будут разрешены с помощью Promise.all (arrayOfPromises).</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">prom1</span> <span class="o">=</span> <span class="nx">doSomethingThatReturnsAPromise</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">prom2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">constant</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
@@ -495,7 +440,7 @@ Now suppose that you are doing that in a method that must send a promise that is
 <span class="k">return</span> <span class="nx">all</span><span class="p">;</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >waiting for a part of a promise chain, but not another part</dt><dd ><p >If you have an asynchronous process that you want to wait to do something, but you also want to return to the caller before that something is done.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">returnAsSoonAsAsyncProcessIsDone</span><span class="p">()</span> <span class="p">{</span>
+</dd></dl></li><li ><dl ><dt >ожидание части цепочки обещаний, но не другой части</dt><dd ><p >Если у вас есть асинхронный процесс, который вы хотите подождать, чтобы что-то сделать, но вы также хотите вернуться к вызывающей стороне, прежде чем что-то сделать.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">returnAsSoonAsAsyncProcessIsDone</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">prom</span> <span class="o">=</span> <span class="nx">AsyncProcess</span><span class="p">();</span>
     <span class="nx">prom</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resultOfAsyncProcess</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">doSomething</span><span class="p">();</span>
@@ -506,8 +451,7 @@ Now suppose that you are doing that in a method that must send a promise that is
 <span class="p">}</span>
 </pre></div>
 </div>
-</dd></dl></li></ul></section><section id="error-handling"><h3 >Error handling</h3><ul ><li ><dl ><dt >in general in promises</dt><dd ><p >The general idea is that a promise should not be rejected for control flow, but should only be rejected for errors.
-When that is the case, you would have multiple resolutions of your promise with, for instance status codes that you would have to check in the <code >then</code> handlers and a single <code >catch</code> handler at the end of the promise chain.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+</dd></dl></li></ul></section><section id="error-handling"><h3 >Обработка ошибок</h3><ul ><li ><dl ><dt >в общем в обещаниях</dt><dd ><p >Общая идея заключается в том, что обещание не должно быть отклонено для потока управления, а должно быть отклонено только для ошибок. В этом случае у вас будет несколько разрешений вашего обещания с, например, кодами состояния, которые вы должны будете проверить в обработчиках <code >then</code> и одиночном обработчике` catch` в конце цепочки обещаний.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">x</span><span class="p">.</span><span class="nx">y</span><span class="p">();</span>  <span class="c1">// &lt;-- this is an error: x is undefined</span>
     <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
@@ -524,9 +468,7 @@ When that is the case, you would have multiple resolutions of your promise with,
        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>       <span class="c1">// will log the rejected reason of b (2)</span>
 </pre></div>
 </div>
-</dd></dl></li><li ><dl ><dt >in Odoo specifically</dt><dd ><p >In Odoo, it happens that we use promise rejection for control flow, like in mutexes and other concurrency primitives defined in module <code >web.concurrency</code>
-We also want to execute the catch for <em >business</em> reasons, but not when there is a coding error in the definition of the promise or of the handlers.
-For this, we have introduced the concept of <code >guardedCatch</code>. It is called like <code >catch</code> but not when the rejected reason is an error</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">blabla</span><span class="p">()</span> <span class="p">{</span>
+</dd></dl></li><li ><dl ><dt >в Оду конкретно</dt><dd ><p >В Odoo случается, что мы используем отклонение обещания для потока управления, как в мьютексах и других примитивах параллелизма, определенных в модуле <code >web.concurrency</code>. Мы также хотим выполнить перехват по причинам * business <a href="#id1"><span id="id2" class="problematic">*</span></a>, но не в случае ошибки кодирования в определении обещания или обработчиков. Для этого мы ввели понятие <code >guardedCatch</code>. Он вызывается как <code >catch</code>, но не тогда, когда отклоненная причина является ошибкой</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">blabla</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">someCondition</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;someCondition is truthy&quot;</span><span class="p">);</span>
     <span class="p">}</span>
@@ -556,8 +498,7 @@ For this, we have introduced the concept of <code >guardedCatch</code>. It is ca
 <span class="nx">promiseWithError</span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);});</span> <span class="c1">// will be called</span>
 </pre></div>
 </div>
-</dd></dl></li></ul></section><section id="testing-asynchronous-code"><h3 >Testing asynchronous code</h3><ul ><li ><dl ><dt >using promises in tests</dt><dd ><p >In the tests code, we support the latest version of Javascript, including primitives like <code >async</code> and <code >await</code>. This makes using and waiting for promises very easy.
-Most helper methods also return a promise (either by being marked <code >async</code> or by returning a promise directly.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">testUtils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.test_utils&#39;</span><span class="p">);</span>
+</dd></dl></li></ul></section><section id="testing-asynchronous-code"><h3 >Тестирование асинхронного кода</h3><ul ><li ><dl ><dt >используя обещания в тестах</dt><dd ><p >В тестовом коде мы поддерживаем последнюю версию Javascript, включая примитивы, такие как <code >async</code> и` await`. Это делает использование и ожидание обещаний очень легким. Большинство вспомогательных методов также возвращают обещание (либо помечая как «async», либо возвращая обещание напрямую.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">testUtils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.test_utils&#39;</span><span class="p">);</span>
 <span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;My test&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// making the function async has 2 advantages:</span>
     <span class="c1">// 1) it always returns a promise so you don&#39;t need to define `var done = assert.async()`</span>
@@ -605,7 +546,7 @@ Most helper methods also return a promise (either by being marked <code >async</
 <span class="p">});</span>
 </pre></div>
 </div>
-<p >as you can see, the nicer form is to use <code >async/await</code> as it is clearer and shorter to write.</p></dd></dl></li></ul></section>
+<p >Как вы можете видеть, более приятной формой является использование <code >async / await</code>, так как это проще и короче писать.</p></dd></dl></li></ul></section>
 
           </article>
         </div>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
   
-    <title>Updating an Odoo installation &#8212; Документация odoo 13.0</title>
+    <title>Обновление установки Odoo &#8212; Документация odoo 13.0</title>
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/patchqueue.css" />
@@ -25,8 +25,8 @@
   
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Deploying with Content Delivery Networks" href="cdn.html" />
-    <link rel="prev" title="Deploying Odoo" href="deploy.html" /> 
+    <link rel="next" title="Развертывание в сетях доставки контента" href="cdn.html" />
+    <link rel="prev" title="Развертывание Odoo" href="deploy.html" /> 
   </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
@@ -165,7 +165,7 @@
             <li><a href="../index.html">Developer Doc</a></li>
         
     
-    <li class="active"><a href="#">Updating an Odoo installation</a></li>
+    <li class="active"><a href="#">Обновление установки Odoo</a></li>
 
               
           </ol>
@@ -212,7 +212,7 @@
     <figure class="card top has_banner">
       <span class="card-img" style="background-image: url('../_static/banners/installing_odoo.jpg');"></span>
       <div class="container text-center">
-        <h1> Updating an Odoo installation </h1>
+        <h1> Обновление установки Odoo </h1>
       </div>
     </figure>
     
@@ -224,7 +224,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#introduction" class="reference ripple internal">Introduction</a></li><li class="list-group-item"><a href="#in-a-nutshell" class="reference ripple internal">In a nutshell</a></li><li class="list-group-item"><a href="#step-1-download-an-updated-odoo-version" class="reference ripple internal">Step 1: Download an updated Odoo version</a></li><li class="list-group-item"><a href="#step-2-make-a-backup-of-your-database" class="reference ripple internal">Step 2: Make a backup of your database</a></li><li class="list-group-item"><a href="#step-3-install-the-updated-version" class="reference ripple internal">Step 3: Install the updated version</a><ul ><li class="list-group-item"><a href="#packaged-installers" class="reference ripple internal">Packaged Installers</a></li><li class="list-group-item"><a href="#source-install-tarball" class="reference ripple internal">Source Install (Tarball)</a></li><li class="list-group-item"><a href="#source-install-github" class="reference ripple internal">Source Install (Github)</a></li><li class="list-group-item"><a href="#docker" class="reference ripple internal">Docker</a></li></ul></li></ul>
+              <ul class="nav list-group text-left"><li class="list-group-item"><a href="#introduction" class="reference internal ripple">Вступление</a></li><li class="list-group-item"><a href="#in-a-nutshell" class="reference internal ripple">В двух словах</a></li><li class="list-group-item"><a href="#step-1-download-an-updated-odoo-version" class="reference internal ripple">Шаг 1: Загрузите обновленную версию Odoo</a></li><li class="list-group-item"><a href="#step-2-make-a-backup-of-your-database" class="reference internal ripple">Шаг 2: Сделайте резервную копию вашей базы данных</a></li><li class="list-group-item"><a href="#step-3-install-the-updated-version" class="reference internal ripple">Шаг 3. Установите обновленную версию.</a><ul ><li class="list-group-item"><a href="#packaged-installers" class="reference internal ripple">Упакованные установщики</a></li><li class="list-group-item"><a href="#source-install-tarball" class="reference internal ripple">Source Install (Tarball)</a></li><li class="list-group-item"><a href="#source-install-github" class="reference internal ripple">Исходная установка (Github)</a></li><li class="list-group-item"><a href="#docker" class="reference internal ripple">докер</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/setup/update.rst" class="gith-link">
                   Edit on GitHub
@@ -236,70 +236,14 @@
           <article class="doc-body ">
             
             
-  <section id="updating-an-odoo-installation"><i id="setup-update"></i></section><section id="introduction"><h2 >Introduction</h2><p >In order to benefit from the latest improvements, security fixes, bug corrections and
-performance boosts, you may need to update your Odoo installation from time to time.</p><p >This guide only applies when are using Odoo on your own hosting infrastructure.
-If you are using one of the Odoo Cloud solutions, updates are automatically performed for you.</p><p >The terminology surrounding software updates is often confusing, so here are some preliminary
-definitions:</p><dl ><dt >Updating (an Odoo installation)</dt><dd >Refers to the process of obtaining the latest revision of the source code for
-your current Odoo Edition. For example, updating your Odoo Enterprise 13.0 to the
-latest revision.
-This does not directly cause any change to the contents of your Odoo database, and
-can be undone by reinstalling the previous revision of the source code.</dd><dt >Upgrading (an Odoo database)</dt><dd >Refers to a complex data processing operation where the structure and contents of your
-database is permanently altered to make it compatible with a new release of Odoo.
-This operation is irreversible and typically accomplished via Odoo’s
-<a href="https://upgrade.odoo.com" class="reference external">database upgrade service</a>, when you decide to
-switch to a newer release of Odoo.
-Historically, this process has also been known as a «migration» because it involves moving data
-around inside the database, even though the database may end up at the same physical location
-after the upgrade.</dd></dl><p >This page describes the typical steps needed to <em >update</em> an Odoo installation to the latest
-version. If you’d like more information about upgrading a database, please visit the
-<a href="https://upgrade.odoo.com" class="reference external">Odoo Upgrade page</a> instead.</p></section><section id="in-a-nutshell"><h2 >In a nutshell</h2><p >Updating Odoo is accomplished by simply reinstalling the latest version of your Odoo
-Edition on top of your current installation. This will preserve your data without any alteration,
-as long as you do not uninstall PostgreSQL (the database engine that comes with Odoo).</p><p >The main reference for updating is logically our <a href="install.html#setup-install" class="reference internal"><span class="std-ref std">installation guide</span></a>,
-which explains the common installation methods.</p><p >Updating is also most appropriately accomplished by the person who deployed Odoo initially,
-because the procedure is very similar.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >We always recommend to download a complete new up-to-date Odoo version, rather than
-manually applying patches, such as the security patches that come with Security
-Advisories.
-The patches are mainly provided for installations that are heavily customized, or for
-technical personnel who prefer to apply minimal changes temporarily while testing a
-complete update.</p></div></section><section id="step-1-download-an-updated-odoo-version"><h2 >Step 1: Download an updated Odoo version</h2><p >The central download page is <a href="https://www.odoo.com/page/download" class="reference external">https://www.odoo.com/page/download</a>. If you see a «Buy» link for the
-Odoo Enterprise download, make sure you are logged into Odoo.com with the same login that is
-linked to your Odoo Enterprise subscription.</p><p >Alternatively, you can use the unique download link that was included with your Odoo Enterprise
-purchase confirmation email.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Downloading an updated version is not necessary if you installed via Github (see below)</p></div></section><section id="step-2-make-a-backup-of-your-database"><h2 >Step 2: Make a backup of your database</h2><p >The update procedure is quite safe and should not alter you data. However it’s always best to take
-a full database backup before performing any change on your installation, and to store it somewhere
-safe, on a different computer.</p><p >If you have not disabled the database manager screen (see <a href="deploy.html#security" class="reference internal"><span class="std-ref std">here</span></a> why you should), you
-can use it (link at bottom of your database selection screen) to download a backup of your
-database(s). If you disabled it, use the same procedure than for your usual backups.</p></section><section id="step-3-install-the-updated-version"><h2 >Step 3: Install the updated version</h2><p >Choose the method that matches your current installation:</p></section><section id="packaged-installers"><h3 >Packaged Installers</h3><p >If you installed Odoo with an installation package downloaded on our website (the recommended method),
-updating is very simple.
-All you have to do is download the installation package corresponding to your system (see step #1)
-and install it on your server. They are updated daily and include the latest security fixes.
-Usually, you can simply double-click the package to install it on top of the current installation.
-After installing the package, be sure to restart the Odoo service or reboot your server,
-and you’re all set.</p></section><section id="source-install-tarball"><h3 >Source Install (Tarball)</h3><p >If you have originally installed Odoo with the «tarball» version (source code archive), you have
-to replace the installation directory with a newer version. First download the latest tarball
-from Odoo.com. They are updated daily and include the latest security fixes (see step #1)
-After downloading the package, extract it to a temporary location on your server.</p><p >You will get a folder labelled with the version of the source code, for example «odoo-13.0+e.20190719»,
-that contains a folder «odoo.egg-info» and the actual source code folder named «odoo» (for Odoo 10
-and later) or «openerp» for older versions.
-You can ignore the odoo.egg-info folder. Locate the folder where your current installation is deployed,
-and replace it with the newer «odoo» or «openerp» folder that was in the archive you just extracted.</p><p >Be sure to match the folder layout, for example the new «addons» folder included in the source code
-should end up exactly at the same path it was before. Next, watch out for any specific configuration
-files that you may have manually copied or modified in the old folder, and copy them over to the
-new folder.
-Finally, restart the Odoo service or reboot the machine, and you are all set.</p></section><section id="source-install-github"><h3 >Source Install (Github)</h3><p >If you have originally installed Odoo with a full Github clone of the official repositories, the
-update procedure requires you to pull the latest source code via git.
-Change into the directory for each repository (the main Odoo repository, and the Enterprise
-repository), and run the following commands:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span>
+  <section id="updating-an-odoo-installation"><i id="setup-update"></i></section><section id="introduction"><h2 >Вступление</h2><p >Чтобы воспользоваться последними улучшениями, исправлениями безопасности, исправлениями ошибок и повышениями производительности, вам может понадобиться время от времени обновлять установку Odoo.</p><p >Это руководство применимо только в том случае, если вы используете Odoo в вашей собственной хостинг-инфраструктуре. Если вы используете одно из облачных решений Odoo, обновления выполняются автоматически.</p><p >Терминология, связанная с обновлениями программного обеспечения, часто сбивает с толку, поэтому вот несколько предварительных определений:</p><dl ><dt >Обновление (установка Odoo)</dt><dd >Относится к процессу получения последней версии исходного кода для текущей версии Odoo. Например, обновите Odoo Enterprise 13.0 до последней версии. Это напрямую не вызывает каких-либо изменений в содержимом вашей базы данных Odoo и может быть отменено путем переустановки предыдущей версии исходного кода.</dd><dt >Обновление (база данных Odoo)</dt><dd >Относится к сложной операции обработки данных, при которой структура и содержимое вашей базы данных постоянно изменяются, чтобы сделать ее совместимой с новой версией Odoo. Эта операция необратима и обычно выполняется через сервис обновления базы данных Odoo. &lt;<a href="https://upgrade.odoo.com" class="external reference">https://upgrade.odoo.com</a>&gt;`_, когда вы решите перейти на более новую версию Odoo. Исторически этот процесс также известен как «миграция», поскольку он включает перемещение данных внутри базы данных, даже если база данных может оказаться в том же физическом месте после обновления.</dd></dl><p >На этой странице описаны типичные шаги, необходимые для * обновления * установки Odoo до последней версии. Если вам нужна дополнительная информация об обновлении базы данных, посетите страницу «Обновление Odoo» &lt;<a href="https://upgrade.odoo.com" class="external reference">https://upgrade.odoo.com</a>&gt;`_ вместо.</p></section><section id="in-a-nutshell"><h2 >В двух словах</h2><p >Обновление Odoo выполняется простой переустановкой последней версии Odoo Edition поверх текущей установки. Это сохранит ваши данные без каких-либо изменений, если вы не удалите PostgreSQL (ядро базы данных, поставляемое с Odoo).</p><p >Основная ссылка для обновления - логически: ref: <a href="#id1"><span id="id2" class="problematic">`</span></a>руководство по установке &lt;setup/install&gt; <a href="#id3"><span id="id4" class="problematic">`</span></a>, которая объясняет общие методы установки.</p><p >Обновление также наиболее подходящим образом выполняется тем, кто изначально развернул Odoo, потому что процедура очень похожа.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Мы всегда рекомендуем загружать полностью новую актуальную версию Odoo, а не устанавливать патчи вручную, например, патчи безопасности, которые поставляются с советами по безопасности. Патчи в основном предоставляются для установок, которые сильно настроены, или для технического персонала, который предпочитает временно применять минимальные изменения при тестировании полного обновления.</p></div></section><section id="step-1-download-an-updated-odoo-version"><h2 >Шаг 1: Загрузите обновленную версию Odoo</h2><p >Центральная страница загрузки - <a href="https://www.odoo.com/page/download" class="external reference">https://www.odoo.com/page/download</a>. Если вы видите ссылку «Купить» для загрузки Odoo Enterprise, убедитесь, что вы вошли на Odoo.com с тем же логином, который связан с вашей подпиской Odoo Enterprise.</p><p >Кроме того, вы можете использовать уникальную ссылку для загрузки, которая была включена в электронное письмо с подтверждением покупки Odoo Enterprise.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Загрузка обновленной версии не требуется, если вы установили через Github (см. Ниже)</p></div></section><section id="step-2-make-a-backup-of-your-database"><h2 >Шаг 2: Сделайте резервную копию вашей базы данных</h2><p >Процедура обновления достаточно безопасна и не должна изменять ваши данные. Однако всегда лучше сделать полную резервную копию базы данных, прежде чем вносить какие-либо изменения в установку, и хранить ее в безопасном месте на другом компьютере.</p><p >Если вы не отключили экран менеджера баз данных (см .: ref: <a href="#id1"><span id="id2" class="problematic">`</span></a>здесь &lt;security&gt; <a href="#id3"><span id="id4" class="problematic">`</span></a>почему вы должны), вы можете использовать его (ссылка внизу экрана выбора базы данных), чтобы загрузить резервную копию вашей базы данных. Если вы отключили его, используйте ту же процедуру, что и для обычных резервных копий.</p></section><section id="step-3-install-the-updated-version"><h2 >Шаг 3. Установите обновленную версию.</h2><p >Выберите метод, который соответствует вашей текущей установке:</p></section><section id="packaged-installers"><h3 >Упакованные установщики</h3><p >Если вы установили Odoo с помощью установочного пакета, загруженного на нашем сайте (рекомендуемый метод), обновление будет очень простым. Все, что вам нужно сделать, это загрузить установочный пакет, соответствующий вашей системе (см. Шаг # 1), и установить его на свой сервер. Они обновляются ежедневно и включают последние исправления безопасности. Обычно вы можете просто дважды щелкнуть пакет, чтобы установить его поверх текущей установки. После установки пакета обязательно перезапустите службу Odoo или перезагрузите сервер, и все готово.</p></section><section id="source-install-tarball"><h3 >Source Install (Tarball)</h3><p >Если вы изначально установили Odoo с версией «tarball» (архив с исходным кодом), вы должны заменить каталог установки более новой версией. Сначала загрузите последнюю версию tarball с Odoo.com. Они обновляются ежедневно и включают последние исправления безопасности (см. Шаг # 1). После загрузки пакета извлеките его во временную папку на вашем сервере.</p><p >Вы получите папку, помеченную версией исходного кода, например, «odoo-13.0 + e.20190719», которая содержит папку «odoo.egg-info» и фактическую папку исходного кода с именем «odoo» (для Odoo 10 и позже) или &amp;quot;openerp&amp;quot; для более старых версий. Вы можете игнорировать папку odoo.egg-info. Найдите папку, в которой развернута ваша текущая установка, и замените ее более новой папкой «odoo» или «openerp», которая была в только что извлеченном архиве.</p><p >Убедитесь, что вы соответствуете макету папки, например, новая папка «addons», включенная в исходный код, должна в точности соответствовать тому же пути, что и раньше. Затем обратите внимание на любые конкретные файлы конфигурации, которые вы, возможно, вручную скопировали или изменили в старой папке, и скопируйте их в новую папку. Наконец, перезапустите службу Odoo или перезагрузите компьютер, и все готово.</p></section><section id="source-install-github"><h3 >Исходная установка (Github)</h3><p >Если вы изначально установили Odoo с полным клоном Github официальных репозиториев, процедура обновления требует, чтобы вы извлекли последний исходный код через git. Перейдите в каталог для каждого репозитория (основной репозиторий Odoo и репозиторий Enterprise) и выполните следующие команды:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span>
 <span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="n">autostash</span>
 </pre></div>
 </div>
-<p >The last command may encounter source code conflicts if you had edited the Odoo source code locally.
-The error message will give you the list of files with conflicts, and you will need to resolve
-the conflicts manually, by editing them and deciding which part of the code to keep.</p><p >Alternatively, if you prefer to simply discard the conflicting changes and restore the official
-version, you can use the following command:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span>
+<p >Последняя команда может столкнуться с конфликтами исходного кода, если вы редактировали исходный код Odoo локально. Сообщение об ошибке предоставит вам список файлов с конфликтами, и вам нужно будет разрешить конфликты вручную, отредактировав их и решив, какую часть кода оставить.</p><p >В качестве альтернативы, если вы предпочитаете просто отменить конфликтующие изменения и восстановить официальную версию, вы можете использовать следующую команду:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span>
 </pre></div>
 </div>
-<p >Finally, restart the Odoo service or reboot the machine, and you should be done.</p></section><section id="docker"><h3 >Docker</h3><p >Please refer to our <a href="https://hub.docker.com/_/odoo/" class="reference external">Docker image documentation</a> for
-specific update instructions.</p></section>
+<p >Наконец, перезапустите сервис Odoo или перезагрузите компьютер, и все готово.</p></section><section id="docker"><h3 >докер</h3><p >Пожалуйста, обратитесь к нашей <a href="https://hub.docker.com/_/odoo/" class="external reference">документации по докеру</a> для конкретных инструкций по обновлению.</p></section>
 
           </article>
         </div>

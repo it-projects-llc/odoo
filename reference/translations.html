@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
   
-    <title>Translating Modules &#8212; Документация odoo 13.0</title>
+    <title>Перевод модулей &#8212; Документация odoo 13.0</title>
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/patchqueue.css" />
@@ -26,7 +26,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="QWeb Reports" href="reports.html" />
-    <link rel="prev" title="Javascript Reference" href="javascript_reference.html" /> 
+    <link rel="prev" title="Ссылка на JavaScript" href="javascript_reference.html" /> 
   </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
@@ -165,7 +165,7 @@
             <li><a href="../index.html">Developer Doc</a></li>
         
     
-    <li class="active"><a href="#">Translating Modules</a></li>
+    <li class="active"><a href="#">Перевод модулей</a></li>
 
               
           </ol>
@@ -212,7 +212,7 @@
     <figure class="card top has_banner">
       <span class="card-img" style="background-image: url('../_static/banners/translate.jpg');"></span>
       <div class="container text-center">
-        <h1> Translating Modules </h1>
+        <h1> Перевод модулей </h1>
       </div>
     </figure>
     
@@ -224,7 +224,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#exporting-translatable-term" class="reference ripple internal">Exporting translatable term</a></li><li class="list-group-item"><a href="#implicit-exports" class="reference ripple internal">Implicit exports</a></li><li class="list-group-item"><a href="#explicit-exports" class="reference ripple internal">Explicit exports</a><ul ><li class="list-group-item"><a href="#variables" class="reference ripple internal">Variables</a></li><li class="list-group-item"><a href="#blocks" class="reference ripple internal">Blocks</a></li><li class="list-group-item"><a href="#plural" class="reference ripple internal">Plural</a></li><li class="list-group-item"><a href="#read-vs-run-time" class="reference ripple internal">Read vs Run Time</a></li></ul></li></ul>
+              <ul class="nav list-group text-left"><li class="list-group-item"><a href="#exporting-translatable-term" class="reference internal ripple">Экспортируемый переводимый термин</a></li><li class="list-group-item"><a href="#implicit-exports" class="reference internal ripple">Неявный экспорт</a></li><li class="list-group-item"><a href="#explicit-exports" class="reference internal ripple">Явный экспорт</a><ul ><li class="list-group-item"><a href="#variables" class="reference internal ripple">переменные</a></li><li class="list-group-item"><a href="#blocks" class="reference internal ripple">Блоки</a></li><li class="list-group-item"><a href="#plural" class="reference internal ripple">множественное число</a></li><li class="list-group-item"><a href="#read-vs-run-time" class="reference internal ripple">Читать против времени выполнения</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/reference/translations.rst" class="gith-link">
                   Edit on GitHub
@@ -236,49 +236,19 @@
           <article class="doc-body ">
             
             
-  <section id="translating-modules"><i id="reference-translations"></i><p >This section explains how to provide translation abilities to your module.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >If you want to contribute to the translation of Odoo itself, please refer to the
-<a href="https://github.com/odoo/odoo/wiki/Translations" class="reference external alert-link">Odoo Wiki page</a>.</p></div></section><section id="exporting-translatable-term"><h2 >Exporting translatable term</h2><p >A number of terms in your modules are «implicitly translatable» as a result,
-even if you haven’t done any specific work towards translation you can export
-your module’s translatable terms and may find content to work with.</p><p >Translations export is performed via the administration interface by logging into
-the backend interface and opening <span class="menuselection">Settings ‣ Translations
-‣ Import / Export ‣ Export Translations</span></p><ul ><li >leave the language to the default (new language/empty template)</li><li >select the <a href="https://en.wikipedia.org/wiki/Gettext#Translating" class="reference external">PO File</a> format</li><li >select your module</li><li >click <span class="guilabel">Export</span> and download the file</li></ul><a href="../_images/po-export.png" class="reference internal"><img src="../_images/po-export.png" class="center-block img-responsive"></a><p >This gives you a file called <code class="file"><em >yourmodule</em>.pot</code> which should be moved to
-the <code class="file"><em >yourmodule</em>/i18n/</code> directory. The file is a <em >PO Template</em> which
-simply lists translatable strings and from which actual translations (PO files)
-can be created. PO files can be created using <a href="https://www.gnu.org/software/gettext/manual/gettext.html#Creating" class="reference external">msginit</a>, with a dedicated
-translation tool like <a href="https://poedit.net/" class="reference external">POEdit</a> or by simply copying the template to a new file
-called <code class="file"><em >language</em>.po</code>. Translation files should be put in
-<code class="file"><em >yourmodule</em>/i18n/</code>, next to <code class="file"><em >yourmodule</em>.pot</code>, and will be
-automatically loaded by Odoo when the corresponding language is installed (via
-<span class="menuselection">Settings ‣ Translations ‣ Languages</span>)</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >translations for all loaded languages are also installed or updated
-when installing or updating a module</p></div></section><section id="implicit-exports"><h2 >Implicit exports</h2><p >Odoo automatically exports translatable strings from «data»-type content:</p><ul ><li >in non-QWeb views, all text nodes are exported as well as the content of
-the <code >string</code>, <code >help</code>, <code >sum</code>, <code >confirm</code> and <code >placeholder</code>
-attributes</li><li >QWeb templates (both server-side and client-side), all text nodes are
-exported except inside <code >t-translation=&quot;off&quot;</code> blocks, the content of the
-<code >title</code>, <code >alt</code>, <code >label</code> and <code >placeholder</code> attributes are also
-exported</li><li ><p >for <a href="orm.html#odoo.fields.Field" title="odoo.fields.Field" class="reference internal"><code class="xref py-class py">Field</code></a>, unless their model is marked with
-<code >_translate = False</code>:</p><ul ><li >their <code >string</code> and <code >help</code> attributes are exported</li><li >if <code >selection</code> is present and a list (or tuple), it’s exported</li><li >if their <code >translate</code> attribute is set to <code >True</code>, all of their existing
-values (across all records) are exported</li></ul></li><li >help/error messages of <code class="py-attr xref py">_constraints</code> and
-<code class="py-attr xref py">_sql_constraints</code> are exported</li></ul></section><section id="explicit-exports"><h2 >Explicit exports</h2><p >When it comes to more «imperative» situations in Python code or Javascript
-code, Odoo cannot automatically export translatable terms so they
-must be marked explicitly for export. This is done by wrapping a literal
-string in a function call.</p><p >In Python, the wrapping function is <code class="xref py-func py">odoo._()</code>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
+  <section id="translating-modules"><i id="reference-translations"></i><p >В этом разделе объясняется, как предоставить переводческие возможности вашему модулю.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Если вы хотите внести свой вклад в перевод самого Odoo, пожалуйста, обратитесь к странице <a href="https://github.com/odoo/odoo/wiki/Translations" class="alert-link external reference">Odoo Wiki</a>.</p></div></section><section id="exporting-translatable-term"><h2 >Экспортируемый переводимый термин</h2><p >В результате ряд терминов в ваших модулях «неявно переводим», даже если вы не выполнили какую-либо конкретную работу по переводу, вы можете экспортировать переводимые термины вашего модуля и найти контент для работы.</p><p >Экспорт переводов выполняется через интерфейс администрирования, войдя в интерфейс бэкэнда и открыв: menuselection: <a href="#id1"><span id="id2" class="problematic">`</span></a>Настройки -&amp;gt; Переводы -&amp;gt; Импорт / Экспорт -&amp;gt; Экспорт переводов&amp;quot;</p><ul ><li >оставить язык по умолчанию (новый язык / пустой шаблон)</li><li >выберите формат <a href="https://en.wikipedia.org/wiki/Gettext#Translating" class="external reference">PO File</a></li><li >выберите свой модуль</li><li >нажмите: guilabel: <code >Export</code> и загрузите файл</li></ul><a href="../_images/po-export.png" class="reference internal"><img src="../_images/po-export.png" class="img-responsive center-block"></a><p >Это дает вам файл с именем: file: <code >{yourmodule} .pot</code>, который следует переместить в каталог: file:` {yourmodule} / i18n / <code >. Файл представляет собой * PO Template *, в котором просто перечисляются переводимые строки и из которого можно создавать фактические переводы (PO-файлы). PO-файлы могут быть созданы с помощью msginit_, с помощью специального инструмента перевода, такого как POEdit_, или просто скопировав шаблон в новый файл с именем: file: `{language} .po</code>. Файлы перевода должны быть помещены в: file: <code >{yourmodule} / i18n /</code>, рядом с: file: <code >{yourmodule} .pot</code>, и будут автоматически загружаться Odoo при установке соответствующего языка (через <span class="menuselection">Settings ‣ Translations ‣ Languages</span>)</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >переводы для всех загруженных языков также устанавливаются или обновляются при установке или обновлении модуля</p></div></section><section id="implicit-exports"><h2 >Неявный экспорт</h2><p >Odoo автоматически экспортирует переводимые строки из содержимого типа «данные»:</p><ul ><li >в представлениях, отличных от QWeb, экспортируются все текстовые узлы, а также содержимое атрибутов `` string``, `` help``, `` sum``, `` verify`` и `` placeholder``</li><li >Шаблоны QWeb (как на стороне сервера, так и на стороне клиента), экспортируются все текстовые узлы, кроме внутри блоков `` t-translation = &amp;quot;off&amp;quot; <code >, содержимого `` title</code>, `` alt``, ` Атрибуты <code >label`</code> и` <code >placeholder`</code> также экспортируются</li><li ><p >for: class: <code >~ odoo.fields.Field</code>, если их модель не помечена как` <code >_translate = False`</code>:</p><ul ><li >их атрибуты `` string`` и `` help`` экспортируются</li><li >если присутствует `` selection`` и список (или кортеж), он экспортируется</li><li >если их атрибут `` translate`` установлен на `` True``, все их существующие значения (по всем записям) экспортируются</li></ul></li><li >Справка / сообщения об ошибках: attr: <code >~ odoo.models.Model._constraints</code> и: attr:` ~ odoo.models.Model._sql_constraints` экспортируются</li></ul></section><section id="explicit-exports"><h2 >Явный экспорт</h2><p >Когда дело доходит до более «императивных» ситуаций в коде Python или коде Javascript, Odoo не может автоматически экспортировать переводимые термины, поэтому они должны быть явно помечены для экспорта. Это делается путем переноса литеральной строки в вызов функции.</p><p >В Python функция обтекания выглядит так: func: <code >odoo._</code></p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p >In JavaScript, the wrapping function is generally <code class="js xref js-func">odoo.web._t()</code>:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">title</span> <span class="o">=</span> <span class="nx">_t</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">);</span>
+<p >В JavaScript функция обертки обычно выглядит так: js: func: <code >odoo.web._t</code>:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">title</span> <span class="o">=</span> <span class="nx">_t</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >Only literal strings can be marked for exports, not expressions or
-variables. For situations where strings are formatted, this means the
-format string must be marked, not the formatted string</p></div><p >The lazy version of <code >_</code> and <code >_t</code> is <code class="xref py-func py">odoo._lt()</code> in python and
-<code class="js xref js-func">odoo.web._lt()</code> in javascript. The translation lookup is executed only
-at rendering and can be used to declare translatable properties in class methods
-of global variables.</p></section><section id="variables"><h3 >Variables</h3><p ><strong >Don’t</strong> the extract may work but it will not translate the text correctly:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Scheduled meeting with </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">invitee</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >Для экспорта могут быть помечены только литеральные строки, а не выражения или переменные. В ситуациях, когда строки форматируются, это означает, что строка формата должна быть помечена, а не форматированная строка</p></div><p >Ленивая версия <code >_</code> и` _t` - это: func: <code >odoo._lt</code> в python и: js: func:` odoo.web._lt` в javascript. Поиск перевода выполняется только при рендеринге и может использоваться для объявления переводимых свойств в методах класса глобальных переменных.</p></section><section id="variables"><h3 >переменные</h3><p >** Не ** экстракт может работать, но он не будет правильно переводить текст</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Scheduled meeting with </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">invitee</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p ><strong >Do</strong> set the dynamic variables outside of the translation lookup:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Scheduled meeting with </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">invitee</span><span class="o">.</span><span class="n">name</span>
+<p >** Do ** установить динамические переменные вне поиска перевода</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Scheduled meeting with </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">invitee</span><span class="o">.</span><span class="n">name</span>
 </pre></div>
 </div>
-</section><section id="blocks"><h3 >Blocks</h3><p ><strong >Don’t</strong> split your translation in several blocks or multiples lines:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># bad, trailing spaces, blocks out of context</span>
+</section><section id="blocks"><h3 >Блоки</h3><p >** Не ** разделяйте ваш перевод на несколько блоков или несколько строк</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># bad, trailing spaces, blocks out of context</span>
 <span class="n">_</span><span class="p">(</span><span class="s2">&quot;You have &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">invoices</span><span class="p">)</span> <span class="o">+</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot; invoices waiting&quot;</span><span class="p">)</span>
 <span class="n">_t</span><span class="p">(</span><span class="s2">&quot;You have &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">invoices</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="n">_t</span><span class="p">(</span><span class="s2">&quot; invoices waiting&quot;</span><span class="p">);</span>
 
@@ -287,7 +257,7 @@ of global variables.</p></section><section id="variables"><h3 >Variables</h3><p 
 <span class="n">_</span><span class="p">(</span><span class="s2">&quot;this sales order request.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p ><strong >Do</strong> keep in one block, giving the full context to translators:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># good, allow to change position of the number in the translation</span>
+<p >** Do ** держите в одном блоке, предоставляя полный контекст для переводчиков</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># good, allow to change position of the number in the translation</span>
 <span class="n">_</span><span class="p">(</span><span class="s2">&quot;You have </span><span class="si">%s</span><span class="s2"> invoices wainting&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">invoices</span><span class="p">)</span>
 <span class="n">_</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">sprintf</span><span class="p">(</span><span class="n">_t</span><span class="p">(</span><span class="s2">&quot;You have </span><span class="si">%s</span><span class="s2"> invoices wainting&quot;</span><span class="p">),</span> <span class="n">invoices</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>
 
@@ -296,18 +266,18 @@ of global variables.</p></section><section id="variables"><h3 >Variables</h3><p 
   <span class="s2">&quot;this sales order request.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section><section id="plural"><h3 >Plural</h3><p ><strong >Don’t</strong> pluralize terms the English-way:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;You have </span><span class="si">%s</span><span class="s2"> invoice&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">invoice_count</span>
+</section><section id="plural"><h3 >множественное число</h3><p >** Не ** множить термины по-английски</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;You have </span><span class="si">%s</span><span class="s2"> invoice&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">invoice_count</span>
 <span class="k">if</span> <span class="n">invoice_count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
   <span class="n">msg</span> <span class="o">+=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p ><strong >Do</strong> keep in mind every language has different plural forms:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">invoice_count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<p >** Имейте в виду, что каждый язык имеет различные формы множественного числа:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">invoice_count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
   <span class="n">msg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;You have </span><span class="si">%s</span><span class="s2"> invoices&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">invoice_count</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="n">msg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;You have </span><span class="si">%s</span><span class="s2"> invoice&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">invoice_count</span>
 </pre></div>
 </div>
-</section><section id="read-vs-run-time"><h3 >Read vs Run Time</h3><p ><strong >Don’t</strong> invoke translation lookup at server launch:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ERROR_MESSAGE</span> <span class="o">=</span> <span class="p">{</span>
+</section><section id="read-vs-run-time"><h3 >Читать против времени выполнения</h3><p >** Не ** вызывать поиск перевода при запуске сервера</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ERROR_MESSAGE</span> <span class="o">=</span> <span class="p">{</span>
   <span class="c1"># bad, evaluated at server launch with no user language</span>
   <span class="s1">&#39;access_error&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;Access Error&#39;</span><span class="p">),</span>
   <span class="s1">&#39;missing_error&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;Missing Record&#39;</span><span class="p">),</span>
@@ -319,7 +289,7 @@ of global variables.</p></section><section id="variables"><h3 >Variables</h3><p 
     <span class="k">raise</span> <span class="n">UserError</span><span class="p">(</span><span class="n">ERROR_MESSAGE</span><span class="p">[</span><span class="n">code</span><span class="p">])</span>
 </pre></div>
 </div>
-<p ><strong >Don’t</strong> invoke translation lookup when the javascript file is read:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># bad, js _t is evaluated too early</span>
+<p >** Не ** вызывать перевод поиска, когда файл JavaScript читается</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># bad, js _t is evaluated too early</span>
 <span class="n">var</span> <span class="n">core</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;web.core&#39;</span><span class="p">);</span>
 <span class="n">var</span> <span class="n">_t</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">_t</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">map_title</span> <span class="o">=</span> <span class="p">{</span>
@@ -328,7 +298,7 @@ of global variables.</p></section><section id="variables"><h3 >Variables</h3><p 
 <span class="p">};</span>
 </pre></div>
 </div>
-<p ><strong >Do</strong> use lazy translation lookup method:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ERROR_MESSAGE</span> <span class="o">=</span> <span class="p">{</span>
+<p >** Используйте ** метод поиска ленивых переводов</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ERROR_MESSAGE</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;access_error&#39;</span><span class="p">:</span> <span class="n">_lt</span><span class="p">(</span><span class="s1">&#39;Access Error&#39;</span><span class="p">),</span>
   <span class="s1">&#39;missing_error&#39;</span><span class="p">:</span> <span class="n">_lt</span><span class="p">(</span><span class="s1">&#39;Missing Record&#39;</span><span class="p">),</span>
 <span class="p">}</span>
@@ -340,7 +310,7 @@ of global variables.</p></section><section id="variables"><h3 >Variables</h3><p 
     <span class="k">raise</span> <span class="n">UserError</span><span class="p">(</span><span class="n">ERROR_MESSAGE</span><span class="p">[</span><span class="n">code</span><span class="p">])</span>
 </pre></div>
 </div>
-<p >or <strong >do</strong> evaluate dynamically the translatable content:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># good, evaluated at run time</span>
+<p >или ** делать ** динамически оценивать переводимый контент</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># good, evaluated at run time</span>
 <span class="k">def</span> <span class="nf">_get_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="n">access_error</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;Access Error&#39;</span><span class="p">),</span>
@@ -348,8 +318,7 @@ of global variables.</p></section><section id="variables"><h3 >Variables</h3><p 
   <span class="p">}</span>
 </pre></div>
 </div>
-<p ><strong >Do</strong> in the case where the translation lookup is done when the JS file is
-<em >read</em>, use <code >_lt</code> instead of <code >_t</code> to translate the term when it is <em >used</em>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># good, js _lt is evaluated lazily</span>
+<p >** Выполните ** в случае, когда поиск перевода выполняется, когда файл JS * read <a href="#id1"><span id="id2" class="problematic">*</span></a>, используйте <code >_lt</code> вместо` _t`, чтобы перевести термин, когда он * используется *</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># good, js _lt is evaluated lazily</span>
 <span class="n">var</span> <span class="n">core</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;web.core&#39;</span><span class="p">);</span>
 <span class="n">var</span> <span class="n">_lt</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">_lt</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">map_title</span> <span class="o">=</span> <span class="p">{</span>

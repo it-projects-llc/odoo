@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
   
-    <title>Deploying with Content Delivery Networks &#8212; Документация odoo 13.0</title>
+    <title>Развертывание в сетях доставки контента &#8212; Документация odoo 13.0</title>
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/patchqueue.css" />
@@ -25,8 +25,8 @@
   
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="From Community to Enterprise" href="enterprise.html" />
-    <link rel="prev" title="Updating an Odoo installation" href="update.html" /> 
+    <link rel="next" title="От сообщества к предприятию" href="enterprise.html" />
+    <link rel="prev" title="Обновление установки Odoo" href="update.html" /> 
   </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
@@ -165,7 +165,7 @@
             <li><a href="../index.html">Developer Doc</a></li>
         
     
-    <li class="active"><a href="#">Deploying with Content Delivery Networks</a></li>
+    <li class="active"><a href="#">Развертывание в сетях доставки контента</a></li>
 
               
           </ol>
@@ -212,7 +212,7 @@
     <figure class="card top has_banner">
       <span class="card-img" style="background-image: url('../_static/banners/cdn.jpg');"></span>
       <div class="container text-center">
-        <h1> Deploying with Content Delivery Networks </h1>
+        <h1> Развертывание в сетях доставки контента </h1>
       </div>
     </figure>
     
@@ -224,7 +224,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#deploying-with-keycdn" class="reference ripple internal">Deploying with KeyCDN</a><ul ><li class="list-group-item"><a href="#step-1-create-a-pull-zone-in-the-keycdn-dashboard" class="reference ripple internal">Step 1: Create a pull zone in the KeyCDN dashboard</a></li><li class="list-group-item"><a href="#step-2-configure-the-odoo-instance-with-your-zone" class="reference ripple internal">Step 2: Configure the odoo instance with your zone</a></li><li class="list-group-item"><a href="#why-should-i-activate-cors" class="reference ripple internal">Why should I activate CORS?</a></li></ul></li></ul>
+              <ul class="nav list-group text-left"><li class="list-group-item"><a href="#deploying-with-keycdn" class="reference internal ripple">Развертывание с помощью KeyCDN</a><ul ><li class="list-group-item"><a href="#step-1-create-a-pull-zone-in-the-keycdn-dashboard" class="reference internal ripple">Шаг 1. Создайте зону извлечения на панели инструментов KeyCDN.</a></li><li class="list-group-item"><a href="#step-2-configure-the-odoo-instance-with-your-zone" class="reference internal ripple">Шаг 2: Настройте экземпляр odoo с вашей зоной</a></li><li class="list-group-item"><a href="#why-should-i-activate-cors" class="reference internal ripple">Почему я должен активировать CORS?</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/setup/cdn.rst" class="gith-link">
                   Edit on GitHub
@@ -236,20 +236,7 @@
           <article class="doc-body ">
             
             
-  <section id="deploying-with-content-delivery-networks"></section><section id="deploying-with-keycdn"><i id="reference-cdn-keycdn"></i><h2 >Deploying with <a href="https://www.keycdn.com" class="reference external">KeyCDN</a></h2><p >This document will guide you through the setup of a <a href="https://www.keycdn.com" class="reference external">KeyCDN</a> account with your
-Odoo powered website.</p></section><section id="step-1-create-a-pull-zone-in-the-keycdn-dashboard"><h3 >Step 1: Create a pull zone in the KeyCDN dashboard</h3><img src="../_images/keycdn_create_a_pull_zone.png" class="img-responsive"><p >When creating the zone, enable the CORS option in the
-<span class="guilabel">advanced features</span> submenu. (more on that later)</p><img src="../_images/keycdn_enable_CORS.png" class="img-responsive"><p >Once done, you’ll have to wait a bit while <a href="https://www.keycdn.com" class="reference external">KeyCDN</a> is crawling your website.</p><img src="../_images/keycdn_progressbar.png" class="img-responsive"><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >a new URL has been generated for your Zone, in this case it is
-<code >http://pulltest-b49.kxcdn.com</code></p></div></section><section id="step-2-configure-the-odoo-instance-with-your-zone"><h3 >Step 2: Configure the odoo instance with your zone</h3><p >In the Odoo back end, go to the <span class="guilabel">Website Settings</span>: menu, then
-activate the CDN support and copy/paste your zone URL in the
-<span class="guilabel">CDN Base URL</span> field. This field is only visible and configurable if
-you have developer mode activated.</p><img src="../_images/odoo_cdn_base_url.png" class="img-responsive"><p >Now your website is using the CDN for the resources matching the
-<span class="guilabel">CDN filters</span> regular expressions.</p><p >You can have a look to the HTML of your website in order to check if the CDN
-integration is properly working.</p><img src="../_images/odoo_check_your_html.png" class="img-responsive"></section><section id="why-should-i-activate-cors"><h3 >Why should I activate CORS?</h3><p >A security restriction in some browsers (Firefox and Chrome at time of writing)
-prevents a remotely linked CSS file to fetch relative resources on this same
-external server.</p><p >If you don’t activate the CORS option in the CDN zone, the more obvious
-resulting problem on a default Odoo website will be the lack of font-awesome
-icons because the font file declared in the font-awesome CSS won’t be loaded on
-the remote server.</p><p >Here’s what you would see on your homepage in such a case:</p><img src="../_images/odoo_font_file_not_loaded.png" class="img-responsive"><p >A security error message will also appear in the browser’s console:</p><img src="../_images/odoo_security_message.png" class="img-responsive"><p >Enabling the CORS option in the CDN fixes this issue.</p></section>
+  <section id="deploying-with-content-delivery-networks"></section><section id="deploying-with-keycdn"><i id="reference-cdn-keycdn"></i><h2 >Развертывание с помощью <a href="#keycdn" class="reference internal">KeyCDN</a></h2><p >Этот документ проведет вас через настройку учетной записи <a href="https://www.keycdn.com" class="external reference">KeyCDN</a> на вашем веб-сайте Odoo.</p></section><section id="step-1-create-a-pull-zone-in-the-keycdn-dashboard"><h3 >Шаг 1. Создайте зону извлечения на панели инструментов KeyCDN.</h3><img src="../_images/keycdn_create_a_pull_zone.png" class="img-responsive"><p >При создании зоны включите опцию CORS в подменю: guilabel: <code >advanced features</code>. (подробнее об этом позже)</p><img src="../_images/keycdn_enable_CORS.png" class="img-responsive"><p >После этого вам придется немного подождать, пока <a href="https://www.keycdn.com" class="external reference">KeyCDN</a> сканирует ваш сайт.</p><img src="../_images/keycdn_progressbar.png" class="img-responsive"><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >для вашей зоны создан новый URL, в данном случае это `` http: // pulltest-b49.kxcdn.com``</p></div></section><section id="step-2-configure-the-odoo-instance-with-your-zone"><h3 >Шаг 2: Настройте экземпляр odoo с вашей зоной</h3><p >В серверной части Odoo перейдите в меню: guilabel: «Настройки сайта»: затем активируйте поддержку CDN и скопируйте / вставьте URL-адрес своей зоны в поле: guilabel: «Базовый URL-адрес CDN». Это поле отображается и настраивается только при активированном режиме разработчика.</p><img src="../_images/odoo_cdn_base_url.png" class="img-responsive"><p >Теперь ваш сайт использует CDN для ресурсов, соответствующих регулярным выражениям: guilabel: <code >CDN filters</code>.</p><p >Вы можете посмотреть HTML-код своего веб-сайта, чтобы проверить, работает ли интеграция CDN.</p><img src="../_images/odoo_check_your_html.png" class="img-responsive"></section><section id="why-should-i-activate-cors"><h3 >Почему я должен активировать CORS?</h3><p >Ограничение безопасности в некоторых браузерах (Firefox и Chrome на момент написания) не позволяет удаленно связанному файлу CSS извлекать относительные ресурсы на этом же внешнем сервере.</p><p >Если вы не активируете опцию CORS в зоне CDN, то более очевидной проблемой, возникающей на веб-сайте Odoo по умолчанию, будет отсутствие значков со шрифтами, потому что файл шрифтов, объявленный в CSS со шрифтами, не будет загружаться на удаленный сервер.</p><p >Вот что вы увидите на своей домашней странице в таком случае:</p><img src="../_images/odoo_font_file_not_loaded.png" class="img-responsive"><p >Сообщение об ошибке безопасности также появится в консоли браузера:</p><img src="../_images/odoo_security_message.png" class="img-responsive"><p >Включение опции CORS в CDN устраняет эту проблему.</p></section>
 
           </article>
         </div>
