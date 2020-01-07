@@ -1,0 +1,952 @@
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Views &#8212; Документация odoo 13.0</title>
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/patchqueue.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script><link rel="canonical" href="" />
+  
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Module Manifests" href="module.html" />
+    <link rel="prev" title="Actions" href="actions.html" /> 
+  </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Views</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/13.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/13.0/index.html">Developer</a></li>
+<li><a href="https://www.odoo.com/documentation/13.0/setup/install.html">Installation</a></li>
+<li><a href="https://odoo.com/slides">eLearning</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/views.jpg');"></span>
+      <div class="container text-center">
+        <h1> Views </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#common-structure" class="reference ripple internal">Common Structure</a></li><li class="list-group-item"><a href="#inheritance" class="reference ripple internal">Inheritance</a><ul ><li class="list-group-item"><a href="#view-matching" class="reference ripple internal">View matching</a></li><li class="list-group-item"><a href="#view-resolution" class="reference ripple internal">View resolution</a></li><li class="list-group-item"><a href="#inheritance-specs" class="reference ripple internal">Inheritance specs</a></li></ul></li><li class="list-group-item"><a href="#lists" class="reference ripple internal">Lists</a></li><li class="list-group-item"><a href="#forms" class="reference ripple internal">Forms</a><ul ><li class="list-group-item"><a href="#structural-components" class="reference ripple internal">Structural components</a></li><li class="list-group-item"><a href="#semantic-components" class="reference ripple internal">Semantic components</a></li></ul></li><li class="list-group-item"><a href="#graphs" class="reference ripple internal">Graphs</a></li><li class="list-group-item"><a href="#pivots" class="reference ripple internal">Pivots</a></li><li class="list-group-item"><a href="#kanban" class="reference ripple internal">Kanban</a></li><li class="list-group-item"><a href="#calendar" class="reference ripple internal">Calendar</a></li><li class="list-group-item"><a href="#gantt" class="reference ripple internal">Gantt</a></li><li class="list-group-item"><a href="#diagram" class="reference ripple internal">Diagram</a></li><li class="list-group-item"><a href="#dashboard" class="reference ripple internal">Dashboard</a></li><li class="list-group-item"><a href="#cohort" class="reference ripple internal">Cohort</a></li><li class="list-group-item"><a href="#activity" class="reference ripple internal">Activity</a></li><li class="list-group-item"><a href="#search" class="reference ripple internal">Search</a><ul ><li class="list-group-item"><a href="#search-defaults" class="reference ripple internal">Search defaults</a></li></ul></li><li class="list-group-item"><a href="#map" class="reference ripple internal">Map</a><ul ><li class="list-group-item"><a href="#api" class="reference ripple internal">Api</a></li><li class="list-group-item"><a href="#reference-views-structural-components" class="reference ripple internal">Structural components</a></li></ul></li><li class="list-group-item"><a href="#qweb" class="reference ripple internal">QWeb</a></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/reference/views.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="views"><i id="reference-views"></i></section><section id="common-structure"><i id="reference-views-structure"></i><h2 >Common Structure</h2><p >View objects expose a number of fields, they are optional unless specified
+otherwise.</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >only useful as a mnemonic/description of the view when looking for one in
+a list of some sort</dd><dt ><code >model</code></dt><dd >the model linked to the view, if applicable</dd><dt ><code >priority</code></dt><dd ><p >client programs can request views by <code >id</code>, or by <code >(model, type)</code>. For
+the latter, all the views for the right type and model will be searched,
+and the one with the lowest <code >priority</code> number will be returned (it is
+the «default view»).</p><p ><code >priority</code> also defines the order of application during <a href="#reference-views-inheritance" class="reference internal"><span class="std-ref std">view
+inheritance</span></a></p></dd><dt ><code >arch</code></dt><dd >the description of the view’s layout</dd><dt ><code >groups_id</code></dt><dd ><a href="orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many" class="reference internal"><code class="xref py-class py">Many2many</code></a> field to the groups allowed to view/use
+the current view</dd><dt ><code >inherit_id</code></dt><dd >the current view’s parent view, see <a href="#reference-views-inheritance" class="reference internal"><span class="std-ref std">Inheritance</span></a>,
+unset by default</dd><dt ><code >mode</code></dt><dd >inheritance mode, see <a href="#reference-views-inheritance" class="reference internal"><span class="std-ref std">Inheritance</span></a>. If
+<code >inherit_id</code> is unset the <code >mode</code> can only be <code >primary</code>. If
+<code >inherit_id</code> is set, <code >extension</code> by default but can be explicitly set
+to <code >primary</code></dd><dt ><code >application</code></dt><dd >website feature defining togglable views. By default, views are always
+applied</dd><dt ><code >banner_route</code></dt><dd ><p >a route address to be fetched and prepended to the view.</p><p >If this attribute is set, the
+<a href="http.html#reference-controllers" class="reference internal"><span class="std-ref std">controller route url</span></a> will be fetched and
+displayed above the view. The json response from the controller should
+contain an «html» key.</p><p >If the html contains a stylesheet &lt;link&gt; tag, it will be
+removed and appended to &lt;head&gt;.</p><p >To interact with the backend you can use &lt;a type=»action»&gt; tags. Please take
+a look at the documentation of the _onActionClicked method of
+AbstractController (<em >addons/web/static/src/js/views/abstract_controller.js</em>)
+for more details.</p><p >Only views extending AbstractView and AbstractController can use this
+attribute, like <a href="#reference-views-form" class="reference internal"><span class="std-ref std">Forms</span></a>, <a href="#reference-views-kanban" class="reference internal"><span class="std-ref std">Kanban</span></a>,
+<a href="#reference-views-list" class="reference internal"><span class="std-ref std">Lists</span></a>, …</p><p >Example:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;tree</span> <span class="na">banner_route=</span><span class="s">&quot;/module_name/hello&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+    <span class="nd">@http</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/module_name/hello&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                &lt;div&gt;</span>
+<span class="s2">                    &lt;link href=&quot;/module_name/static/src/css/banner.css&quot;</span>
+<span class="s2">                        rel=&quot;stylesheet&quot;&gt;</span>
+<span class="s2">                    &lt;h1&gt;hello, world&lt;/h1&gt;</span>
+<span class="s2">                &lt;/div&gt; &quot;&quot;&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl></section><section id="inheritance"><i id="reference-views-inheritance"></i><h2 >Inheritance</h2></section><section id="view-matching"><h3 >View matching</h3><ul ><li >if a view is requested by <code >(model, type)</code>, the view with the right model
+and type, <code >mode=primary</code> and the lowest priority is matched</li><li >when a view is requested by <code >id</code>, if its mode is not <code >primary</code> its
+<em >closest</em> parent with mode <code >primary</code> is matched</li></ul></section><section id="view-resolution"><h3 >View resolution</h3><p >Resolution generates the final <code >arch</code> for a requested/matched <code >primary</code>
+view:</p><ol ><li >if the view has a parent, the parent is fully resolved then the current
+view’s inheritance specs are applied</li><li >if the view has no parent, its <code >arch</code> is used as-is</li><li >the current view’s children with mode <code >extension</code> are looked up  and their
+inheritance specs are applied depth-first (a child view is applied, then
+its children, then its siblings)</li></ol><p >The result of applying children views yields the final <code >arch</code></p></section><section id="inheritance-specs"><h3 >Inheritance specs</h3><p >Inheritance specs are comprised of an element locator, to match
+the inherited element in the parent view, and children element that
+will be used to modify the inherited element.</p><p >There are three types of element locators for matching a target element:</p><ul ><li >An <code >xpath</code> element with an <code >expr</code> attribute. <code >expr</code> is an <a href="http://en.wikipedia.org/wiki/XPath" class="reference external">XPath</a>
+expression<a href="#hasclass" id="id1" class="footnote-ref">2</a> applied to the current <code >arch</code>, the first node
+it finds is the match</li><li >a <code >field</code> element with a <code >name</code> attribute, matches the first <code >field</code>
+with the same <code >name</code>. All other attributes are ignored during matching</li><li >any other element: the first element with the same name and identical
+attributes (ignoring <code >position</code> and <code >version</code> attributes) is matched</li></ul><p >The inheritance spec may have an optional <code >position</code> attribute specifying
+how the matched node should be altered:</p><dl ><dt ><code >inside</code> (default)</dt><dd >the content of the inheritance spec is appended to the matched node</dd><dt ><code >replace</code></dt><dd >the content of the inheritance spec replaces the matched node.
+Any text node containing only <code >$0</code> within the contents of the spec will
+be replaced  by a complete copy of the matched node, effectively wrapping
+the matched node.</dd><dt ><code >after</code></dt><dd >the content of the inheritance spec is added to the matched node’s
+parent, after the matched node</dd><dt ><code >before</code></dt><dd >the content of the inheritance spec is added to the matched node’s
+parent, before the matched node</dd><dt ><code >attributes</code></dt><dd ><p >the content of the inheritance spec should be <code >attribute</code> elements
+with a <code >name</code> attribute and an optional body:</p><ul ><li >if the <code >attribute</code> element has a body, a new attributed named
+after its <code >name</code> is created on the matched node with the
+<code >attribute</code> element’s text as value</li><li >if the <code >attribute</code> element has no body, the attribute named after
+its <code >name</code> is removed from the matched node. If no such attribute
+exists, an error is raised</li></ul></dd></dl><p >Additionally, the <code >position</code> <code >move</code> can be used as a direct child of a spec
+with a <code >inside</code>, <code >replace</code>, <code >after</code> or <code >before</code> <code >position</code> attribute
+to move a node.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//@target&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//@node&quot;</span> <span class="na">position=</span><span class="s">&quot;move&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xpath&gt;</span>
+
+<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;target_field&quot;</span> <span class="na">position=</span><span class="s">&quot;after&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;my_field&quot;</span> <span class="na">position=</span><span class="s">&quot;move&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
+</pre></div>
+</div>
+<p >A view’s specs are applied sequentially.</p></section><section id="lists"><i id="reference-views-list"></i><h2 >Lists</h2><p >The root element of list views is <code >&lt;tree&gt;</code><a href="#treehistory" id="id2" class="footnote-ref">3</a>. The list view’s
+root can have the following attributes:</p><dl ><dt ><code >editable</code></dt><dd ><p >by default, selecting a list view’s row opens the corresponding
+<a href="#reference-views-form" class="reference internal"><span class="std-ref std">form view</span></a>. The <code >editable</code> attributes makes
+the list view itself editable in-place.</p><p >Valid values are <code >top</code> and <code >bottom</code>, making <em >new</em> records appear
+respectively at the top or bottom of the list.</p><p >The architecture for the inline <a href="#reference-views-form" class="reference internal"><span class="std-ref std">form view</span></a> is
+derived from the list view. Most attributes valid on a <a href="#reference-views-form" class="reference internal"><span class="std-ref std">form view</span></a>’s fields and buttons are thus accepted by list
+views although they may not have any meaning if the list view is
+non-editable</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >if the <code >edit</code> attribute is set to <code >false</code>, the <code >editable</code> option will be ignored.</p></div></dd><dt ><code >multi_edit</code></dt><dd >editable or not editable list can activate the multi-edition feature by defining
+the multi_edit=1</dd><dt ><code >default_order</code></dt><dd ><p >overrides the ordering of the view, replacing the model’s default order.
+The value is a comma-separated list of fields, postfixed by <code >desc</code> to
+sort in reverse order:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;tree</span> <span class="na">default_order=</span><span class="s">&quot;sequence,name desc&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</dd><dt ><code >decoration-{$name}</code></dt><dd ><p >allow changing the style of a row’s text based on the corresponding
+record’s attributes.</p><p >Values are Python expressions. For each record, the expression is evaluated
+with the record’s attributes as context values and if <code >true</code>, the
+corresponding style is applied to the row. Other context values are
+<code >uid</code> (the id of the current user) and <code >current_date</code> (the current date
+as a string of the form <code >yyyy-MM-dd</code>).</p><p ><code >{$name}</code> can be <code >bf</code> (<code >font-weight: bold</code>), <code >it</code>
+(<code >font-style: italic</code>), or any <a href="https://getbootstrap.com/docs/3.3/components/#available-variations" class="reference external">bootstrap contextual color</a> (<code >danger</code>,
+<code >info</code>, <code >muted</code>, <code >primary</code>, <code >success</code> or <code >warning</code>).</p></dd><dt ><code >create</code>, <code >edit</code>, <code >delete</code>, <code >duplicate</code>, <code >import</code>, <code >export_xlsx</code></dt><dd >allows <em >dis</em>abling the corresponding action in the view by setting the
+corresponding attribute to <code >false</code></dd><dt ><code >limit</code></dt><dd >the default size of a page. It must be a positive integer</dd><dt ><code >groups_limit</code></dt><dd >when the list view is grouped, the default number of groups of a page. It
+must be a position integer</dd><dt ><code >expand</code></dt><dd >when the list view is grouped, automatically open the first level of groups
+if set to true (default: false)</dd></dl><p >Possible children elements of the list view are:</p><dl id="reference-views-list-button"><dt ><code >button</code></dt><dd ><p >displays a button in a list cell</p><dl ><dt ><code >icon</code></dt><dd >icon to use to display the button</dd><dt ><code >string</code></dt><dd ><ul ><li >if there is no <code >icon</code>, the button’s text</li><li >if there is an <code >icon</code>, <code >alt</code> text for the icon</li></ul></dd><dt ><code >type</code></dt><dd ><p >type of button, indicates how it clicking it affects Odoo:</p><dl ><dt ><code >object</code></dt><dd >call a method on the list’s model. The button’s <code >name</code> is the
+method, which is called with the current row’s record id and the
+current context.</dd><dt ><code >action</code></dt><dd >load an execute an <code >ir.actions</code>, the button’s <code >name</code> is the
+database id of the action. The context is expanded with the list’s
+model (as <code >active_model</code>), the current row’s record
+(<code >active_id</code>) and all the records currently loaded in the list
+(<code >active_ids</code>, may be just a subset of the database records
+matching the current search)</dd></dl></dd><dt ><code >name</code></dt><dd >see <code >type</code></dd><dt ><code >args</code></dt><dd >see <code >type</code></dd><dt ><code >attrs</code></dt><dd ><p >dynamic attributes based on record values.</p><p >A mapping of attributes to domains, domains are evaluated in the
+context of the current row’s record, if <code >True</code> the corresponding
+attribute is set on the cell.</p><p >Possible attribute is <code >invisible</code> (hides the button).</p></dd><dt ><code >states</code></dt><dd ><p >shorthand for <code >invisible</code> <code >attrs</code>: a list of states, comma separated,
+requires that the model has a <code >state</code> field and that it is
+used in the view.</p><p >Makes the button <code >invisible</code> if the record is <em >not</em> in one of the
+listed states</p><div role="alert" class="alert-danger alert"><h3 class="alert-title">Опасно</h3><p >Using <code >states</code> in combination with <code >attrs</code> may lead to
+unexpected results as domains are combined with a logical AND.</p></div></dd><dt ><code >context</code></dt><dd >merged into the view’s context when performing the button’s Odoo call</dd><dt ><code >confirm</code></dt><dd >confirmation message to display (and for the user to accept) before
+performing the button’s Odoo call</dd></dl></dd><dt ><code >field</code></dt><dd ><p >defines a column where the corresponding field should be displayed for
+each record. Can use the following attributes:</p><dl ><dt ><code >name</code></dt><dd >the name of the field to display in the current model. A given name
+can only be used once per view</dd><dt ><code >string</code></dt><dd >the title of the field’s column (by default, uses the <code >string</code> of
+the model’s field)</dd><dt ><code >invisible</code></dt><dd >fetches and stores the field, but doesn’t display the column in the
+table. Necessary for fields which shouldn’t be displayed but are
+used by e.g. <code >@colors</code></dd><dt ><code >groups</code></dt><dd >lists the groups which should be able to see the field</dd><dt ><code >widget</code></dt><dd ><p >alternate representations for a field’s display. Possible list view
+values are (among others):</p><dl ><dt ><code >progressbar</code></dt><dd >displays <code >float</code> fields as a progress bar.</dd><dt ><code >handle</code></dt><dd >for <code >sequence</code> (or <code >integer</code>) fields by which records are
+sorted, instead of displaying the field’s value just displays a
+drag&amp;drop icon to reorder records.</dd></dl></dd><dt ><code >sum</code>, <code >avg</code></dt><dd >displays the corresponding aggregate at the bottom of the column. The
+aggregation is only computed on <em >currently displayed</em> records. The
+aggregation operation must match the corresponding field’s
+<code >group_operator</code></dd><dt ><code >attrs</code></dt><dd >dynamic attributes based on record values. Only effects the current
+field, so e.g. <code >invisible</code> will hide the field but leave the same
+field of other records visible, it will not hide the column itself</dd><dt ><code >width</code> (for <code >editable</code>)</dt><dd >when there is no data in the list, the width of a column can be forced
+by setting this attribute. The value can be an absolute width (e.g.
+„100px“), or a relative weight (e.g. „3“, meaning that this column will
+be 3 times larger than the others). Note that when there are records in
+the list, we let the browser automatically adapt the column’s widths
+according to their content, and this attribute is thus ignored.</dd></dl><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >if the list view is <code >editable</code>, any field attribute from the
+<a href="#reference-views-form" class="reference alert-link internal"><span class="std-ref std">form view</span></a> is also valid and will
+be used when setting up the inline form view.</p></div><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >In case of list sub-views (One2many/Many2many display in a form view),
+The attribute <code >column_invisible</code> can be useful to hide a column
+depending on the parent object.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;product_is_late&quot;</span> <span class="na">attrs=</span><span class="s">&quot;{&#39;column_invisible&#39;: [(&#39;parent.has_late_products&#39;, &#39;=&#39;, False)]}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >When a list view is grouped, numeric fields are aggregated and
+displayed for each group.  Also, if there are too many records in
+a group, a pager will appear on the right of the group row. For
+this reason, it is not a good practice to have a numeric field in
+the last column, when the list view is in a situation where it can
+be grouped (it is however fine for x2manys field in a form view:
+they cannot be grouped).</p></div></dd><dt ><code >groupby</code></dt><dd ><p >defines custom headers (with buttons) for the current view when grouping
+records on many2one fields. It is also possible to add <code >field</code>, inside the
+<code >groupby</code> which can be used for modifiers. These fields thus belong on the
+many2one comodel. These extra fields will be fetched in batch.</p><dl ><dt ><code >name</code></dt><dd >the name of a many2one field (on the current model). Custom header will be
+displayed when grouping the view on this field name.</dd></dl><div class="highlight-xml"><div class="highlight"><pre><span></span>&lt;groupby name=&quot;partner_id&quot;&gt;
+  &lt;field name=&quot;name&quot;/&gt; &lt;!-- name of partner_id --&gt;
+    &lt;button type=&quot;edit&quot; name&quot;edit&quot; string=&quot;Edit/&gt;
+    &lt;button type=&quot;object&quot; name=&quot;my_method&quot; string=&quot;Button1&quot;
+      attrs=&quot;{&#39;invisible&#39;: [(&#39;name&#39;, &#39;=&#39;, &#39;Georges&#39;)]}&quot;/&gt;
+&lt;/groupby&gt;
+</pre></div>
+</div>
+<p >A special button (<code >type=&quot;edit&quot;</code>) can be defined to open the many2one form view.</p></dd><dt ><code >control</code></dt><dd ><p >defines custom controls for the current view.</p><p >This makes sense if the parent <code >tree</code> view is inside a One2many field.</p><p >Does not support any attribute, but can have children:</p><dl ><dt ><code >create</code></dt><dd ><p >adds a button to create a new element on the current list.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >If any <code >create</code> is defined, it will overwrite the default
+«add a line» button.</p></div><p >The following attributes are supported:</p><dl ><dt ><code >string</code> (required)</dt><dd >The text displayed on the button.</dd><dt ><code >context</code></dt><dd ><p >This context will be merged into the existing context
+when retrieving the default value of the new record.</p><p >For example it can be used to override default values.</p></dd></dl></dd></dl><p >The following example will override the default «add a line» button
+by replacing it with 3 new buttons:
+«Add a product», «Add a section» and «Add a note».</p><p >«Add a product» will set the field „display_type“ to its default value.</p><p >The two other buttons will set the field „display_type“
+to be respectively „line_section“ and „line_note“.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;control&gt;</span>
+  <span class="nt">&lt;create</span>
+    <span class="na">string=</span><span class="s">&quot;Add a product&quot;</span>
+  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;create</span>
+    <span class="na">string=</span><span class="s">&quot;Add a section&quot;</span>
+    <span class="na">context=</span><span class="s">&quot;{&#39;default_display_type&#39;: &#39;line_section&#39;}&quot;</span>
+  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;create</span>
+    <span class="na">string=</span><span class="s">&quot;Add a note&quot;</span>
+    <span class="na">context=</span><span class="s">&quot;{&#39;default_display_type&#39;: &#39;line_note&#39;}&quot;</span>
+  <span class="nt">/&gt;</span>
+<span class="nt">&lt;/control&gt;</span>
+</pre></div>
+</div>
+</dd></dl></section><section id="forms"><i id="reference-views-form"></i><h2 >Forms</h2><p >Form views are used to display the data from a single record. Their root
+element is <code >&lt;form&gt;</code>. They are composed of regular <a href="http://en.wikipedia.org/wiki/HTML" class="reference external">HTML</a> with additional
+structural and semantic components.</p></section><section id="structural-components"><h3 >Structural components</h3><p >Structural components provide structure or «visual» features with little
+logic. They are used as elements or sets of elements in form views.</p><dl ><dt ><code >notebook</code></dt><dd ><p >defines a tabbed section. Each tab is defined through a <code >page</code> child
+element. Pages can have the following attributes:</p><dl ><dt ><code >string</code> (required)</dt><dd >the title of the tab</dd><dt ><code >accesskey</code></dt><dd >an HTML <a href="http://www.w3.org/TR/html5/editing.html#the-accesskey-attribute" class="reference external">accesskey</a></dd><dt ><code >attrs</code></dt><dd >standard dynamic attributes based on record values</dd></dl><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Note that <code >notebook</code> should not be placed within <code >group</code></p></div></dd><dt ><code >group</code></dt><dd ><p >used to define column layouts in forms. By default, groups define 2 columns
+and most direct children of groups take a single column. <code >field</code> direct
+children of groups display a label by default, and the label and the field
+itself have a colspan of 1 each.</p><p >The number of columns in a <code >group</code> can be customized using the <code >col</code>
+attribute, the number of columns taken by an element can be customized using
+<code >colspan</code>.</p><p >Children are laid out horizontally (tries to fill the next column before
+changing row).</p><p >Groups can have a <code >string</code> attribute, which is displayed as the group’s
+title</p></dd><dt ><code >newline</code></dt><dd >only useful within <code >group</code> elements, ends the current row early and
+immediately switches to a new row (without filling any remaining column
+beforehand)</dd><dt ><code >separator</code></dt><dd >small horizontal spacing, with a <code >string</code> attribute behaves as a section
+title</dd><dt ><code >sheet</code></dt><dd >can be used as a direct child to <code >form</code> for a narrower and more responsive
+form layout</dd><dt ><code >header</code></dt><dd >combined with <code >sheet</code>, provides a full-width location above the sheet
+itself, generally used to display workflow buttons and status widgets</dd></dl></section><section id="semantic-components"><h3 >Semantic components</h3><p >Semantic components tie into and allow interaction with the Odoo
+system. Available semantic components are:</p><dl ><dt ><code >button</code></dt><dd ><p >call into the Odoo system, similar to <a href="#reference-views-list-button" class="reference internal"><span class="std-ref std">list view buttons</span></a>. In addition, the following attribute can be
+specified:</p><dl ><dt ><code >special</code></dt><dd >for form views opened in dialogs: <code >save</code> to save the record and close the
+dialog, <code >cancel</code> to close the dialog without saving.</dd></dl></dd><dt ><code >field</code></dt><dd ><p >renders (and allow edition of, possibly) a single field of the current
+record. Using several times a field in a form view is supported and the fields
+can receive different values for modifiers „invisible“ and „readonly“. However,
+the behavior is not guaranteed when several fields exist with different values
+for modifier „required“. Possible attributes of the field node are:</p><dl ><dt ><code >name</code> (mandatory)</dt><dd >the name of the field to render</dd><dt ><code >widget</code></dt><dd >fields have a default rendering based on their type
+(e.g. <a href="orm.html#odoo.fields.Char" title="odoo.fields.Char" class="reference internal"><code class="xref py-class py">Char</code></a>,
+<a href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one" class="reference internal"><code class="xref py-class py">Many2one</code></a>). The <code >widget</code> attributes allows using
+a different rendering method and context.</dd><dt ><code >options</code></dt><dd >JSON object specifying configuration option for the field’s widget
+(including default widgets)</dd><dt ><code >class</code></dt><dd ><p >HTML class to set on the generated element, common field classes are:</p><dl ><dt ><code >oe_inline</code></dt><dd >prevent the usual line break following fields</dd><dt ><code >oe_left</code>, <code >oe_right</code></dt><dd ><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" class="reference external">floats</a> the field to the corresponding direction</dd><dt ><code >oe_read_only</code>, <code >oe_edit_only</code></dt><dd >only displays the field in the corresponding form mode</dd><dt ><code >oe_avatar</code></dt><dd >for image fields, displays images as «avatar» (square, 90x90 maximum
+size, some image decorations)</dd></dl></dd><dt ><code >groups</code></dt><dd >only displays the field for specific users</dd><dt ><code >on_change</code></dt><dd ><p >calls the specified method when this field’s value is edited, can generate
+update other fields or display warnings for the user</p><div class="deprecated"><p ><span class="versionmodified">Не рекомендуется, начиная с версии 8.0: </span>Use <a href="orm.html#odoo.api.onchange" title="odoo.api.onchange" class="reference alert-link internal"><code class="xref py-func py">odoo.api.onchange()</code></a> on the model</p></div></dd><dt ><code >attrs</code></dt><dd >dynamic meta-parameters based on record values</dd><dt ><code >domain</code></dt><dd >for relational fields only, filters to apply when displaying existing
+records for selection</dd><dt ><code >context</code></dt><dd >for relational fields only, context to pass when fetching possible values</dd><dt ><code >readonly</code></dt><dd >display the field in both readonly and edition mode, but never make it
+editable</dd><dt ><code >required</code></dt><dd >generates an error and prevents saving the record if the field doesn’t
+have a value</dd><dt ><code >nolabel</code></dt><dd >don’t automatically display the field’s label, only makes sense if the
+field is a direct child of a <code >group</code> element</dd><dt ><code >placeholder</code></dt><dd >help message to display in <em >empty</em> fields. Can replace field labels in
+complex forms. <em >Should not</em> be an example of data as users are liable to
+confuse placeholder text with filled fields</dd><dt ><code >mode</code></dt><dd >for <a href="orm.html#odoo.fields.One2many" title="odoo.fields.One2many" class="reference internal"><code class="xref py-class py">One2many</code></a>, display mode (view type) to use for
+the field’s linked records. One of <code >tree</code>, <code >form</code>, <code >kanban</code> or
+<code >graph</code>. The default is <code >tree</code> (a list display)</dd><dt ><code >help</code></dt><dd >tooltip displayed for users when hovering the field or its label</dd><dt ><code >filename</code></dt><dd >for binary fields, name of the related field providing the name of the
+file</dd><dt ><code >password</code></dt><dd >indicates that a <a href="orm.html#odoo.fields.Char" title="odoo.fields.Char" class="reference internal"><code class="xref py-class py">Char</code></a> field stores a password and
+that its data shouldn’t be displayed</dd><dt ><code >kanban_view_ref</code></dt><dd >for opening specific kanban view when selecting records from m2o/m2m in mobile
+environment</dd></dl></dd></dl></section><section id="graphs"><i id="reference-views-graph"></i><h2 >Graphs</h2><p >The graph view is used to visualize aggregations over a number of records or
+record groups. Its root element is <code >&lt;graph&gt;</code> which can take the following
+attributes:</p><dl ><dt ><code >type</code></dt><dd >one of <code >bar</code> (default), <code >pie</code> and <code >line</code>, the type of graph to use</dd><dt ><code >stacked</code></dt><dd >only used for <code >bar</code> charts. If present and set to <code >True</code>, stacks bars
+within a group</dd></dl><p >The only allowed element within a graph view is <code >field</code> which can have the
+following attributes:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of a field to use in the view. If used for grouping (rather
+than aggregating)</dd><dt ><code >title</code> (optional)</dt><dd >string displayed on the top of the graph.</dd><dt ><code >type</code></dt><dd ><p >indicates whether the field should be used as a grouping criteria or as an
+aggregated value within a group. Possible values are:</p><dl ><dt ><code >row</code> (default)</dt><dd >groups by the specified field. All graph types support at least one level
+of grouping, some may support more.</dd><dt ><code >col</code></dt><dd >authorized in graph views but only used by pivot tables</dd><dt ><code >measure</code></dt><dd >field to aggregate within a group</dd></dl></dd><dt ><code >interval</code></dt><dd >on date and datetime fields, groups by the specified interval (<code >day</code>,
+<code >week</code>, <code >month</code>, <code >quarter</code> or <code >year</code>) instead of grouping on the
+specific datetime (fixed second resolution) or date (fixed day resolution).</dd></dl><p >The measures are automatically generated from the model fields; only the
+aggregatable fields are used. Those measures are also alphabetically
+sorted on the string of the field.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >graph view aggregations are performed on database content, non-stored
+function fields can not be used in graph views</p></div></section><section id="pivots"><i id="reference-views-pivot"></i><h2 >Pivots</h2><p >The pivot view is used to visualize aggregations as a <a href="http://en.wikipedia.org/wiki/Pivot_table" class="reference external">pivot table</a>. Its root
+element is <code >&lt;pivot&gt;</code> which can take the following attributes:</p><dl ><dt ><code >disable_linking</code></dt><dd >Set to <code >True</code> to remove table cell’s links to list view.</dd><dt ><code >display_quantity</code></dt><dd >Set to <code >true</code> to display the Quantity column by default.</dd><dt ><code >default_order</code></dt><dd ><p >The name of the measure and the order (asc or desc) to use as default order
+in the view.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;pivot</span> <span class="na">default_order=</span><span class="s">&quot;foo asc&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;foo&quot;</span> <span class="na">type=</span><span class="s">&quot;measure&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/pivot&gt;</span>
+</pre></div>
+</div>
+</dd></dl><p >The only allowed element within a pivot view is <code >field</code> which can have the
+following attributes:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of a field to use in the view. If used for grouping (rather
+than aggregating)</dd><dt ><code >string</code></dt><dd >the name that will be used to display the field in the pivot view,
+overrides the default python String attribute of the field.</dd><dt ><code >type</code></dt><dd ><p >indicates whether the field should be used as a grouping criteria or as an
+aggregated value within a group. Possible values are:</p><dl ><dt ><code >row</code> (default)</dt><dd >groups by the specified field, each group gets its own row.</dd><dt ><code >col</code></dt><dd >creates column-wise groups</dd><dt ><code >measure</code></dt><dd >field to aggregate within a group</dd><dt ><code >interval</code></dt><dd >on date and datetime fields, groups by the specified interval (<code >day</code>,
+<code >week</code>, <code >month</code>, <code >quarter</code> or <code >year</code>) instead of grouping on the
+specific datetime (fixed second resolution) or date (fixed day resolution).</dd></dl></dd><dt ><code >invisible</code></dt><dd >if true, the field will not appear either in the active measures nor in the
+selectable measures (useful for fields that do not make sense aggregated,
+such as fields in different units, e.g. € and $).</dd></dl><p >The measures are automatically generated from the model fields; only the
+aggregatable fields are used. Those measures are also alphabetically
+sorted on the string of the field.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >like the graph view, the pivot aggregates data on database content
+which means that non-stored function fields can not be used in pivot views</p></div><p >In Pivot view a <code >field</code> can have a <code >widget</code> attribute to dictate its format.
+The widget should be a field formatter, of which the most interesting are
+<code >date</code>, <code >datetime</code>, <code >float_time</code>, and <code >monetary</code>.</p><p >For instance a timesheet pivot view could be defined as:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;pivot</span> <span class="na">string=</span><span class="s">&quot;Timesheet&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;employee_id&quot;</span> <span class="na">type=</span><span class="s">&quot;row&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;date&quot;</span> <span class="na">interval=</span><span class="s">&quot;month&quot;</span> <span class="na">type=</span><span class="s">&quot;col&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;unit_amount&quot;</span> <span class="na">type=</span><span class="s">&quot;measure&quot;</span> <span class="na">widget=</span><span class="s">&quot;float_time&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/pivot&gt;</span>
+</pre></div>
+</div>
+</section><section id="kanban"><i id="reference-views-kanban"></i><h2 >Kanban</h2><p >The kanban view is a <a href="http://en.wikipedia.org/wiki/Kanban_board" class="reference external">kanban board</a> visualisation: it displays records as
+«cards», halfway between a <a href="#reference-views-list" class="reference internal"><span class="std-ref std">list view</span></a> and a
+non-editable <a href="#reference-views-form" class="reference internal"><span class="std-ref std">form view</span></a>. Records may be grouped
+in columns for use in workflow visualisation or manipulation (e.g. tasks or
+work-progress management), or ungrouped (used simply to visualize records).</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >The kanban view will load and display a maximum of ten columns.
+Any column after that will be closed (but can still be opened by
+the user).</p></div><p >The root element of the Kanban view is <code >&lt;kanban&gt;</code>, it can use the following
+attributes:</p><dl ><dt ><code >default_group_by</code></dt><dd >whether the kanban view should be grouped if no grouping is specified via
+the action or the current search. Should be the name of the field to group
+by when no grouping is otherwise specified</dd><dt ><code >default_order</code></dt><dd >cards sorting order used if the user has not already sorted the records (via
+the list view)</dd><dt ><code >class</code></dt><dd >adds HTML classes to the root HTML element of the Kanban view</dd><dt ><code >examples</code></dt><dd >if set to a key in the <a href="https://github.com/odoo/odoo/blob/99821fdcf89aa66ac9561a972c6823135ebf65c0/addons/web/static/src/js/views/kanban/kanban_examples_registry.js" class="reference external">KanbanExamplesRegistry</a>, examples on column setups will be available in the grouped kanban view. <a href="https://github.com/odoo/odoo/blob/99821fdcf89aa66ac9561a972c6823135ebf65c0/addons/project/static/src/js/project_task_kanban_examples.js#L27" class="reference external">Here</a> is an example of how to define those setups.</dd><dt ><code >group_create</code></dt><dd >whether the «Add a new column» bar is visible or not. Default: true.</dd><dt ><code >group_delete</code></dt><dd >whether groups can be deleted via the context menu. Default: true.</dd><dt ><code >group_edit</code></dt><dd >whether groups can be edited via the context menu. Default: true.</dd><dt ><code >archivable</code></dt><dd >whether records belonging to a column can be archived / restored if an
+<code >active</code> field is defined on the model. Default: true.</dd><dt ><code >quick_create</code></dt><dd >whether it should be possible to create records without switching to the
+form view. By default, <code >quick_create</code> is enabled when the Kanban view is
+grouped by many2one, selection, char or boolean fields, and disabled when not.</dd><dt ><code >records_draggable</code></dt><dd ><p >whether it should be possible to drag records when kanban is grouped. Default: true.</p><p >Set to <code >true</code> to always enable it, and to <code >false</code> to always disable it.</p></dd></dl><p >Possible children of the view element are:</p><dl ><dt ><code >field</code></dt><dd ><p >declares fields to use in kanban <em >logic</em>. If the field is simply displayed in
+the kanban view, it does not need to be pre-declared.</p><p >Possible attributes are:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of the field to fetch</dd></dl></dd><dt ><code >progressbar</code></dt><dd ><p >declares a progressbar element to put on top of kanban columns.</p><p >Possible attributes are:</p><dl ><dt ><code >field</code> (required)</dt><dd >the name of the field whose values are used to subgroup column’s records in
+the progressbar</dd><dt ><code >colors</code> (required)</dt><dd >JSON mapping the above field values to either «danger», «warning», «success»
+or «muted» colors</dd><dt ><code >sum_field</code> (optional)</dt><dd >the name of the field whose column’s records“ values will be summed and
+displayed next to the progressbar (if omitted, displays the total number of
+records)</dd></dl></dd><dt ><code >templates</code></dt><dd ><p >defines a list of <a href="qweb.html#reference-qweb" class="reference internal"><span class="std-ref std">QWeb</span></a> templates. Cards definition may be
+split into multiple templates for clarity, but kanban views <em >must</em> define at
+least one root template <code >kanban-box</code>, which will be rendered once for each
+record.</p><p >The kanban view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="reference internal"><span class="std-ref std">javascript qweb</span></a> and provides the following context variables:</p><dl ><dt ><code >widget</code></dt><dd >the current <code class="js-class js xref">KanbanRecord()</code>, can be used to fetch some
+meta-information. These methods are also available directly in the
+template context and don’t need to be accessed via <code >widget</code></dd><dt ><code >record</code></dt><dd >an object with all the requested fields as its attributes. Each field has
+two attributes <code >value</code> and <code >raw_value</code>, the former is formatted
+according to current user parameters, the latter is the direct value from
+a <a href="orm.html#odoo.models.Model.read" title="odoo.models.Model.read" class="reference internal"><code class="py-meth xref py">read()</code></a> (except for date and datetime fields
+that are <a href="https://github.com/odoo/odoo/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102" class="reference external">formatted according to user’s locale</a>)</dd><dt ><code >context</code></dt><dd >the current context, coming from the action, and the one2many or many2many
+field in the case of a Kanban view embedded in a Form view</dd><dt ><code >user_context</code></dt><dd >self-explanatory</dd><dt ><code >read_only_mode</code></dt><dd >self-explanatory</dd><dt ><code >selection_mode</code></dt><dd ><p >set to true when kanban view is opened in mobile environment from m2o/m2m field
+for selecting records.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >clicking on m2o/m2m field in mobile environment opens kanban view</p></div><h3 >buttons and fields</h3><p >While most of the Kanban templates are standard <a href="qweb.html#reference-qweb" class="reference internal"><span class="std-ref std">QWeb</span></a>, the
+Kanban view processes <code >field</code>, <code >button</code> and <code >a</code> elements specially:</p><ul ><li ><p >by default fields are replaced by their formatted value, unless the
+<code >widget</code> attribute is specified, in which case their rendering and
+behavior depends on the corresponding widget. Possible values are (among
+others):</p><dl ><dt ><code >handle</code></dt><dd >for <code >sequence</code> (or <code >integer</code>) fields by which records are
+sorted, allows to drag&amp;drop records to reorder them.</dd></dl></li><li ><p >buttons and links with a <code >type</code> attribute become perform Odoo-related
+operations rather than their standard HTML function. Possible types are:</p><dl ><dt ><code >action</code>, <code >object</code></dt><dd >standard behavior for <a href="#reference-views-list-button" class="reference internal"><span class="std-ref std">Odoo buttons</span></a>, most attributes relevant to standard
+Odoo buttons can be used.</dd><dt ><code >open</code></dt><dd >opens the card’s record in the form view in read-only mode</dd><dt ><code >edit</code></dt><dd >opens the card’s record in the form view in editable mode</dd><dt ><code >delete</code></dt><dd >deletes the card’s record and removes the card</dd></dl></li></ul></dd></dl></dd></dl><p >If you need to extend the Kanban view, see :js:class::<code >the JS API &lt;KanbanRecord&gt;</code>.</p></section><section id="calendar"><i id="reference-views-calendar"></i><h2 >Calendar</h2><p >Calendar views display records as events in a daily, weekly or monthly
+calendar. Their root element is <code >&lt;calendar&gt;</code>. Available attributes on the
+calendar view are:</p><dl ><dt ><code >date_start</code> (required)</dt><dd >name of the record’s field holding the start date for the event</dd><dt ><code >date_stop</code></dt><dd >name of the record’s field holding the end date for the event, if
+<code >date_stop</code> is provided records become movable (via drag and drop)
+directly in the calendar</dd><dt ><code >date_delay</code></dt><dd >alternative to <code >date_stop</code>, provides the duration of the event instead of
+its end date (unit: day)</dd><dt ><code >color</code></dt><dd >name of a record field to use for <em >color segmentation</em>. Records in the
+same color segment are allocated the same highlight color in the calendar,
+colors are allocated semi-randomly.
+Displayed the display_name/avatar of the visible record in the sidebar</dd><dt ><code >form_view_id</code></dt><dd >view to open when the user create or edit an event. Note that if this attribute
+is not set, the calendar view will fall back to the id of the form view in the
+current action, if any.</dd><dt ><code >event_open_popup</code></dt><dd >If the option „event_open_popup“ is set to true, then the calendar view will
+open events (or records) in a FormViewDialog. Otherwise, it will open events
+in a new form view (with a do_action)</dd><dt ><code >quick_add</code></dt><dd >enables quick-event creation on click: only asks the user for a <code >name</code>
+and tries to create a new event with just that and the clicked event
+time. Falls back to a full form dialog if the quick creation fails</dd><dt ><code >all_day</code></dt><dd >name of a boolean field on the record indicating whether the corresponding
+event is flagged as day-long (and duration is irrelevant)</dd><dt ><code >mode</code></dt><dd >Default display mode when loading the calendar.
+Possible attributes are: <code >day</code>, <code >week</code>, <code >month</code></dd><dt ><code >&lt;field&gt;</code></dt><dd ><p >declares fields to aggregate or to use in kanban <em >logic</em>. If the field is
+simply displayed in the calendar cards.</p><p >Fields can have additional attributes:</p><blockquote ><dl ><dt ><code >invisible</code></dt><dd >use «True» to hide the value in the cards</dd><dt ><code >avatar_field</code></dt><dd >only for x2many field, to display the avatar instead the display_name
+in the cards</dd><dt ><code >write_model</code> and <code >write_field</code></dt><dd >you can add a filter and save the result in the defined model, the
+filter is added in the sidebar</dd></dl></blockquote></dd><dt ><code >templates</code></dt><dd ><p >defines the <a href="qweb.html#reference-qweb" class="reference internal"><span class="std-ref std">QWeb</span></a> template <code >calendar-box</code>. Cards definition
+may be split into multiple templates for clarity which will be rendered once
+for each record.</p><p >The kanban view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="reference internal"><span class="std-ref std">javascript qweb</span></a> and provides the following context variables:</p><dl ><dt ><code >widget</code></dt><dd >the current <code class="js-class js xref">KanbanRecord()</code>, can be used to fetch some
+meta-information. These methods are also available directly in the
+template context and don’t need to be accessed via <code >widget</code>
+<code >getColor</code> to convert in a color integer
+<code >getAvatars</code> to convert in an avatar image
+<code >displayFields</code> list of not invisible fields</dd><dt ><code >record</code></dt><dd >an object with all the requested fields as its attributes. Each field has
+two attributes <code >value</code> and <code >raw_value</code></dd><dt ><code >event</code></dt><dd >the calendar event object</dd><dt ><code >format</code></dt><dd >format method to convert values into a readable string with the user
+parameters</dd><dt ><code >fields</code></dt><dd >definition of all model fields
+parameters</dd><dt ><code >user_context</code></dt><dd >self-explanatory</dd><dt ><code >read_only_mode</code></dt><dd >self-explanatory</dd></dl></dd></dl></section><section id="gantt"><i id="reference-views-gantt"></i><h2 >Gantt</h2><p >Gantt views appropriately display Gantt charts (for scheduling).</p><p >The root element of gantt views is <code >&lt;gantt/&gt;</code>, it has no children but can
+take the following attributes:</p><dl ><dt ><code >date_start</code> (required)</dt><dd >name of the field providing the start datetime of the event for each
+record.</dd><dt ><code >date_stop</code> (required)</dt><dd >name of the field providing the end duration of the event for each
+record.</dd><dt ><code >color</code></dt><dd >name of the field used to color the pills according to its value</dd><dt ><code >decoration-{$name}</code></dt><dd ><p >allow changing the style of a row’s text based on the corresponding
+record’s attributes.</p><p >Values are Python expressions. For each record, the expression is evaluated
+with the record’s attributes as context values and if <code >true</code>, the
+corresponding style is applied to the row. Other context values are
+<code >uid</code> (the id of the current user) and <code >current_date</code> (the current date
+as a string of the form <code >yyyy-MM-dd</code>).</p><p ><code >{$name}</code> can be any <a href="https://getbootstrap.com/docs/3.3/components/#available-variations" class="reference external">bootstrap contextual color</a> (<code >danger</code>,
+<code >info</code>, <code >muted</code>, <code >primary</code>, <code >success</code> or <code >warning</code>).</p></dd><dt ><code >default_group_by</code></dt><dd >name of a field to group tasks by</dd><dt ><code >consolidation</code></dt><dd >field name to display consolidation value in record cell</dd><dt ><code >consolidation_max</code></dt><dd >dictionnary with the «group by» field as key and the maximum consolidation
+value that can be reached before displaying the cell in red
+(e.g. <code >{&quot;user_id&quot;: 100}</code>)</dd><dt ><code >consolidation_exclude</code></dt><dd >name of the field that describes if the task has to be excluded
+from the consolidation
+if set to true it displays a striped zone in the consolidation line</dd><dt ><code >create</code>, <code >edit</code>, <code >plan</code></dt><dd >allows <em >dis</em>abling the corresponding action in the view by setting the
+corresponding attribute to <code >false</code>. If <code >create</code> is enabled, a «+» button
+will be displayed while hovering each time slot to create a new record in
+that slot, and if <code >edit</code> is enabled, a «magnifying glass» button will be
+displayed to plan records into that time slot.</dd><dt ><code >offset</code></dt><dd >Depending on the scale, the number of units to add to today to compute the
+default period. Examples: An offset of +1 in default_scale week will open the
+gantt view for next week, and an offset of -2 in default_scale month will open
+the gantt view of 2 months ago.</dd><dt ><code >progress</code></dt><dd >name of a field providing the completion percentage for the record’s event,
+between 0 and 100</dd><dt ><code >string</code></dt><dd >title of the gantt view</dd><dt ><code >precision</code></dt><dd ><p >JSON object specifying snapping precisions for the pills in each scale.</p><ul ><li ><p >Possible values for scale <code >day</code> are (default: <code >hour</code>):</p><p ><code >hour</code>: records times snap to full hours (ex: 7:12 becomes 8:00)</p><p ><code >hour:half</code>: records times snap to half hours (ex: 7:12 becomes 7:30)</p><p ><code >hour:quarter</code>: records times snap to half hours (ex: 7:12 becomes 7:15)</p></li><li ><p >Possible values for scale <code >week</code> are (default: <code >day:half</code>):</p><p ><code >day</code>: records times snap to full days (ex: 7:28 AM becomes 11:59:59 PM)</p><p ><code >day:half</code>: records times snap to half hours (ex: 7:28 AM becomes 12:00 PM)</p></li><li ><p >Possible values for scale <code >month</code> are (default: <code >day:half</code>):</p><p ><code >day</code>: records times snap to full days (ex: 7:28 AM becomes 11:59:59 PM)</p><p ><code >day:half</code>: records times snap to half hours (ex: 7:28 AM becomes 12:00 PM)</p></li><li >Scale <code >year</code> always snap to full day.</li></ul><p >Example of precision attribute: <code >{&quot;day&quot;: &quot;hour:quarter&quot;, &quot;week&quot;: &quot;day:half&quot;, &quot;month&quot;: &quot;day&quot;}</code></p></dd><dt ><code >total_row</code></dt><dd >boolean to control whether the row containing the total count of records should
+be displayed. (default: <code >false</code>)</dd><dt ><code >collapse_first_level</code></dt><dd >boolean to control whether it is possible to collapse each row if grouped by
+one field. (default: <code >false</code>, the collapse starts when grouping by two fields)</dd><dt ><code >display_unavailability</code></dt><dd >boolean to mark the dates returned by the <code >gantt_unavailability</code> function of
+the model as available inside the gantt view. Records can still be scheduled
+in them, but their unavailability is visually displayed. (default: <code >false</code>)</dd><dt ><code >default_scale</code></dt><dd ><p >default scale when rendering the view. Possible values are (default: <code >month</code>):</p><ul ><li ><code >day</code></li><li ><code >week</code></li><li ><code >month</code></li><li ><code >year</code></li></ul></dd><dt ><code >scales</code></dt><dd >comma-separated list of allowed scales for this view. By default, all scales
+are allowed. For possible scale values to use in this list, see <code >default_scale</code>.</dd><dt ><code >templates</code></dt><dd ><p >defines the <a href="qweb.html#reference-qweb" class="reference internal"><span class="std-ref std">QWeb</span></a> template <code >gantt-popover</code> which is used
+when the user hovers over one of the records in the gantt view.</p><p >The gantt view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="reference internal"><span class="std-ref std">javascript qweb</span></a> and provides the following context variables:</p><dl ><dt ><code >widget</code></dt><dd >the current <code class="js-class js xref">GanttRow()</code>, can be used to fetch some
+meta-information. The <code >getColor</code> method to convert in a color integer is
+also available directly in the template context without using <code >widget</code>.</dd></dl><p ><code >on_create</code>
+If specified when clicking the add button on the view, instead of opening a generic dialog, launch a client action.
+this should hold the xmlid of the action (eg: <code >on_create=&quot;%(my_module.my_wizard)d&quot;</code></p></dd><dt ><code >form_view_id</code></dt><dd >view to open when the user create or edit a record. Note that if this attribute
+is not set, the gantt view will fall back to the id of the form view in the
+current action, if any.</dd><dt ><code >thumbnails</code></dt><dd ><p >This allows to display a thumbnail next to groups name if the group is a relationnal field.
+This expects a python dict which keys are the name of the field on the active model.
+Values are the names of the field holding the thumbnail on the related model.</p><p >Example: tasks have a field user_id that reference res.users. The res.users model has a field image that holds the avatar,
+then:</p></dd></dl><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;gantt</span>
+  <span class="na">date_start=</span><span class="s">&quot;date_start&quot;</span>
+  <span class="na">date_stop=</span><span class="s">&quot;date_stop&quot;</span>
+  <span class="na">thumbnails=</span><span class="s">&quot;{&#39;user_id&#39;: &#39;image_128&#39;}&quot;</span>
+<span class="nt">&gt;</span>
+<span class="nt">&lt;/gantt&gt;</span>
+</pre></div>
+</div>
+<p >will display the users avatars next to their names when grouped by user_id</p></section><section id="diagram"><i id="reference-views-diagram"></i><h2 >Diagram</h2><p >The diagram view can be used to display directed graphs of records. The root
+element is <code >&lt;diagram&gt;</code> and takes no attributes.</p><p >Possible children of the diagram view are:</p><dl ><dt ><code >node</code> (required, 1)</dt><dd ><p >Defines the nodes of the graph. Its attributes are:</p><dl ><dt ><code >object</code></dt><dd >the node’s Odoo model</dd><dt ><code >shape</code></dt><dd >conditional shape mapping similar to colors and fonts in <a href="#reference-views-list" class="reference internal"><span class="std-ref std">the list
+view</span></a>. The only valid shape is <code >rectangle</code> (the
+default shape is an ellipsis)</dd><dt ><code >bgcolor</code></dt><dd >same as <code >shape</code>, but conditionally maps a background color for
+nodes. The default background color is white, the only valid alternative
+is <code >grey</code>.</dd></dl></dd><dt ><code >arrow</code> (required, 1)</dt><dd ><p >Defines the directed edges of the graph. Its attributes are:</p><dl ><dt ><code >object</code> (required)</dt><dd >the edge’s Odoo model</dd><dt ><code >source</code> (required)</dt><dd ><a href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one" class="reference internal"><code class="xref py-class py">Many2one</code></a> field of the edge’s model pointing to
+the edge’s source node record</dd><dt ><code >destination</code> (required)</dt><dd ><a href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one" class="reference internal"><code class="xref py-class py">Many2one</code></a> field of the edge’s model pointing to
+the edge’s destination node record</dd><dt ><code >label</code></dt><dd >Python list of attributes (as quoted strings). The corresponding
+attributes’s values will be concatenated and displayed as the edge’s
+label</dd></dl></dd><dt ><code >label</code></dt><dd >Explanatory note for the diagram, the <code >string</code> attribute defines the
+note’s content. Each <code >label</code> is output as a paragraph in the diagram
+header, easily visible but without any special emphasis.</dd></dl></section><section id="dashboard"><i id="reference-views-dashboard"></i><h2 >Dashboard</h2><p >Like pivot and graph view, The dashboard view is used to display aggregate data.
+However, the dashboard can embed sub views, which makes it possible to have a
+more complete and interesting look on a given dataset.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >The Dashboard view is only available in Odoo Enterprise.</p></div><p >The dashboard view can display sub views, aggregates for some fields (over a
+domain), or even <em >formulas</em> (expressions which involves one or more aggregates).
+For example, here is a very simple dashboard:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dashboard&gt;</span>
+    <span class="nt">&lt;view</span> <span class="na">type=</span><span class="s">&quot;graph&quot;</span> <span class="na">ref=</span><span class="s">&quot;sale_report.view_order_product_graph&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;group</span> <span class="na">string=</span><span class="s">&quot;Sale&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;aggregate</span> <span class="na">name=</span><span class="s">&quot;price_total&quot;</span> <span class="na">field=</span><span class="s">&quot;price_total&quot;</span> <span class="na">widget=</span><span class="s">&quot;monetary&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;aggregate</span> <span class="na">name=</span><span class="s">&quot;order_id&quot;</span> <span class="na">field=</span><span class="s">&quot;order_id&quot;</span> <span class="na">string=</span><span class="s">&quot;Orders&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;formula</span> <span class="na">name=</span><span class="s">&quot;price_average&quot;</span> <span class="na">string=</span><span class="s">&quot;Price Average&quot;</span>
+            <span class="na">value=</span><span class="s">&quot;record.price_total / record.order_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;percentage&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/group&gt;</span>
+    <span class="nt">&lt;view</span> <span class="na">type=</span><span class="s">&quot;pivot&quot;</span> <span class="na">ref=</span><span class="s">&quot;sale_report.view_order_product_pivot&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/dashboard&gt;</span>
+</pre></div>
+</div>
+<p >The root element of the Dashboard view is &lt;dashboard&gt;, it does not accept any
+attributes.</p><p >There are 5 possible type of tags in a dashboard view:</p><dl ><dt ><code >view</code></dt><dd ><p >declares a sub view.</p><p >Admissible attributes are:</p><ul ><li ><dl ><dt ><code >type</code> (mandatory)</dt><dd >The type of the sub view.  For example, <em >graph</em> or <em >pivot</em>.</dd></dl></li><li ><dl ><dt ><code >ref</code> (optional)</dt><dd >An xml id for a view. If not given, the default view for the model will
+be used.</dd></dl></li><li ><dl ><dt ><code >name</code> (optional)</dt><dd >A string which identifies this element.  It is mostly
+useful to be used as a target for an xpath.</dd></dl></li></ul></dd><dt ><code >group</code></dt><dd ><p >defines a column layout.  This is actually very similar to the group element
+in a form view.</p><p >Admissible attributes are:</p><ul ><li ><dl ><dt ><code >string</code> (optional)</dt><dd >A description which will be displayed as a group title.</dd></dl></li><li ><dl ><dt ><code >colspan</code> (optional)</dt><dd >The number of subcolumns in this group tag. By default, 6.</dd></dl></li><li ><dl ><dt ><code >col</code> (optional)</dt><dd >The number of columns spanned by this group tag (only makes sense inside
+another group). By default, 6.</dd></dl></li></ul></dd><dt ><code >aggregate</code></dt><dd ><p >declares an aggregate.  This is the value of an aggregate for a given field
+over the current domain.</p><p >Note that aggregates are supposed to be used inside a group tag (otherwise
+the style will not be properly applied).</p><p >Admissible attributes are:</p><ul ><li ><dl ><dt ><code >field</code> (mandatory)</dt><dd ><p >The field name to use for computing the aggregate. Possible field types
+are:</p><ul ><li ><code >integer</code> (default group operator is sum)</li><li ><code >float</code>  (default group operator is sum)</li><li ><code >many2one</code> (default group operator is count distinct)</li></ul></dd></dl></li><li ><dl ><dt ><code >name</code> (mandatory)</dt><dd >A string to identify this aggregate (useful for formulas)</dd></dl></li><li ><dl ><dt ><code >string</code> (optional)</dt><dd >A short description that will be displayed above the value. If not
+given, it will fall back to the field string.</dd></dl></li><li ><dl ><dt ><code >domain</code> (optional)</dt><dd >An additional restriction on the set of records that we want to aggregate.
+This domain will be combined with the current domain.</dd></dl></li><li ><dl ><dt ><code >domain_label</code> (optional)</dt><dd >When the user clicks on an aggregate with a domain, it will be added to
+the search view as a facet.  The string displayed for this facet can
+be customized with this attribute.</dd></dl></li><li ><dl ><dt ><code >group_operator</code> (optional)</dt><dd ><p >A valid postgreSQL aggregate function identifier to use when aggregating
+values (see <a href="https://www.postgresql.org/docs/9.5/static/functions-aggregate.html" class="reference external">https://www.postgresql.org/docs/9.5/static/functions-aggregate.html</a>).
+If not provided, By default, the group_operator from the field definition is used.
+Note that no aggregation of field values is achieved if the group_operator value is «».</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >The special aggregate function <code >count_distinct</code> (defined in odoo) can also be used here</p></div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;aggregate</span> <span class="na">name=</span><span class="s">&quot;price_total_max&quot;</span> <span class="na">field=</span><span class="s">&quot;price_total&quot;</span> <span class="na">group_operator=</span><span class="s">&quot;max&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt ><code >col</code> (optional)</dt><dd >The number of columns spanned by this tag (only makes sense inside a
+group). By default, 1.</dd></dl></li><li ><dl ><dt ><code >widget</code> (optional)</dt><dd >A widget to format the value (like the widget attribute for fields).
+For example, monetary.</dd></dl></li><li ><dl ><dt ><code >help</code> (optional)</dt><dd >A help message to dipslay in a tooltip (equivalent of help for a field in python)</dd></dl></li><li ><dl ><dt ><code >measure</code> (optional)</dt><dd ><p >This attribute is the name of a field describing the measure that has to be used
+in the graph and pivot views when clicking on the aggregate.
+The special value __count__ can be used to use the count measure.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;aggregate</span> <span class="na">name=</span><span class="s">&quot;total_ojects&quot;</span> <span class="na">string=</span><span class="s">&quot;Total Objects&quot;</span> <span class="na">field=</span><span class="s">&quot;id&quot;</span> <span class="na">group_operator=</span><span class="s">&quot;count&quot;</span> <span class="na">measure=</span><span class="s">&quot;__count__&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt ><code >clickable</code> (optional)</dt><dd >A boolean indicating if this aggregate should be clickable or not (default to true).
+Clicking on a clickable aggregate will change the measures used by the subviews
+and add the value of the domain attribute (if any) to the search view.</dd></dl></li><li ><dl ><dt ><code >value_label</code> (optional)</dt><dd >A string put on the right of the aggregate value.
+For example, it can be useful to indicate the unit of measure
+of the aggregate value.</dd></dl></li></ul></dd><dt ><code >formula</code></dt><dd ><p >declares a derived value.  Formulas are values computed from aggregates.</p><p >Note that like aggregates, formulas are supposed to be used inside a group
+tag (otherwise the style will not be properly applied).</p><p >Admissible attributes are:</p><ul ><li ><dl ><dt ><code >value</code> (mandatory)</dt><dd >A string expression that will be evaluated, with the builtin python
+evaluator (in the web client).  Every aggregate can be used in the
+context, in the <code >record</code> variable.  For example,
+<code >record.price_total / record.order_id</code>.</dd></dl></li><li ><dl ><dt ><code >name</code> (optional)</dt><dd >A string to identify this formula</dd></dl></li><li ><dl ><dt ><code >string</code> (optional)</dt><dd >A short description that will be displayed above the formula.</dd></dl></li><li ><dl ><dt ><code >col</code> (optional)</dt><dd >The number of columns spanned by this tag (only makes sense inside a
+group). By default, 1.</dd></dl></li><li ><dl ><dt ><code >widget</code> (optional)</dt><dd >A widget to format the value (like the widget attribute for fields).
+For example, monetary. By default, it is „float“.</dd></dl></li><li ><dl ><dt ><code >help</code> (optional)</dt><dd >A help message to dipslay in a tooltip (equivalent of help for a field in python)</dd></dl></li><li ><dl ><dt ><code >value_label</code> (optional)</dt><dd >A string put on the right of the formula value.
+For example, it can be useful to indicate the unit of measure
+of the formula value.</dd></dl></li></ul></dd><dt ><code >widget</code></dt><dd ><p >Declares a specialized widget to be used to display the information. This is
+a mechanism similar to the widgets in the form view.</p><p >Admissible attributes are:</p><ul ><li ><dl ><dt ><code >name</code> (mandatory)</dt><dd >A string to identify which widget should be instantiated. The view will
+look into the <code >widget_registry</code> to get the proper class.</dd></dl></li><li ><dl ><dt ><code >col</code> (optional)</dt><dd >The number of columns spanned by this tag (only makes sense inside a
+group). By default, 1.</dd></dl></li></ul></dd></dl></section><section id="cohort"><i id="reference-views-cohort"></i><h2 >Cohort</h2><p >The cohort view is used to display and understand the way some data changes over
+a period of time.  For example, imagine that for a given business, clients can
+subscribe to some service.  The cohort view can then display the total number
+of subscriptions each month, and study the rate at which client leave the service
+(churn). When clicking on a cell, the cohort view will redirect you to a new action
+in which you will only see the records contained in the cell’s time interval;
+this action contains a list view and a form view.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >The Cohort view is only available in Odoo Enterprise.</p></div><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >By default the cohort view will use the same list and form views as those
+defined on the action. You can pass a list view and a form view
+to the context of the action in order to set/override the views that will be
+used (the context keys to use being <code >form_view_id</code> and <code >list_view_id</code>)</p></div><p >For example, here is a very simple cohort view:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;cohort</span> <span class="na">string=</span><span class="s">&quot;Subscription&quot;</span> <span class="na">date_start=</span><span class="s">&quot;date_start&quot;</span> <span class="na">date_stop=</span><span class="s">&quot;date&quot;</span> <span class="na">interval=</span><span class="s">&quot;month&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >The root element of the Cohort view is &lt;cohort&gt;, it accepts the following
+attributes:</p><ul ><li ><dl ><dt ><code >string</code> (mandatory)</dt><dd >A title, which should describe the view</dd></dl></li><li ><dl ><dt ><code >date_start</code> (mandatory)</dt><dd >A valid date or datetime field. This field is understood by the view as the
+beginning date of a record</dd></dl></li><li ><dl ><dt ><code >date_stop</code> (mandatory)</dt><dd >A valid date or datetime field. This field is understood by the view as the
+end date of a record.  This is the field that will determine the churn.</dd></dl></li><li ><dl ><dt ><code >mode</code> (optional)</dt><dd >A string to describe the mode. It should be either „churn“ or
+„retention“ (default). Churn mode will start at 0% and accumulate over time
+whereas retention will start at 100% and decrease over time.</dd></dl></li><li ><dl ><dt ><code >timeline</code> (optional)</dt><dd >A string to describe the timeline. It should be either „backward“ or „forward“ (default).
+Forward timeline will display data from date_start to date_stop, whereas backward timeline
+will display data from date_stop to date_start (when the date_start is in future / greater
+than date_stop).</dd></dl></li><li ><dl ><dt ><code >interval</code> (optional)</dt><dd >A string to describe a time interval. It should be „day“, „week“, „month““
+(default) or „year“.</dd></dl></li><li ><dl ><dt ><code >measure</code> (optional)</dt><dd >A field that can be aggregated.  This field will be used to compute the values
+for each cell.  If not set, the cohort view will count the number of occurrences.</dd></dl></li></ul></section><section id="activity"><i id="reference-views-activity"></i><h2 >Activity</h2><p >The Activity view is used to display the activities linked to the records. The
+data are displayed in a chart with the records forming the rows and the activity
+types the columns. The first cell of each row displays a (customizable, see
+<code >templates</code>, quite similarly to <a href="#reference-views-kanban" class="reference internal"><span class="std-ref std">Kanban</span></a>) card representing
+the corresponding record. When clicking on others cells, a detailed description
+of all activities of the same type for the record is displayed.</p><div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >The Activity view is only available when the <code >mail</code> module is installed,
+and for the models that inherit from the <code >mail.activity.mixin</code>.</p></div><p >The root element of the Activity view is <code >&lt;activity&gt;</code>, it accepts the following
+attributes:</p><ul ><li ><dl ><dt ><code >string</code> (mandatory)</dt><dd >A title, which should describe the view</dd></dl></li></ul><p >Possible children of the view element are:</p><dl ><dt ><code >field</code></dt><dd ><p >declares fields to use in activity <em >logic</em>. If the field is simply displayed
+in the activity view, it does not need to be pre-declared.</p><p >Possible attributes are:</p><dl ><dt ><code >name</code> (required)</dt><dd >the name of the field to fetch</dd></dl></dd><dt ><code >templates</code></dt><dd ><p >defines the <a href="qweb.html#reference-qweb" class="reference internal"><span class="std-ref std">QWeb</span></a> templates. Cards definition may be
+split into multiple templates for clarity, but activity views <em >must</em> define at
+least one root template <code >activity-box</code>, which will be rendered once for each
+record.</p><p >The activity view uses mostly-standard <a href="qweb.html#reference-qweb-javascript" class="reference internal"><span class="std-ref std">javascript qweb</span></a> and provides the following context variables
+(see <a href="#reference-views-kanban" class="reference internal"><span class="std-ref std">Kanban</span></a> for more details):</p><dl ><dt ><code >widget</code></dt><dd >the current <code class="js-class js xref">ActivityRecord()</code>, can be used to fetch some
+meta-information. These methods are also available directly in the
+template context and don’t need to be accessed via <code >widget</code></dd><dt ><code >record</code></dt><dd >an object with all the requested fields as its attributes. Each field has
+two attributes <code >value</code> and <code >raw_value</code></dd></dl></dd></dl></section><section id="search"><i id="reference-views-search"></i><h2 >Search</h2><p >Search views are a break from previous view types in that they don’t display
+<em >content</em>: although they apply to a specific model, they are used to filter
+other view’s content (generally aggregated views
+e.g. <a href="#reference-views-list" class="reference internal"><span class="std-ref std">Lists</span></a> or <a href="#reference-views-graph" class="reference internal"><span class="std-ref std">Graphs</span></a>). Beyond that
+difference in use case, they are defined the same way.</p><p >The root element of search views is <code >&lt;search&gt;</code>. It takes no attributes.</p><p >Possible children elements of the search view are:</p><dl ><dt ><code >field</code></dt><dd ><p >fields define domains or contexts with user-provided values. When search
+domains are generated, field domains are composed with one another and
+with filters using <strong >AND</strong>.</p><p >Fields can have the following attributes:</p><dl ><dt ><code >name</code></dt><dd >the name of the field to filter on</dd><dt ><code >string</code></dt><dd >the field’s label</dd><dt ><code >operator</code></dt><dd ><p >by default, fields generate domains of the form <code class="samp">[(<em >name</em>,
+<em >operator</em>, <em >provided_value</em>)]</code> where <code >name</code> is the field’s name and
+<code >provided_value</code> is the value provided by the user, possibly
+filtered or transformed (e.g. a user is expected to provide the
+<em >label</em> of a selection field’s value, not the value itself).</p><p >The <code >operator</code> attribute allows overriding the default operator,
+which depends on the field’s type (e.g. <code >=</code> for float fields but
+<code >ilike</code> for char fields)</p></dd><dt ><code >filter_domain</code></dt><dd ><p >complete domain to use as the field’s search domain, can use a
+<code >self</code> variable to inject the provided value in the custom
+domain. Can be used to generate significantly more flexible domains
+than <code >operator</code> alone (e.g. searches on multiple fields at once)</p><p >If both <code >operator</code> and <code >filter_domain</code> are provided,
+<code >filter_domain</code> takes precedence.</p></dd><dt ><code >context</code></dt><dd ><p >allows adding context keys, including the user-provided values (which
+as for <code >domain</code> are available as a <code >self</code> variable, an array of
+values e.g. <code >[id_1, id_2]</code> for a <a href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one" class="reference internal"><code class="xref py-class py">Many2one</code></a> field).
+By default, fields don’t generate domains.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >the domain and context are inclusive and both are generated
+if a <code >context</code> is specified. To only generate context
+values, set <code >filter_domain</code> to an empty list:
+<code >filter_domain=&quot;[]&quot;</code></p></div></dd><dt ><code >groups</code></dt><dd >make the field only available to specific users</dd><dt ><code >widget</code></dt><dd >use specific search widget for the field (the only use case in
+standard Odoo 8.0 is a <code >selection</code> widget for
+<a href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one" class="reference internal"><code class="xref py-class py">Many2one</code></a> fields)</dd><dt ><code >domain</code></dt><dd >if the field can provide an auto-completion
+(e.g. <a href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one" class="reference internal"><code class="xref py-class py">Many2one</code></a>), filters the possible
+completion results.</dd></dl></dd><dt ><code >filter</code></dt><dd ><p >a filter is a predefined toggle in the search view, it can only be enabled
+or disabled. Its main purposes are to add data to the search context (the
+context passed to the data view for searching/filtering), or to append new
+sections to the search filter.</p><p >Filters can have the following attributes:</p><dl ><dt ><code >string</code> (required)</dt><dd >the label of the filter</dd><dt ><code >domain</code> (optional)</dt><dd >an Odoo <a href="orm.html#reference-orm-domains" class="reference internal"><span class="std-ref std">domain</span></a>, will be appended to the
+action’s domain as part of the search domain.</dd><dt ><code >date</code> (optional)</dt><dd ><p >the name of a field of type <code >date</code> or <code >datetime</code>.
+Using this attribute has the effect to create
+a set of filters available in a submenu
+of the filters menu. The filters proposed are time dependent
+but not dynamic in the sense that their domains are evaluated
+at the time of the control panel instantiation.</p><p >Example:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;filter</span> <span class="na">name=</span><span class="s">&quot;filter_create_date&quot;</span> <span class="na">date=</span><span class="s">&quot;create_date&quot;</span> <span class="na">string=</span><span class="s">&quot;Creation Date&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >The example above allows to easily search for records with creation date field
+values in one of the periods below (if the current month is August 2019).</p><div class="highlight-text"><div class="highlight"><pre><span></span>Create Date &gt;
+  August
+  July
+  June
+  Q4
+  Q3
+  Q2
+  Q1
+--------------
+  2019
+  2018
+  2017
+</pre></div>
+</div>
+<p >Muti selection of options is allowed.</p></dd><dt ><code >default_period</code> (optional)</dt><dd ><p >only makes sense for a filter with non empty <code >date</code> attribute.
+determines which period is activated if the filter is in the
+default set of filters activated at the view initialization. If not provided,
+„this_month“ is used by default.</p><p >To choose among the following options:
+today, this_week, this_month, last_month, antepenultimate_month,
+fourth_quarter, third_quarter, second_quarter, first_quarter,
+this_year, last_year, antepenultimate_year.</p><p >Example:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;filter</span> <span class="na">name=</span><span class="s">&quot;filter_create_date&quot;</span> <span class="na">date=</span><span class="s">&quot;create_date&quot;</span> <span class="na">string=</span><span class="s">&quot;Creation Date&quot;</span> <span class="na">default_period=</span><span class="s">&quot;this_week&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</dd><dt ><code >context</code></dt><dd ><p >a Python dictionary, merged into the action’s domain to generate the
+search domain</p><p >The key <code >group_by</code> can be used to define a groupby available in the
+„Group By“ menu.
+The „group_by“ value can be a valid field name.</p><div class="highlight-xml"><div class="highlight"><pre><span></span>&lt;filter name=&quot;groupby_category&quot; string=&quot;Category&quot; context = {&#39;group_by&#39;: &#39;category_id&#39;}/&gt;
+</pre></div>
+</div>
+<p >The groupby defined above allows to group data by category.</p><p >When the field is of type <code >date</code> or <code >datetime</code>, the filter generates a submenu of the Group By
+menu in which the following interval options are available: day, week, month, quarter, year.</p><p >In case the filter is in the default set of filters activated at the view initialization,
+the records are grouped by month by default. This can be changed by using the syntax
+„date_field:interval“ as in the following example.</p><p >Example:</p><div class="highlight-xml"><div class="highlight"><pre><span></span>&lt;filter name=&quot;groupby_create_date&quot; string=&quot;Creation Date&quot; context = {&#39;group_by&#39;: &#39;create_date:week&#39;}/&gt;
+</pre></div>
+</div>
+</dd><dt ><code >name</code></dt><dd >logical name for the filter, can be used to <a href="#reference-views-search-defaults" class="reference internal"><span class="std-ref std">enable it by default</span></a>, can also be used as
+<a href="#reference-views-inheritance" class="reference internal"><span class="std-ref std">inheritance hook</span></a></dd><dt ><code >help</code></dt><dd >a longer explanatory text for the filter, may be displayed as a
+tooltip</dd><dt ><code >groups</code></dt><dd >makes a filter only available to specific users</dd></dl><div role="alert" class="alert-info alert"><h3 class="alert-title">Совет</h3><div class="versionadded"><p ><span class="versionmodified">Добавлено в версии 7.0.</span></p></div><p >Sequences of filters (without non-filters separating them) are treated
+as inclusively composited: they will be composed with <code >OR</code> rather
+than the usual <code >AND</code>, e.g.</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;draft&#39;)]&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;done&#39;)]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >if both filters are selected, will select the records whose <code >state</code>
+is <code >draft</code> or <code >done</code>, but</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;state&#39;, &#39;=&#39;, &#39;draft&#39;)]&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;separator/&gt;</span>
+<span class="nt">&lt;filter</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;delay&#39;, &#39;&lt;&#39;, 15)]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >if both filters are selected, will select the records whose <code >state</code>
+is <code >draft</code> <strong >and</strong> <code >delay</code> is below 15.</p></div></dd><dt ><code >separator</code></dt><dd >can be used to separates groups of filters in simple search views</dd><dt ><code >group</code></dt><dd >can be used to separate groups of filters, more readable than
+<code >separator</code> in complex search views</dd><dt ><code >searchpanel</code></dt><dd ><p >allows to display a search panel on the left of any multi records view.
+By default, the list and kanban views have the searchpanel enabled.
+The search panel can be activated on other views with the attribute:</p><ul ><li ><p ><code >view_types</code> a comma separated list of view types on which to enable the search panel</p><blockquote >default: „tree,kanban“</blockquote></li></ul><p >This tool allows to quickly filter data on the basis of given fields. The fields
+are specified as direct children of the <code >searchpanel</code> with tag name <code >field</code>,
+and the following attributes:</p><ul ><li ><code >name</code> (mandatory) the name of the field to filter on</li><li ><p ><code >select</code> determines the behavior and display. Possible values are</p><blockquote ><dl ><dt ><code >one</code> (default) at most one value can be selected. Supported field types are</dt><dd >many2one and selection.</dd><dt ><code >multi</code> several values can be selected (checkboxes). Supported field</dt><dd >types are many2one, many2many and selection.</dd></dl></blockquote></li><li ><code >groups</code>: restricts to specific users</li><li ><code >string</code>: determines the label to display</li><li ><code >icon</code>: specifies which icon is used</li><li ><code >color</code>: determines the icon color</li></ul><p >Additional optional attributes are available in the <code >multi</code> case:</p><ul ><li ><code >domain</code>: determines conditions that the comodel records have to satisfy.</li></ul><p >A domain might be used to express a dependency on another field (with select=»one»)
+of the search panel. Consider</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;searchpanel&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;department_id&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;manager_id&quot;</span> <span class="na">select=</span><span class="s">&quot;multi&quot;</span> <span class="na">domain=</span><span class="s">&quot;[(&#39;department_id&#39;, &#39;=&#39;, department_id)]&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;searchpanel/&gt;</span>
+</pre></div>
+</div>
+<p >In the above example, the range of values for manager_id (manager names) available at screen
+will depend on the value currently selected for the field <code >department_id</code>.</p><ul ><li ><code >groupby</code>: field name of the comodel (only available for many2one and many2many fields). Values will be grouped by that field.</li><li ><p ><code >disable_counters</code>: default is false. If set to true the counters won’t be computed.</p><p >This feature has been implemented in case performances would be too bad.</p><p >Another way to solve performance issues is to properly override the
+<code >search_panel_select_multi_range</code> method.</p></li></ul></dd></dl></section><section id="search-defaults"><i id="reference-views-search-defaults"></i><h3 >Search defaults</h3><p >Search fields and filters can be configured through the action’s <code >context</code>
+using <code class="samp">search_default_<em >name</em></code> keys. For fields, the value should be the
+value to set in the field, for filters it’s a boolean value or a number. For instance,
+assuming <code >foo</code> is a field and <code >bar</code> is a filter an action context of:</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;search_default_foo&#39;</span><span class="p">:</span> <span class="s1">&#39;acro&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;search_default_bar&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >will automatically enable the <code >bar</code> filter and search the <code >foo</code> field for
+<em >acro</em>.</p><p >A numeric value (between 1 and 99) can be used to describe the order of default groupbys.
+For instance if <code >foo</code> and <code >bar</code> refer to two groupbys</p><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;search_default_foo&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;search_default_bar&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >has the effect to activate first <code >bar</code> then <code >foo</code>.</p></section><section id="map"><i id="reference-views-map"></i><h2 >Map</h2><p >This view is able to display records on a map and the routes between them. The record are represented by pins. It also allows the visualization of fields from the model in a popup tied to the record’s pin.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >The model on which the view is applied should contains a res.partner many2one since the view relies on the res.partner’s address and coordinates fields to localize the records.</p></div><div role="alert" class="alert-warning alert"><h3 class="alert-title">Предупреждение</h3><p >The Map view is only available in Odoo Enterprise</p></div></section><section id="api"><i id="reference-views-map-api"></i><h3 >Api</h3><p >The view uses location data platforms“ api to fetch the tiles (the map’s background), do the geoforwarding (converting addresses to a set of coordinates) and fetch the routes.
+The view implements two api, the default one, openstreet map is able to fetch <a href="https://wiki.openstreetmap.org/wiki/Tile_data_server" class="reference external">tiles</a> and do <a href="https://nominatim.org/release-docs/develop/" class="reference external">geoforwarding</a>. This api does not require a token.
+As soon as a valid <a href="https://docs.mapbox.com/api/" class="reference external">MapBox</a> token is provided in the general settings the view switches to the Mapbox api. This api is faster and allows the computation of routes. The token are available by <a href="https://account.mapbox.com/auth/signup/" class="reference external">signing up</a> to MapBox</p></section><section id="reference-views-structural-components"><i id="id4"></i><h3 >Structural components</h3><p >The view’s root element is <code >&lt;map&gt;</code> multiple attributes are allowed</p><dl ><dt ><code >res_partner</code></dt><dd >Contains the res.partner many2one. If not provided the view will resort to create an empty  map.</dd><dt ><code >default_order</code></dt><dd >If a field is provided the view will override the model’s default order. The field must be apart of the model on which the view is applied not from res.partner</dd><dt ><code >routing</code></dt><dd >if <code >true</code> the routes between the records will be shown. The view still needs a valid MapBox token and at least two located records. (i.e the records has a res.partner many2one and the partner has a address or valid coordinates)</dd></dl><p >The only element allowed within the <code >&lt;map&gt;</code> element is the <code >&lt;marker-popup&gt;</code>. This element is able to contain multiple <code >&lt;field&gt;</code> elements. Each of these elements will be interpreted as a line in the marker’s popup. The field’s attributes are the following:</p><dl ><dt ><code >name</code></dt><dd >The field to display.</dd><dt ><code >string</code></dt><dd >This string will be displayed before the field’s content. It Can be used as a description.</dd></dl><p >No attribute or element is mandatory but as stated above if no res.partner many2one is provided the view won’t be able to locate records.</p><dl ><dt >For example here is a map:</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;map</span> <span class="na">res_partner=</span><span class="s">&quot;partner_id&quot;</span> <span class="na">default_order=</span><span class="s">&quot;date_begin&quot;</span> <span class="na">routing=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;marker-popup&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">string=</span><span class="s">&quot;Task: &quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/marker-popup&gt;</span>
+<span class="nt">&lt;/map&gt;</span>
+</pre></div>
+</div>
+</dd></dl></section><section id="qweb"><i id="reference-views-qweb"></i><h2 >QWeb</h2><p >QWeb views are standard <a href="qweb.html#reference-qweb" class="reference internal"><span class="std-ref std">QWeb</span></a> templates inside a view’s
+<code >arch</code>. They don’t have a specific root element. Because QWeb views don’t
+have a specific root element, their type must be specified explicitly (it can
+not be inferred from the root element of the <code >arch</code> field).</p><p >QWeb views have two use cases:</p><ul ><li >they can be used as frontend templates, in which case
+<a href="data.html#reference-data-template" class="reference internal"><span class="std-ref std">template</span></a> should be used as a shortcut.</li><li >they can be used as actual qweb views (opened inside an action), in which
+case they should be defined as regular view with an explicit <code >type</code> (it
+can not be inferred) and a model.</li></ul><p >The main additions of qweb-as-view to the basic qweb-as-template are:</p><ul ><li >qweb-as-view has a special case for a <code >&lt;nav&gt;</code> element bearing the CSS
+class <code >o_qweb_cp_buttons</code>: its contents should be buttons and will be
+extracted and moved to the control panel’s button area, the <code >&lt;nav&gt;</code> itself
+will be removed, this is a work-around to control panel views not existing
+yet</li><li ><p >qweb-as-view rendering adds several items to the standard qweb rendering
+context:</p><dl ><dt ><code >model</code></dt><dd >the model to which the qweb view is bound</dd><dt ><code >domain</code></dt><dd >the domain provided by the search view</dd><dt ><code >context</code></dt><dd >the context provided by the search view</dd><dt ><code >records</code></dt><dd >a lazy proxy to <code >model.search(domain)</code>, this can be used if you just
+want to iterate the records and not perform more complex operations
+(e.g. grouping)</dd></dl></li><li ><p >qweb-as-view also provides additional rendering hooks:</p><ul ><li ><code >_qweb_prepare_context(view_id, domain)</code> prepares the rendering context
+specific to qweb-as-view</li><li ><code >qweb_render_view(view_id, domain)</code> is the method called by the client
+and will call the context-preparation methods and ultimately
+<code >env['ir.qweb'].render()</code>.</li></ul></li></ul><div id="backwards-compatibility" class="footnote"><span class="footnote-label">[1]</span> for backwards compatibility reasons</div><div id="hasclass" class="footnote"><span class="footnote-label"><a class="footnote-backref" href="#id1">[2]</a></span> an extension function is added for simpler matching in QWeb
+views: <code >hasclass(*classes)</code> matches if the context node has
+all the specified classes</div><div id="treehistory" class="footnote"><span class="footnote-label"><a class="footnote-backref" href="#id2">[3]</a></span> for historical reasons, it has its origin in tree-type views
+later repurposed to a more table/list-type display</div><div id="template-inherit" class="footnote"><span class="footnote-label">[4]</span> or no template if it’s an inherited view, then <a href="#reference-views-inheritance" class="reference internal"><span class="std-ref std">it
+should only contain xpath elements</span></a></div></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

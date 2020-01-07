@@ -1,0 +1,709 @@
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,600" rel="stylesheet">
+  
+    <title>Javascript Cheatsheet &#8212; Документация odoo 13.0</title>
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/patchqueue.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/doc.js"></script>
+    <script type="text/javascript" src="../_static/jquery.noconflict.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/patchqueue.js"></script><link rel="canonical" href="" />
+  
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Javascript Reference" href="javascript_reference.html" />
+    <link rel="prev" title="QWeb" href="qweb.html" /> 
+  </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
+    <div class="o_main_header_main">
+      <a class="pull-left o_logo" href="/"></a>
+      <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="mdi-navigation-menu"></span>
+      </a>
+      <div class="o_header_buttons">
+        <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+      </div>
+      <ul class="o_primary_nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Apps</a>
+          <div class="dropdown-menu o_secondary_nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 o_website_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Websites
+                    <div>Build great user experience</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/website-builder">Website Builder</a></li>
+                    <li><a href="https://www.odoo.com/page/e-commerce">eCommerce</a></li>
+                    <li><a href="https://www.odoo.com/page/blog-engine">Blogs</a></li>
+                    <li><a href="https://www.odoo.com/page/community-builder">Forums</a></li>
+                    <li><a href="https://www.odoo.com/page/slides">Slides</a></li>
+                    <li><a href="https://adspike.odoo.com">SEA</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_sale_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Sales
+                    <div>Boost your success rate</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/sales">Sales</a></li>
+                    <li><a href="https://www.odoo.com/page/crm">CRM</a></li>
+                    <li><a href="https://www.odoo.com/page/billing">Invoicing</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Point of Sale</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/point-of-sale">Shops</a></li>
+                        <li><a href="https://www.odoo.com/page/pos-restaurant">Restaurants</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/subscriptions">Subscriptions</a></li>
+                    <li><a href="https://www.odoo.com/page/sign">Sign</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_operation_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Operations
+                    <div>It's all about efficiency</div>
+                  </div>
+                  <ul>
+                    <li><a href="https://www.odoo.com/page/accounting">Accounting</a></li>
+                    <li><a href="https://www.odoo.com/page/project-management">Project</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Human Resources</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/recruitment">Recruitment</a></li>
+                        <li><a href="https://www.odoo.com/page/employees">Employees</a></li>
+                        <li><a href="https://www.odoo.com/page/expenses">Expenses</a></li>
+                        <li><a href="https://www.odoo.com/page/appraisal">Appraisal</a></li>
+                        <li><a href="https://www.odoo.com/page/fleet">Fleet</a></li>
+                        <li><a href="https://www.odoo.com/page/leaves">Leaves</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/warehouse">Inventory</a></li>
+                    <li><a href="https://www.odoo.com/page/purchase">Purchase</a></li>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Manufacturing</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/manufacturing">MRP</a></li>
+                        <li><a href="https://www.odoo.com/page/plm">PLM</a></li>
+                        <li><a href="https://www.odoo.com/page/maintenance">Maintenance</a></li>
+                        <li><a href="https://www.odoo.com/page/quality">Quality</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3 o_productivity_apps">
+                  <div class="o_nav_app_family">
+                    <span></span> Productivity Tools
+                    <div>Great Tools = Happy People</div>
+                  </div>
+                  <ul>
+                    <li class="dropdown">
+                      <a href="#0" class="dropdown-toggle">Communication</a>
+                      <ul>
+                        <li><a href="https://www.odoo.com/page/discuss">Discuss</a></li>
+                        <li><a href="https://www.odoo.com/page/discuss-groups">Mailing Lists</a></li>
+                        <li><a href="https://www.odoo.com/page/notes">Notes</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Appointment</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="https://www.odoo.com/page/timesheet">Timesheet</a></li>
+                    <li><a href="https://www.odoo.com/page/email-marketing">Email Marketing</a></li>
+                    <li><a href="https://www.odoo.com/page/events">Events</a></li>
+                    <li><a href="https://www.odoo.com/page/survey">Survey</a></li>
+                    <li><a href="https://www.odoo.com/page/live-chat">Live Chat</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="http://www.odoo.com/apps/modules" class="o_store_link"><i class="fa fa-cube fa-fw"></i> Third party apps</a>
+          </div>
+        </li>
+        <li><a href="https://www.odoo.com/page/tour">Tour</a></li>
+        <li><a href="https://www.odoo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
+      </ul>
+    </div>
+    <nav class="navbar o_sub_nav">
+      <div class="container">
+        <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed text-left btn-block" data-toggle="collapse" data-target="#o_sub-menu" aria-expanded="false">
+              Navigate
+              <span class="mdi-hardware-keyboard-arrow-down pull-right"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="o_sub-menu">
+          <ol class="o_breadcrumb breadcrumb nav navbar-left">
+              
+              
+
+
+
+
+
+    
+        
+            <li><a href="../index.html">Developer Doc</a></li>
+        
+    
+    <li class="active"><a href="#">Javascript Cheatsheet</a></li>
+
+              
+          </ol>
+
+          <div class="call-to-action navbar-right hidden-xs">
+            <a href="http://www.odoo.com/trial" class="btn btn-primary">Start Now</a>
+          </div>
+
+          <ul class="navbar-nav navbar-right nav o_sub_nav_actions">
+            
+              <li class="divider"></li>
+            
+
+            
+            
+
+
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            
+            
+
+<li><a href="https://www.odoo.com/documentation/user/13.0/index.html">User</a></li>
+<li><a href="https://www.odoo.com/documentation/13.0/index.html">Developer</a></li>
+<li><a href="https://www.odoo.com/documentation/13.0/setup/install.html">Installation</a></li>
+<li><a href="https://odoo.com/slides">eLearning</a></li>
+<li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
+<li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header><div id="wrap" class="">
+    
+    
+    
+    <figure class="card top has_banner">
+      <span class="card-img" style="background-image: url('../_static/banners/javascript.jpg');"></span>
+      <div class="container text-center">
+        <h1> Javascript Cheatsheet </h1>
+      </div>
+    </figure>
+    
+    
+    
+      <main class="container ">
+        
+        <div class="o_content row">
+          
+          <aside>
+            <div class="navbar-aside text-center">
+              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#creating-a-new-field-widget" class="reference ripple internal">Creating a new field widget</a></li><li class="list-group-item"><a href="#modifying-an-existing-field-widget" class="reference ripple internal">Modifying an existing field widget</a></li><li class="list-group-item"><a href="#modifying-a-main-widget-from-the-interface" class="reference ripple internal">Modifying a main widget from the interface</a></li><li class="list-group-item"><a href="#creating-a-new-view-from-scratch" class="reference ripple internal">Creating a new view (from scratch)</a></li><li class="list-group-item"><a href="#customizing-an-existing-view" class="reference ripple internal">Customizing an existing view</a></li><li class="list-group-item"><a href="#promises-and-asynchronous-code" class="reference ripple internal">Promises and asynchronous code</a><ul ><li class="list-group-item"><a href="#creating-new-promises" class="reference ripple internal">Creating new Promises</a></li><li class="list-group-item"><a href="#waiting-for-promises" class="reference ripple internal">Waiting for Promises</a></li><li class="list-group-item"><a href="#error-handling" class="reference ripple internal">Error handling</a></li><li class="list-group-item"><a href="#testing-asynchronous-code" class="reference ripple internal">Testing asynchronous code</a></li></ul></li></ul>
+              
+              <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/reference/javascript_cheatsheet.rst" class="gith-link">
+                  Edit on GitHub
+              </a></p>
+              
+            </div>
+          </aside>
+          
+          <article class="doc-body ">
+            
+            
+  <section id="javascript-cheatsheet"><i id="reference-jscs"></i><p >There are many ways to solve a problem in JavaScript, and in Odoo.  However, the
+Odoo framework was designed to be extensible (this is a pretty big constraint),
+and some common problems have a nice standard solution.  The standard solution
+has probably the advantage of being easy to understand for an odoo developers,
+and will probably keep working when Odoo is modified.</p><p >This document tries to explain the way one could solve some of these issues.
+Note that this is not a reference.  This is just a random collection of recipes,
+or explanations on how to proceed in some cases.</p><p >First of all, remember that the first rule of customizing odoo with JS is:
+<em >try to do it in python</em>.  This may seem strange, but the python framework is
+quite extensible, and many behaviours can be done simply with a touch of xml or
+python.  This has usually a lower cost of maintenance than working with JS:</p><ul ><li >the JS framework tends to change more, so JS code needs to be more frequently
+updated</li><li >it is often more difficult to implement a customized behaviour if it needs to
+communicate with the server and properly integrate with the javascript framework.
+There are many small details taken care by the framework that customized code
+needs to replicate.  For example, responsiveness, or updating the url, or
+displaying data without flickering.</li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >This document does not really explain any concepts. This is more a
+cookbook.  For more details, please consult the javascript reference
+page (see <a href="javascript_reference.html" class="reference alert-link internal"><span class="doc">Javascript Reference</span></a>)</p></div></section><section id="creating-a-new-field-widget"><h2 >Creating a new field widget</h2><p >This is probably a really common usecase: we want to display some information in
+a form view in a really specific (maybe business dependent) way.  For example,
+assume that we want to change the text color depending on some business condition.</p><p >This can be done in three steps: creating a new widget, registering it in the
+field registry, then adding the widget to the field in the form view</p><ul ><li ><dl ><dt >creating a new widget:</dt><dd ><p >This can be done by extending a widget:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">FieldChar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">).</span><span class="nx">FieldChar</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">CustomFieldChar</span> <span class="o">=</span> <span class="nx">FieldChar</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">_renderReadonly</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// implement some custom logic here</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >registering it in the field registry:</dt><dd ><p >The web client needs to know the mapping between a widget name and its
+actual class.  This is done by a registry:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">fieldRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.field_registry&#39;</span><span class="p">);</span>
+
+<span class="nx">fieldRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;my-custom-field&#39;</span><span class="p">,</span> <span class="nx">CustomFieldChar</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >adding the widget in the form view</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;somefield&quot;</span> <span class="na">widget=</span><span class="s">&quot;my-custom-field&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p >Note that only the form, list and kanban views use this field widgets registry.
+These views are tightly integrated, because the list and kanban views can
+appear inside a form view).</p></dd></dl></li></ul></section><section id="modifying-an-existing-field-widget"><h2 >Modifying an existing field widget</h2><p >Another use case is that we want to modify an existing field widget.  For
+example, the voip addon in odoo need to modify the FieldPhone widget to add the
+possibility to easily call the given number on voip. This is done by <em >including</em>
+the FieldPhone widget, so there is no need to change any existing form view.</p><p >Field Widgets (instances of (subclass of) AbstractField) are like every other
+widgets, so they can be monkey patched. This looks like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">basic_fields</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.basic_fields&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Phone</span> <span class="o">=</span> <span class="nx">basic_fields</span><span class="p">.</span><span class="nx">FieldPhone</span><span class="p">;</span>
+
+<span class="nx">Phone</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">Phone</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">events</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s1">&#39;click&#39;</span><span class="o">:</span> <span class="s1">&#39;_onClick&#39;</span><span class="p">,</span>
+    <span class="p">}),</span>
+
+    <span class="nx">_onClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">mode</span> <span class="o">===</span> <span class="s1">&#39;readonly&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="kd">var</span> <span class="nx">phoneNumber</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+            <span class="c1">// call the number on voip...</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >Note that there is no need to add the widget to the registry, since it is already
+registered.</p></section><section id="modifying-a-main-widget-from-the-interface"><h2 >Modifying a main widget from the interface</h2><p >Another common usecase is the need to customize some elements from the user
+interface.  For example, adding a message in the home menu.  The usual process
+in this case is again to <em >include</em> the widget.  This is the only way to do it,
+since there are no registries for those widgets.</p><p >This is usually done with code looking like this:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">HomeMenu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web_enterprise.HomeMenu&#39;</span><span class="p">);</span>
+
+<span class="nx">HomeMenu</span><span class="p">.</span><span class="nx">include</span><span class="p">({</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+        <span class="c1">// do something else here...</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section><section id="creating-a-new-view-from-scratch"><h2 >Creating a new view (from scratch)</h2><p >Creating a new view is a more advanced topic.  This cheatsheet will only
+highlight the steps that will probably need to be done (in no particular order):</p><ul ><li ><p >adding a new view type to the field <code >type</code> of <code >ir.ui.view</code>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">View</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;ir.ui.view&#39;</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">(</span><span class="n">selection_add</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li><li ><p >adding the new view type to the field <code >view_mode</code> of <code >ir.actions.act_window.view</code>:</p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActWindowView</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;ir.actions.act_window.view&#39;</span>
+
+    <span class="n">view_mode</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Selection</span><span class="p">(</span><span class="n">selection_add</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s2">&quot;Map&quot;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li><li ><dl ><dt >creating the four main pieces which makes a view (in JavaScript):</dt><dd ><p >we need a view (a subclass of <code >AbstractView</code>, this is the factory), a
+renderer (from <code >AbstractRenderer</code>), a controller (from <code >AbstractController</code>)
+and a model (from <code >AbstractModel</code>).  I suggest starting by simply
+extending the superclasses:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AbstractController</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractController&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">AbstractModel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractModel&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">AbstractRenderer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractRenderer&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">AbstractView</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.AbstractView&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MapController</span> <span class="o">=</span> <span class="nx">AbstractController</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
+<span class="kd">var</span> <span class="nx">MapRenderer</span> <span class="o">=</span> <span class="nx">AbstractRenderer</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
+<span class="kd">var</span> <span class="nx">MapModel</span> <span class="o">=</span> <span class="nx">AbstractModel</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
+
+<span class="kd">var</span> <span class="nx">MapView</span> <span class="o">=</span> <span class="nx">AbstractView</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">Model</span><span class="o">:</span> <span class="nx">MapModel</span><span class="p">,</span>
+        <span class="nx">Controller</span><span class="o">:</span> <span class="nx">MapController</span><span class="p">,</span>
+        <span class="nx">Renderer</span><span class="o">:</span> <span class="nx">MapRenderer</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >adding the view to the registry:</dt><dd ><p >As usual, the mapping between a view type and the actual class needs to be
+updated:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
+
+<span class="nx">viewRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="nx">MapView</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >implementing the four main classes:</dt><dd >The <code >View</code> class needs to parse the <code >arch</code> field and setup the other
+three classes.  The <code >Renderer</code> is in charge of representing the data in
+the user interface, the <code >Model</code> is supposed to talk to the server, to
+load data and process it.  And the <code >Controller</code> is there to coordinate,
+to talk to the web client, …</dd></dl></li><li ><dl ><dt >creating some views in the database:</dt><dd ><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;customer_map_view&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>customer.map.view<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>res.partner<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;map</span> <span class="na">latitude=</span><span class="s">&quot;partner_latitude&quot;</span> <span class="na">longitude=</span><span class="s">&quot;partner_longitude&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/map&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li></ul></section><section id="customizing-an-existing-view"><h2 >Customizing an existing view</h2><p >Assume we need to create a custom version of a generic view.  For example, a
+kanban view with some extra <em >ribbon-like</em> widget on top (to display some
+specific custom information). In that case, this can be done with 3 steps:
+extend the kanban view (which also probably mean extending controllers/renderers
+and/or models), then registering the view in the view registry, and finally,
+using the view in the kanban arch (a specific example is the helpdesk dashboard).</p><ul ><li ><dl ><dt >extending a view:</dt><dd ><p >Here is what it could look like:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">HelpdeskDashboardRenderer</span> <span class="o">=</span> <span class="nx">KanbanRenderer</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">HelpdeskDashboardModel</span> <span class="o">=</span> <span class="nx">KanbanModel</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">HelpdeskDashboardController</span> <span class="o">=</span> <span class="nx">KanbanController</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">HelpdeskDashboardView</span> <span class="o">=</span> <span class="nx">KanbanView</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">config</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">KanbanView</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">config</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">Model</span><span class="o">:</span> <span class="nx">HelpdeskDashboardModel</span><span class="p">,</span>
+        <span class="nx">Renderer</span><span class="o">:</span> <span class="nx">HelpdeskDashboardRenderer</span><span class="p">,</span>
+        <span class="nx">Controller</span><span class="o">:</span> <span class="nx">HelpdeskDashboardController</span><span class="p">,</span>
+    <span class="p">}),</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >adding it to the view registry:</dt><dd ><p >as usual, we need to inform the web client of the mapping between the name
+of the views and the actual class.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">viewRegistry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.view_registry&#39;</span><span class="p">);</span>
+<span class="nx">viewRegistry</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;helpdesk_dashboard&#39;</span><span class="p">,</span> <span class="nx">HelpdeskDashboardView</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >using it in an actual view:</dt><dd ><p >we now need to inform the web client that a specific <code >ir.ui.view</code> needs to
+use our new class.  Note that this is a web client specific concern.  From
+the point of view of the server, we still have a kanban view.  The proper
+way to do this is by using a special attribute <code >js_class</code> (which will be
+renamed someday into <code >widget</code>, because this is really not a good name) on
+the root node of the arch:</p><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;helpdesk_team_view_kanban&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span> <span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;kanban</span> <span class="na">js_class=</span><span class="s">&quot;helpdesk_dashboard&quot;</span><span class="nt">&gt;</span>
+            ...
+        <span class="nt">&lt;/kanban&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</dd></dl></li></ul><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Note: you can change the way the view interprets the arch structure.  However,
+from the server point of view, this is still a view of the same base type,
+subjected to the same rules (rng validation, for example).  So, your views still
+need to have a valid arch field.</p></div></section><section id="promises-and-asynchronous-code"><h2 >Promises and asynchronous code</h2><p >For a very good and complete introduction to promises, please read this excellent article <a href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md" class="reference external">https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md</a></p></section><section id="creating-new-promises"><h3 >Creating new Promises</h3><ul ><li ><dl ><dt >turn a constant into a promise</dt><dd ><p >There are 2 static functions on Promise that create a resolved or rejected promise based on a constant:</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span><span class="nx">blabla</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">});</span> <span class="c1">// creates a resolved promise</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// --&gt; {blabla: &#39;1&#39;};</span>
+<span class="p">});</span>
+
+
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">({</span><span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;error message&#39;</span><span class="p">});</span> <span class="c1">// creates a rejected promise</span>
+<span class="nx">p2</span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);</span> <span class="c1">// --&gt; {error: &#39;error message&#39;);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >Note that even if the promises are created already resolved or rejected, the <code >then</code> or <code >catch</code> handlers will still be called asynchronously.</p></div></dd></dl></li><li ><dl ><dt >based on an already asynchronous code</dt><dd ><p >Suppose that in a function you must do a rpc, and when it is completed set the result on this.
+The <code >this._rpc</code> is a function that returns a <code >Promise</code>.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">callRpc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_rpc</span><span class="p">(...).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">myValueFromRpc</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >for callback based function</dt><dd ><p >Suppose that you were using a function <code >this.close</code> that takes as parameter a callback that is called when the closing is finished.
+Now suppose that you are doing that in a method that must send a promise that is resolved when the closing is finished.</p><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">waitForClose</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">resolve</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul ><li >line 2: we save the <code >this</code> into a variable so that in an inner function, we can access the scope of our component</li><li ><dl ><dt >line 3: we create and return a new promise. The constructor of a promise takes a function as parameter. This function itself has 2 parameters that we called here <code >resolve</code> and <code >reject</code></dt><dd ><ul ><li ><code >resolve</code> is a function that, when called, puts the promise in the resolved state.</li><li ><code >reject</code> is a function that, when called, puts the promise in the rejected state. We do not use reject here and it can be omitted.</li></ul></dd></dl></li><li >line 4: we are calling the function close on our object. It takes a function as parameter (the callback) and it happens that resolve is already a function, so we can pass it directly. To be clearer, we could have written:</li></ul><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">resolve</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >creating a promise generator (calling one promise after the other <em >in sequence</em> and waiting for the last one)</dt><dd ><p >Suppose that you need to loop over an array, do an operation <em >in sequence</em> and resolve a promise when the last operation is done.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">doStuffOnArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">done</span> <span class="o">=</span> <span class="nx">done</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">item</span><span class="p">.</span><span class="nx">doSomethingAsynchronous</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">done</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p >This way, the promise you return is effectively the last promise.</p></dd></dl></li><li ><dl ><dt >creating a promise, then resolving it outside the scope of its definition (anti-pattern)</dt><dd ><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >we do not recommend using this, but sometimes it is useful. Think carefully for alternatives first…</p></div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="kd">var</span> <span class="nx">resolver</span><span class="p">,</span> <span class="nx">rejecter</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">prom</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">){</span>
+    <span class="nx">resolver</span> <span class="o">=</span> <span class="nx">resolve</span><span class="p">;</span>
+    <span class="nx">rejecter</span> <span class="o">=</span> <span class="nx">reject</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="p">...</span>
+
+<span class="nx">resolver</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">);</span> <span class="c1">// will resolve the promise prom with the result &quot;done&quot;</span>
+<span class="nx">rejecter</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">);</span> <span class="c1">// will reject the promise prom with the reason &quot;error&quot;</span>
+</pre></div>
+</div>
+</dd></dl></li></ul></section><section id="waiting-for-promises"><h3 >Waiting for Promises</h3><ul ><li ><dl ><dt >waiting for a number of Promises</dt><dd ><p >if you have multiple promises that all need to be waited, you can convert them into a single promise that will be resolved when all the promises are resolved using Promise.all(arrayOfPromises).</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">prom1</span> <span class="o">=</span> <span class="nx">doSomethingThatReturnsAPromise</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">prom2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">constant</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">all</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">prom1</span><span class="p">,</span> <span class="nx">prom2</span><span class="p">,</span> <span class="nx">constant</span><span class="p">]);</span> <span class="c1">// all is a promise</span>
+<span class="c1">// results is an array, the individual results correspond to the index of their</span>
+<span class="c1">// promise as called in Promise.all()</span>
+<span class="nx">all</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">prom1Result</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">prom2Result</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">constantResult</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">});</span>
+<span class="k">return</span> <span class="nx">all</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >waiting for a part of a promise chain, but not another part</dt><dd ><p >If you have an asynchronous process that you want to wait to do something, but you also want to return to the caller before that something is done.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">returnAsSoonAsAsyncProcessIsDone</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">prom</span> <span class="o">=</span> <span class="nx">AsyncProcess</span><span class="p">();</span>
+    <span class="nx">prom</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resultOfAsyncProcess</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">doSomething</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="cm">/* returns prom which will only wait for AsyncProcess(),</span>
+<span class="cm">       and when it will be resolved, the result will be the one of AsyncProcess */</span>
+    <span class="k">return</span> <span class="nx">prom</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl></li></ul></section><section id="error-handling"><h3 >Error handling</h3><ul ><li ><dl ><dt >in general in promises</dt><dd ><p >The general idea is that a promise should not be rejected for control flow, but should only be rejected for errors.
+When that is the case, you would have multiple resolutions of your promise with, for instance status codes that you would have to check in the <code >then</code> handlers and a single <code >catch</code> handler at the end of the promise chain.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="p">.</span><span class="nx">y</span><span class="p">();</span>  <span class="c1">// &lt;-- this is an error: x is undefined</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>           <span class="c1">// will log the error in a</span>
+<span class="nx">a</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">b</span><span class="p">).</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>   <span class="c1">// will log the error in a, the then is not executed</span>
+<span class="nx">b</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>           <span class="c1">// will log the rejected reason of b (2)</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+       <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>                   <span class="c1">// the then is executed, it executes b</span>
+       <span class="p">.</span><span class="nx">then</span><span class="p">(...)</span>                 <span class="c1">// this then is not executed</span>
+       <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>       <span class="c1">// will log the rejected reason of b (2)</span>
+</pre></div>
+</div>
+</dd></dl></li><li ><dl ><dt >in Odoo specifically</dt><dd ><p >In Odoo, it happens that we use promise rejection for control flow, like in mutexes and other concurrency primitives defined in module <code >web.concurrency</code>
+We also want to execute the catch for <em >business</em> reasons, but not when there is a coding error in the definition of the promise or of the handlers.
+For this, we have introduced the concept of <code >guardedCatch</code>. It is called like <code >catch</code> but not when the rejected reason is an error</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">blabla</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">someCondition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;someCondition is truthy&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">blabla</span><span class="p">();</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;everything went fine&quot;</span><span class="p">);</span> <span class="p">})</span>
+<span class="c1">// this will be called if blabla returns a rejected promise, but not if it has an error</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">guardedCatch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);</span> <span class="p">});</span>
+
+<span class="c1">// ...</span>
+
+<span class="kd">var</span> <span class="nx">anotherPromise</span> <span class="o">=</span>
+        <span class="nx">blabla</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;everything went fine&quot;</span><span class="p">);</span> <span class="p">})</span>
+                <span class="c1">// this will be called if blabla returns a rejected promise,</span>
+                <span class="c1">// but not if it has an error</span>
+                <span class="p">.</span><span class="nx">guardedCatch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">promiseWithError</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="p">.</span><span class="nx">y</span><span class="p">();</span>  <span class="c1">// &lt;-- this is an error: x is undefined</span>
+<span class="p">});</span>
+<span class="nx">promiseWithError</span><span class="p">.</span><span class="nx">guardedCatch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);});</span> <span class="c1">// will not be called</span>
+<span class="nx">promiseWithError</span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);});</span> <span class="c1">// will be called</span>
+</pre></div>
+</div>
+</dd></dl></li></ul></section><section id="testing-asynchronous-code"><h3 >Testing asynchronous code</h3><ul ><li ><dl ><dt >using promises in tests</dt><dd ><p >In the tests code, we support the latest version of Javascript, including primitives like <code >async</code> and <code >await</code>. This makes using and waiting for promises very easy.
+Most helper methods also return a promise (either by being marked <code >async</code> or by returning a promise directly.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">testUtils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.test_utils&#39;</span><span class="p">);</span>
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;My test&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// making the function async has 2 advantages:</span>
+    <span class="c1">// 1) it always returns a promise so you don&#39;t need to define `var done = assert.async()`</span>
+    <span class="c1">// 2) it allows you to use the `await`</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">testUtils</span><span class="p">.</span><span class="nx">createView</span><span class="p">({</span> <span class="p">...</span> <span class="p">});</span>
+    <span class="nx">await</span> <span class="nx">testUtils</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">clickEdit</span><span class="p">(</span><span class="nx">form</span><span class="p">);</span>
+    <span class="nx">await</span> <span class="nx">testUtils</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s1">&#39;jquery selector&#39;</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">containsOnce</span><span class="p">(</span><span class="s1">&#39;jquery selector&#39;</span><span class="p">);</span>
+    <span class="nx">form</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;My test - no async - no done&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// this function is not async, but it returns a promise.</span>
+    <span class="c1">// QUnit will wait for for this promise to be resolved.</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">testUtils</span><span class="p">.</span><span class="nx">createView</span><span class="p">({</span> <span class="p">...</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">form</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">testUtils</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">clickEdit</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">testUtils</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s1">&#39;jquery selector&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">containsOnce</span><span class="p">(</span><span class="s1">&#39;jquery selector&#39;</span><span class="p">);</span>
+                <span class="nx">form</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;My test - no async&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// this function is not async and does not return a promise.</span>
+    <span class="c1">// we have to use the done function to signal QUnit that the test is async and will be finished inside an async callback</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">();</span>
+
+    <span class="nx">testUtils</span><span class="p">.</span><span class="nx">createView</span><span class="p">({</span> <span class="p">...</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">form</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">testUtils</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">clickEdit</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">testUtils</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s1">&#39;jquery selector&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">assert</span><span class="p">.</span><span class="nx">containsOnce</span><span class="p">(</span><span class="s1">&#39;jquery selector&#39;</span><span class="p">);</span>
+            <span class="nx">form</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+            <span class="nx">done</span><span class="p">();</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p >as you can see, the nicer form is to use <code >async/await</code> as it is clearer and shorter to write.</p></dd></dl></li></ul></section>
+
+          </article>
+        </div>
+        
+        <div id="mask"></div>
+      </main>
+  </div>
+
+  <div class="floating_action_container">
+    <a id="floating_action" class="ripple" href="#">
+      <i class="mdi-action-explore"></i>
+    </a>
+    <div id="floating_action_menu">
+      <span class="bubble"></span>
+      <ul class="list-group content">
+        <li class="list-group-item ripple"><a>Cras justo odio</a></li>
+        <li class="list-group-item ripple"><a>Dapibus ac facilisis in</a></li>
+        <li class="list-group-item ripple"><a>Morbi leo risus</a></li>
+        <li class="list-group-item ripple"><a>Porta ac consectetur ac</a></li>
+        <li class="list-group-item ripple"><a>Vestibulum at eros</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div id="footer" class="container">
+      <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Community</span>
+              <ul>
+                <li><a href="https://github.com/odoo/odoo">Github</a></li>
+                <li><a href="http://www.odoo.com/page/download">Download</a></li>
+                <li class="divider"></li>
+                <li><a href="http://runbot.odoo.com/runbot/repo/git-github-com-odoo-enterprise-7">Runbot</a></li>
+                <li><a href="https://github.com/odoo/odoo/wiki/Translations">Translations</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/odoo-community">Mailing Lists</a></li>
+                <li><a href="http://www.odoo.com/forum/help-1">Forum</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <span class="menu_title">Services</span>
+              <ul>
+                <li><a href="https://www.odoo.sh">Odoo Cloud Platform</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/help">Support</a></li>
+                <li><a href="https://upgrade.odoo.com">Upgrade</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/partners">Find a partner</a></li>
+                <li><a href="http://www.odoo.com/page/become-a-partner">Become a partner</a></li>
+                <li class="divider"></li>
+                <li><a href="http://training.odoo.com/courses/odoo-functional">Training Center</a></li>
+                <li><a href="http://www.odoo.com/page/education-program">Education</a></li>
+                <li class="divider"></li>
+                <li><a href="http://www.odoo.com/page/security">Security</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 mb64">
+              <span class="menu_title">About us</span>
+              <ul>
+                <li><a href="http://www.odoo.com/page/about-us">Our company</a></li>
+                <li><a href="http://www.odoo.com/page/contactus">Contact</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/event">Events</a></li>
+                <li><a href="http://www.odoo.com/blog">Blog</a></li>
+                <li><a href="http://www.odoo.com/blog/6">Customers</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/jobs">Jobs</a></li>
+                <li class="divider" />
+                <li><a href="http://www.odoo.com/page/legal">Legal</a> | <a href="http://www.odoo.com/privacy">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <p>
+            <small>
+              Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.
+              <br/><br/>
+              Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o_footer_bottom">
+      <div class="container">
+        <a class="small" href="http://www.odoo.com/page/website-builder">Website made with <span class="o_logo o_logo_inverse o_logo_15"></span></a>
+        <div class="social-links pull-right">
+          <a href="http://www.odoo.com/web/about/facebook"><i class="fa fa-facebook"></i></a>
+          <a href="http://www.odoo.com/web/about/twitter"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.odoo.com/web/about/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:info@odoo.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>
