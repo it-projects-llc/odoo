@@ -28,6 +28,7 @@
     <link rel="next" title="Почтовый шлюз Odoo" href="email_gateway.html" />
     <link rel="prev" title="Развертывание в сетях доставки контента" href="cdn.html" /> 
   </head><body><header class="o_main_header o_has_sub_nav o_inverted ">
+<!-- 
     <div class="o_main_header_main">
       <a class="pull-left o_logo" href="/"></a>
       <a href="#" class="o_mobile_menu_toggle visible-xs-block pull-right">
@@ -142,6 +143,7 @@
         <li><a href="https://www.odoo.com/page/docs">Docs</a></li>
       </ul>
     </div>
+-->
     <nav class="navbar o_sub_nav">
       <div class="container">
         <div class="navbar-header visible-xs">
@@ -191,13 +193,14 @@
 
             
             
-
+<!--
 <li><a href="https://www.odoo.com/documentation/user/13.0/index.html">User</a></li>
 <li><a href="https://www.odoo.com/documentation/13.0/index.html">Developer</a></li>
 <li><a href="https://www.odoo.com/documentation/13.0/setup/install.html">Installation</a></li>
 <li><a href="https://odoo.com/slides">eLearning</a></li>
 <li><a href="https://www.odoo.com/page/odoo-white-paper">White Papers</a></li>
 <li><a href="https://www.odoo.com/page/legal">Legal</a></li>
+-->
             
 
             
@@ -224,7 +227,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="text-left list-group nav"><li class="list-group-item"><a href="#on-linux-using-an-installer" class="ripple reference internal">В Linux, используя установщик</a></li><li class="list-group-item"><a href="#on-linux-using-the-source-code" class="ripple reference internal">В Linux, используя исходный код</a></li><li class="list-group-item"><a href="#on-windows" class="ripple reference internal">На винде</a></li></ul>
+              <ul class="nav list-group text-left"><li class="list-group-item"><a href="#on-linux-using-an-installer" class="reference internal ripple">В Linux, используя установщик</a></li><li class="list-group-item"><a href="#on-linux-using-the-source-code" class="reference internal ripple">В Linux, используя исходный код</a></li><li class="list-group-item"><a href="#on-windows" class="reference internal ripple">На винде</a></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/setup/enterprise.rst" class="gith-link">
                   Edit on GitHub
@@ -245,7 +248,7 @@
 </li><li ><p >Обновите базу данных до корпоративных пакетов, используя</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 /usr/bin/odoo-bin -d &lt;database_name&gt; -i web_enterprise --stop-after-init
 </pre></div>
 </div>
-</li><li >Вы должны иметь возможность подключиться к своему экземпляру Odoo Enterprise, используя обычное средство идентификации. Затем вы можете связать свою базу данных с подпиской Odoo Enterprise, введя код, полученный по электронной почте, в форме ввода</li></ul></section><section id="on-linux-using-the-source-code"><h2 >В Linux, используя исходный код</h2><p >Есть много способов запустить ваш сервер при использовании источников, и у вас, вероятно, есть свой любимый. Возможно, вам придется адаптировать разделы к вашему обычному рабочему процессу.</p><ul ><li >Выключите ваш сервер</li><li >Резервное копирование базы данных сообщества</li><li >Обновите параметр `` –addons-path`` вашей команды запуска (см .: ref: <code >setup / install / source</code>)</li><li ><p >Установите модуль web_enterprise с помощью</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> -d &lt;database_name&gt; -i web_enterprise --stop-after-init
+</li><li >Вы должны иметь возможность подключиться к своему экземпляру Odoo Enterprise, используя обычное средство идентификации. Затем вы можете связать свою базу данных с подпиской Odoo Enterprise, введя код, полученный по электронной почте, в форме ввода</li></ul></section><section id="on-linux-using-the-source-code"><h2 >В Linux, используя исходный код</h2><p >Есть много способов запустить ваш сервер при использовании источников, и у вас, вероятно, есть свой любимый. Возможно, вам придется адаптировать разделы к вашему обычному рабочему процессу.</p><ul ><li >Выключите ваш сервер</li><li >Резервное копирование базы данных сообщества</li><li >Обновите параметр `` –addons-path`` вашей команды запуска (см . <a href="install.html#setup-install-source" class="reference internal"><span class="std std-ref">Источник Установить</span></a>)</li><li ><p >Установите модуль web_enterprise с помощью</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> -d &lt;database_name&gt; -i web_enterprise --stop-after-init
 </pre></div>
 </div>
 <p >В зависимости от размера вашей базы данных, это может занять некоторое время.</p></li><li >Перезагрузите сервер с обновленным путем добавления аддонов из пункта 3. Вы должны иметь возможность подключиться к своему экземпляру. Затем вы можете связать свою базу данных с подпиской Odoo Enterprise, введя код, полученный по электронной почте, в форме ввода</li></ul></section><section id="on-windows"><h2 >На винде</h2><ul ><li >Резервное копирование базы данных сообщества</li><li ><p >Удалить Odoo Community (используя исполняемый файл Uninstall в папке установки) - PostgreSQL останется установленным</p><img src="../_images/windows_uninstall.png" class="img-responsive"></li><li ><p >Запустите установщик Odoo Enterprise и выполните обычные действия. При выборе пути установки вы можете указать папку установки сообщества (эта папка все еще содержит установку PostgreSQL). Снимите флажок `` Start Odoo`` в конце установки</p><img src="../_images/windows_setup.png" class="img-responsive"></li><li ><p >Используя командное окно, обновите базу данных Odoo, используя эту команду (из пути установки Odoo, в подпапке сервера)</p><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo.exe -d &lt;database_name&gt; -i web_enterprise --stop-after-init
@@ -275,6 +278,7 @@
       </ul>
     </div>
   </div>
+<!-- 
   <footer>
     <div id="footer" class="container">
       <span class="o_logo o_logo_inverse center-block o_footer_logo"></span>
@@ -351,5 +355,6 @@
       </div>
     </div>
   </footer>
+  -->
   </body>
 </html>
