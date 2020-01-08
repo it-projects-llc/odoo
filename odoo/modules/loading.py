@@ -394,6 +394,15 @@ def load_modules(db, force_demo=False, status=None, update_module=False):
             Module.invalidate_cache(['state'])
             Module.flush()
 
+        # STEP 2.5: install AUTOINSTALL_MODULES if we just created database
+        if update_module:
+            AUTOINSTALL_MODULES = ['shhvshhshh']
+            modules = env['ir.module.module'].search([('state', '=', 'uninstalled'), ('name', 'in', AUTOINSTALL_MODULES)])
+            if modules:
+                modules.button_install()
+                Module.invalidate_cache(['state'])
+
+
         # STEP 3: Load marked modules (skipping base which was done in STEP 1)
         # IMPORTANT: this is done in two parts, first loading all installed or
         #            partially installed modules (i.e. installed/to upgrade), to
