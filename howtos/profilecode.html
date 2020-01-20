@@ -227,7 +227,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="nav text-left list-group"><li class="list-group-item"><a href="#graph-a-method" class="internal reference ripple">График метод</a></li><li class="list-group-item"><a href="#log-a-method" class="internal reference ripple">Журнал метод</a></li><li class="list-group-item"><a href="#dump-stack" class="internal reference ripple">Стек дампа</a></li><li class="list-group-item"><a href="#tracing-code-execution" class="internal reference ripple">Отслеживание выполнения кода</a><ul ><li class="list-group-item"><a href="#install-pyflame-and-flamegraph" class="internal reference ripple">Установите пифламе и флеймограф</a></li><li class="list-group-item"><a href="#record-executed-code" class="internal reference ripple">Запишите выполненный код</a></li></ul></li></ul>
+              <ul class="list-group nav text-left"><li class="list-group-item"><a href="#graph-a-method" class="internal ripple reference">График метод</a></li><li class="list-group-item"><a href="#log-a-method" class="internal ripple reference">Журнал метод</a></li><li class="list-group-item"><a href="#dump-stack" class="internal ripple reference">Стек дампа</a></li><li class="list-group-item"><a href="#tracing-code-execution" class="internal ripple reference">Отслеживание выполнения кода</a><ul ><li class="list-group-item"><a href="#install-pyflame-and-flamegraph" class="internal ripple reference">Установите пифламе и флеймограф</a></li><li class="list-group-item"><a href="#record-executed-code" class="internal ripple reference">Запишите выполненный код</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/howtos/profilecode.rst" class="gith-link">
                   Edit on GitHub
@@ -239,7 +239,7 @@
           <article class="doc-body ">
             
             
-  <section id="profiling-odoo-code"><div role="alert" class="alert alert-warning"><h3 class="alert-title">Предупреждение</h3><p >Этот учебник требует <span class="std-ref xref std">having installed Odoo</span></p></div></section><section id="graph-a-method"><h2 >График метод</h2><p >Odoo встраивает профилировщик кода. Этот встроенный вывод профилировщика можно использовать для генерации графика вызовов, инициируемых методом, количества запросов, процента времени, затраченного в самом методе, а также времени, которое занял метод и его под-вызываемые методы.</p><div class="python code highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo.tools.misc</span> <span class="kn">import</span> <span class="n">profile</span>
+  <section id="profiling-odoo-code"><div role="alert" class="alert alert-warning"><h3 class="alert-title">Предупреждение</h3><p >Этот учебник требует <span class="xref std std-ref">having installed Odoo</span></p></div></section><section id="graph-a-method"><h2 >График метод</h2><p >Odoo встраивает профилировщик кода. Этот встроенный вывод профилировщика можно использовать для генерации графика вызовов, инициируемых методом, количества запросов, процента времени, затраченного в самом методе, а также времени, которое занял метод и его под-вызываемые методы.</p><div class="highlight-default code python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo.tools.misc</span> <span class="kn">import</span> <span class="n">profile</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 <span class="nd">@profile</span><span class="p">(</span><span class="s1">&#39;/temp/prof.profile&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">mymethod</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
@@ -251,7 +251,7 @@
 <p >Инструмент под названием * xdot * отобразит полученный график:</p><div class="bash code highlight-default"><div class="highlight"><pre><span></span><span class="n">xdot</span> <span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">prof</span><span class="o">.</span><span class="n">xdot</span>
 </pre></div>
 </div>
-</section><section id="log-a-method"><h2 >Журнал метод</h2><p >Другой профилировщик может использоваться для регистрации статистики по методу:</p><div class="python code highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo.tools.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+</section><section id="log-a-method"><h2 >Журнал метод</h2><p >Другой профилировщик может использоваться для регистрации статистики по методу:</p><div class="highlight-default code python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo.tools.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 <span class="nd">@profile</span>
 <span class="nd">@api</span><span class="o">.</span><span class="n">model</span>
