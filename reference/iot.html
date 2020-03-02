@@ -226,7 +226,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="list-group nav text-left"><li class="list-group-item"><a href="#detect-devices" class="ripple reference internal">Detect Devices</a><ul ><li class="list-group-item"><a href="#driver" class="ripple reference internal">Driver</a></li></ul></li><li class="list-group-item"><a href="#communicate-with-devices" class="ripple reference internal">Communicate With Devices</a><ul ><li class="list-group-item"><a href="#actions" class="ripple reference internal">Actions</a></li><li class="list-group-item"><a href="#longpolling" class="ripple reference internal">Longpolling</a></li></ul></li></ul>
+              <ul class="text-left nav list-group"><li class="list-group-item"><a href="#detect-devices" class="reference ripple internal">Detect Devices</a><ul ><li class="list-group-item"><a href="#driver" class="reference ripple internal">Driver</a></li></ul></li><li class="list-group-item"><a href="#communicate-with-devices" class="reference ripple internal">Communicate With Devices</a><ul ><li class="list-group-item"><a href="#actions" class="reference ripple internal">Actions</a></li><li class="list-group-item"><a href="#longpolling" class="reference ripple internal">Longpolling</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/reference/iot.rst" class="gith-link">
                   Edit on GitHub
@@ -281,7 +281,7 @@ instantiated using the IP of the IoT Box and the device identifier.</p><div clas
 </pre></div>
 </div>
 </section><section id="actions"><h3 >Actions</h3><p >Actions are used to tell a selected device to execute a specific action,
-such as taking a picture, printing a receipt, etc.</p><div role="alert" class="alert alert-info"><h3 class="alert-title">Примечание</h3><p >It must be noted that no “answer” will be sent by the box on this route,
+such as taking a picture, printing a receipt, etc.</p><div role="alert" class="alert-info alert"><h3 class="alert-title">Примечание</h3><p >It must be noted that no “answer” will be sent by the box on this route,
 only the request status. The answer to the action, if any, has to be
 retrieved via the longpolling.</p></div><p >An action can be performed on the DeviceProxy Object.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">iot_device</span><span class="p">.</span><span class="nx">action</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 </pre></div>
