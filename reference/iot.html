@@ -226,7 +226,7 @@
           
           <aside>
             <div class="navbar-aside text-center">
-              <ul class="list-group nav text-left"><li class="list-group-item"><a href="#detect-devices" class="ripple reference internal">Detect Devices</a><ul ><li class="list-group-item"><a href="#driver" class="ripple reference internal">Driver</a></li></ul></li><li class="list-group-item"><a href="#communicate-with-devices" class="ripple reference internal">Communicate With Devices</a><ul ><li class="list-group-item"><a href="#actions" class="ripple reference internal">Actions</a></li><li class="list-group-item"><a href="#longpolling" class="ripple reference internal">Longpolling</a></li></ul></li></ul>
+              <ul class="text-left nav list-group"><li class="list-group-item"><a href="#detect-devices" class="ripple internal reference">Detect Devices</a><ul ><li class="list-group-item"><a href="#driver" class="ripple internal reference">Driver</a></li></ul></li><li class="list-group-item"><a href="#communicate-with-devices" class="ripple internal reference">Communicate With Devices</a><ul ><li class="list-group-item"><a href="#actions" class="ripple internal reference">Actions</a></li><li class="list-group-item"><a href="#longpolling" class="ripple internal reference">Longpolling</a></li></ul></li></ul>
               
               <p class="gith-container"><a href="https://github.com/odoo/odoo/edit/13.0/doc/reference/iot.rst" class="gith-link">
                   Edit on GitHub
@@ -270,8 +270,8 @@ corresponding device.</p><p >Creating a new Driver requires:</p><ul ><li >Extend
 is to communicate with it. Since the box only has a local IP address, it can
 only be reached from the same local network. Communication, therefore, needs to
 happen on the browser-side, in JavaScript.</p><p >The process depends on the direction of the communication:
-- From the browser to the box, through <a href="#actions" class="reference internal">Actions</a>
-- From the box to the browser, through <a href="#longpolling" class="reference internal">Longpolling</a></p><p >Both channels are accessed from the same JS object, the <code >DeviceProxy</code>, which is
+- From the browser to the box, through <a href="#actions" class="internal reference">Actions</a>
+- From the box to the browser, through <a href="#longpolling" class="internal reference">Longpolling</a></p><p >Both channels are accessed from the same JS object, the <code >DeviceProxy</code>, which is
 instantiated using the IP of the IoT Box and the device identifier.</p><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">DeviceProxy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;iot.widgets&#39;</span><span class="p">).</span><span class="nx">DeviceProxy</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">iot_device</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeviceProxy</span><span class="p">({</span>
