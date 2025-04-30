@@ -50,7 +50,7 @@ setup(
         'qrcode',
         'reportlab',  # windows binary pypi.python.org/pypi/reportlab
         'requests',
-        'suds-jurko',
+        'zeep',
         'vobject',
         'werkzeug',
         'xlsxwriter',
